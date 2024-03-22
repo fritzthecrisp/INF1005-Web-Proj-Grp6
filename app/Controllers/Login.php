@@ -2,15 +2,16 @@
 
 namespace App\Controllers;
 
-class Workouts extends BaseController
+class Login extends BaseController
 {
     public function index(): string
     {
-        return view('workout');
+        return view('login');
     }
+
 
     protected function secret()
     {
-        echo ' <h2>This text will never be visible. </h2>';
+        return view('workout');
     }
 }
