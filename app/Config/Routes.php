@@ -1,4 +1,6 @@
-<?php namespace Config;
+<?php
+
+namespace Config;
 
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes(true);
@@ -36,4 +38,23 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-$routes->get('/', 'Home::index');
+// $routes->get('/', 'Home::index');
+
+//for dynamic routing.... :any means any value, and $1 represents each of the variables from the first parameter of the add function
+$routes->add('workouts/(:any)(:any)', 'Workouts::workout/$1/$2');
+$routes->add('progress', function () {
+    return '<h2> This is your progress.  </h2>';
+});
+
+$routes->group('admin', function ($routes) {
+    $routes->add('user', 'Admin\Users::index');
+    $routes->add('users', 'Admin\Users::getAllUsers');
+    $routes->add('workouts/(:any)(:any)', 'Workouts::workout/$1/$2');
+
+    // instance routes
+    $routes->add('instance', 'Admin\Instance::index');
+    $routes->get('instance/new', 'Admin\Instance::createNew');
+    $routes->post('instance/new', 'Admin\Instance::saveInstance');
+    /**Notice how get and post have the same URI, but respond differently */
+
+});
