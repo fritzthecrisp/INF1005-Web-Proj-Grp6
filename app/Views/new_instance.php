@@ -7,11 +7,11 @@
     <form action="/instance/new" method="post">
         <div class="form-group">
             <label for="">Title</label>
-            <input type="text" class="form-control" name="instance_title">
+            <input type="text" class="form-control" name="workout_name">
         </div>
         <div class="form-group">
             <label for="">Description</label>
-            <textarea type="text" class="form-control" name="instancee_description" rows="3"></textarea>
+            <textarea type="text" class="form-control" name="workout_description" rows="3"></textarea>
         </div>
         <div class="form-group">
             <button class="btn btn-success btn-sm">Create</button>

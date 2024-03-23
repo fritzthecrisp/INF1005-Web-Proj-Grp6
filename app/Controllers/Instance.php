@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\instanceModel;
+use App\Models\InstanceModel;
 
 class Instance extends BaseController
 {
@@ -30,7 +30,8 @@ class Instance extends BaseController
         ];
         if ($this->request->is('post')) {
             // what to run if they use post function
-            $model = new instanceModel();
+            $model = new InstanceModel();
+
             $model->save($_POST);
         }
         return view('new_instance', $data);

@@ -4,12 +4,12 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class instanceModel extends Model
+class InstanceModel extends Model
 {
 
-    protected $table    = 'posts';
-    protected $primaryKey = 'post_id';
+    protected $table    = 'workouts';
+    protected $primaryKey = 'workout_id';
 
     // the table columns that we will allow users to change
-    protected $allowedFields = ['instance_title', 'instance_description'];
+    protected $allowedFields = ['workout_name', 'workout_description'];
 }
