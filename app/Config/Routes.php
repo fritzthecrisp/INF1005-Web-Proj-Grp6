@@ -37,3 +37,8 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 $routes->get('/', 'Home::index');
+$routes->get('workout', 'Workout::index');
+$routes->get('login', 'Login::index');
+$routes->get('register', 'Register::index');
+$routes->get('profile', 'Profile::index');
+$routes->get('about', 'About::index');
