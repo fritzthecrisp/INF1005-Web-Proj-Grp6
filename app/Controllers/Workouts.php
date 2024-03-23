@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Controllers\BaseController;
+
 class Workouts extends BaseController
 {
     public function index(): string
@@ -17,6 +19,6 @@ class Workouts extends BaseController
 
     protected function secret()
     {
-        return view('workout');
+        echo ' <h2>This text will never be visible. </h2>';
     }
 }

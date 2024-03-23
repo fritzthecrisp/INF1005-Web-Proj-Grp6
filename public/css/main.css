@@ -1,0 +1,48 @@
+body {
+    background-color: #3A445D;
+    font-family: Arial, sans-serif;
+    color: #FCDEBE;
+}
+
+
+#logo {
+    width: 60px !important;
+    height: 60px !important;
+}
+
+nav {
+    background-color: #d4d2a5;
+}
+
+.nav-link {
+    color: black !important;
+    /* Change link color to black */
+    text-decoration: none !important;
+    /* Remove underline */
+}
+
+.dropdown-item {
+    color: black !important;
+    /* Change dropdown item color to black */
+}
+
+.dropdown-item:focus,
+.dropdown-item:active {
+    background-color: transparent !important;
+    /* Remove background color on focus and active */
+}
+
+.dropdown-menu {
+    background-color: transparent !important;
+    /* Remove background color of dropdown menu */
+}
+.content{
+    padding-top: 20px;
+}
+footer {
+    text-align: center;
+    border-top: 1px solid grey;
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: 8px;
+}

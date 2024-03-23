@@ -1,0 +1,43 @@
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 10px;
+    color: white;
+    background-color: #007bff;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+    /* Adjust width as needed */
+}
+
+.btn-next {
+    background-color: transparent;
+    /* Make the background transparent */
+    border: none;
+    /* Remove any border */
+    padding: 0;
+    /* Remove padding */
+}
+
+.btn-next:hover {
+    background-color: transparent !important;
+    /* Make sure hover color is transparent */
+}
+
+.btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Flexbox setup for button alignment */
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
