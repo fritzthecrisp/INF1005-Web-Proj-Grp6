@@ -9,9 +9,9 @@ class Workouts extends BaseController
         return view('workout');
     }
 
-    public function workouts()
+    public function workout($workout_name = 'Push 2', $workout_id = 'JN001')
     {
-        echo ' <h2>This is not Admin workoute Workouts funct </h2>';
+        echo ' <h2>This is workout called "'.$workout_name.'" by '.$workout_id.' </h2>';
     }
 
 
