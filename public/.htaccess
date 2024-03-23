@@ -21,6 +21,10 @@ Options -Indexes
 	RewriteCond %{REQUEST_URI} (.+)/$
 	RewriteRule ^ %1 [L,R=301]
 
+	# ESCAPE ROUTING FOR IMAGE FILES(ZEPH)
+	RewriteRule ^img/ - [L]
+	RewriteRule ^img/(.*)$ /app/Views/img/$1 [L]
+
 	# Rewrite "www.example.com -> example.com"
 	RewriteCond %{HTTPS} !=on
 	RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
@@ -32,6 +36,7 @@ Options -Indexes
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteRule ^([\s\S]*)$ index.php/$1 [L,NC,QSA]
+
 
 	# Ensure Authorization header is passed along
 	RewriteCond %{HTTP:Authorization} .
