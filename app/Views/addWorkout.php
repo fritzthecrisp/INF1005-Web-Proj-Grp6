@@ -23,5 +23,5 @@
         <button style="margin-top:20px;position: fixed;right: 8%;">Confirm Workout</button>
     </div>
 </main>
-<script src="<?= base_url('js/workout.js') ?>"></script>
+<script src="<?= base_url('js/addWorkout.js') ?>"></script>
 <?= $this->endSection() ?>

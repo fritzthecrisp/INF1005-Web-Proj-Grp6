@@ -7,7 +7,7 @@
     <h3>TOP EXERCISE</h3>
     <div class="card-container" id="exercise-container">
         <?php foreach ($exercises as $exercise) : ?>
-            <a href="<?= site_url("exercises/details/{$exercise['id']}") ?>" class="exercise-link card-link">
+            <a href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link">
                 <div class="exercise cards">
                     <div class="row">
                         <div class="col-sm-5">
@@ -15,9 +15,9 @@
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">
-                                <h5 class="card-title"><?= $exercise['exercise_name'] ?></h5>
-                                <h6 class="card-subtitle mb-2">Made by <?= $exercise['made_by'] ?></h6>
-                                <p class="card-text"><?= $exercise['description'] ?></p>
+                                <h5 class="card-title"><?= $exercise['exer_name'] ?></h5>
+                                <h6 class="card-subtitle mb-2">Level: <?= $exercise['exer_level'] ?></h6>
+                                <p class="card-text">Exercise Eqiupment:<?= $exercise['exer_equipment'] ?></p>
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
     <h3>TOP WORKOUT PLANS</h3>
     <div class="card-container" id="workout-container">
         <?php foreach ($workouts as $workout) : ?>
-            <a href="<?= site_url("workout/details/{$workout['id']}") ?>" class="workout-link card-link">
+            <a href="<?= site_url("workout/details/{$workout['workout_id']}") ?>" class="workout-link card-link">
                 <div class="workout cards">
                     <div class="row">
                         <div class="col-sm-5">
@@ -41,8 +41,8 @@
                         <div class="col-sm-7">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $workout['workout_name'] ?></h5>
-                                <h6 class="card-subtitle mb-2">Duration: <?= $workout['duration'] ?></h6>
-                                <p class="card-text"><?= $workout['description'] ?></p>
+                                <h6 class="card-subtitle mb-2">Made by:</h6>
+                                <p class="card-text"><?= $workout['workout_description'] ?></p>
                             </div>
                         </div>
                     </div>

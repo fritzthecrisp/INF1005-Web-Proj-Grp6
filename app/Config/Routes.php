@@ -64,7 +64,14 @@ $routes->get('login', 'Login::index');
 $routes->get('register', 'Register::index');
 $routes->get('profile', 'Profile::index');
 $routes->get('about', 'About::index');
-$routes->get('myWorkout', 'MyWorkout::index');
+
+// exercise routes
 $routes->get('exercises/details/(:num)', 'Exercise::details/$1');
+
+// workout routes
 $routes->get('workout/details/(:num)', 'Workout::details/$1');
+$routes->get('workout/startWorkout/(:num)', 'Workout::startWorkout/$1');
+
+// myWorkout routes
+$routes->get('myWorkout', 'MyWorkout::index');
 $routes->get('myWorkout/addWorkout', 'MyWorkout::addWorkout');

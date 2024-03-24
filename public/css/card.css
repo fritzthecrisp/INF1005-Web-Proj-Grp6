@@ -1,3 +1,11 @@
+.cards {
+    width: 350px; /* Adjust the width as needed */
+    height: 200px; /* Adjust the height as needed */
+    overflow: hidden; /* This hides any content that overflows the card's box */
+    /* If you want to allow scrolling, use 'overflow: auto;' instead */
+    margin-bottom: 1rem; /* Optional: adds space between the cards */
+}
+
 .card-container {
     display: flex;
     align-items: center;
