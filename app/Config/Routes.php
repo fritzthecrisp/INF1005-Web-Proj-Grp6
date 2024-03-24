@@ -42,3 +42,7 @@ $routes->get('login', 'Login::index');
 $routes->get('register', 'Register::index');
 $routes->get('profile', 'Profile::index');
 $routes->get('about', 'About::index');
+$routes->get('myWorkout', 'MyWorkout::index');
+$routes->get('exercises/details/(:num)', 'Exercise::details/$1');
+$routes->get('workout/details/(:num)', 'Workout::details/$1');
+$routes->get('myWorkout/addWorkout', 'MyWorkout::addWorkout');

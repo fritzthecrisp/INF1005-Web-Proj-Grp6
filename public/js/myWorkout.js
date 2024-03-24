@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    initializeCardNavigation('workout');
-    initializeCardNavigation('exercise');
-    registerEventListeners('workout');
-    registerEventListeners('exercise');
+    initializeCardNavigation('myWorkout');
+    initializeCardNavigation('physicalTrainers');
+    initializeCardNavigation('recommendedWorkout');
 });
 
 function initializeCardNavigation(cardClass) {
@@ -41,22 +40,3 @@ function initializeCardNavigation(cardClass) {
         showCards(startIndex);
     }
 }
-
-// function registerEventListeners(cardClass) {
-//     var cards = document.querySelectorAll('.' + cardClass);
-//     if (cardClass == 'exercise') {
-//         for (var i = 0; i < cards.length; i++) {
-//             cards[i].addEventListener('click', function () {
-//                 // Navigate to another page
-//                 window.location.href = '<?= site_url("register") ?>';
-//             });
-//         }
-//     } else if (cardClass == 'workout') {
-//         for (var i = 0; i < cards.length; i++) {
-//             cards[i].addEventListener('click', function () {
-//                 // Navigate to another page
-//                 window.location.href = '/workoutInfo.php';
-//             });
-//         }
-//     }
-// }

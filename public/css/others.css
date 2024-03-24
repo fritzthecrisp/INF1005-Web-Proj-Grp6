@@ -1,0 +1,45 @@
+.rounded-border {
+    border-radius: 20px;
+    border: 2px solid #000;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    align-items: center;
+    margin: auto;
+}
+
+/* .input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+} */
+
+.input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.input-container div {
+    padding-right: 10px;
+}
+
+.column {
+    grid-gap: 100px;
+}
+
+.myWorkoutContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.green-button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}

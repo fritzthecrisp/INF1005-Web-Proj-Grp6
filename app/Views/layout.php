@@ -7,13 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="<?= base_url('css/main.css') ?>">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
-    //?php
-    // Start the session
-    // session_start();
-    //?
 </head>
 
 <body>
@@ -54,6 +49,9 @@
                           <li class="nav-item">
                             <a class="nav-link" href="' . site_url("login") . '">LOGIN</a>
                           </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="' . site_url("myWorkout") . '">My Workout</a>
+                          </li>
                     ';
                         }
                         ?> </ul>
@@ -65,7 +63,7 @@
     <div class="content">
         <?= $this->renderSection('content') ?>
     </div>
-
+    
     <div class="footer">
         <footer class="container py-4">
             <p class="text-center mb-0">&copy; 2024 UniFit Pte. Ltd. All rights reserved.</p>
@@ -88,7 +86,7 @@
             </div>
         </footer>
     </div>
-    <script defer src="../js/main.js"></script>
+    <link rel="stylesheet" href="<?= base_url('js/main.js') ?>">
 </body>
 
 </html>

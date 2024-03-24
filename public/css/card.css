@@ -1,7 +1,11 @@
 .card-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+}
+
+.card-link {
+    color: inherit; /* Inherit text color from parent */
+    text-decoration: none; /* Remove underline */
 }
 
 .btn {

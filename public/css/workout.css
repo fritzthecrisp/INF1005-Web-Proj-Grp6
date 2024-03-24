@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.workout-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin: auto;
+}
+
+.workout-name {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.exercise {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.exercise img {
+    width: 40px;
+    /* Assuming you have icons for exercises */
+}
+
+.exercise-info {
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.start-button {
+    padding: 5px 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.start-button:hover {
+    background-color: #4cae4c;
+}
