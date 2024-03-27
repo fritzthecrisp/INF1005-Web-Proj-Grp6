@@ -10,13 +10,13 @@
 
     <div class="myWorkoutContainer">
         <h1>My Workout</h1>
-        <a href="<?php echo base_url('MyWorkout/addWorkout'); ?>" class="green-button">Create your Own Workout</a>
+        <a href="<?php echo base_url('admin/instance/new'); ?>" class="green-button">Create your Own Workout</a>
     </div>
 
 
     <div class="card-container" id="myWorkout-container">
         <?php foreach ($myWorkouts as $myWorkout) : ?>
-            <a href="<?= site_url("workout/details/{$myWorkout['id']}") ?>" class="exercise-link card-link">
+            <a href="<?= site_url("admin/instance/selected/{$myWorkout['workout_id']}") ?>" class="exercise-link card-link">
                 <div class="myWorkout cards">
                     <div class="row">
                         <div class="col-sm-5">
@@ -25,8 +25,8 @@
                         <div class="col-sm-7">
                             <div class="card-body">
                                 <h4 class="card-title"><?= $myWorkout['workout_name'] ?></h4>
-                                <h6 class="card-subtitle mb-2">Made by <?= $myWorkout['made_by'] ?></h6>
-                                <p class="card-text"><?= $myWorkout['description'] ?></p>
+                                <h6 class="card-subtitle mb-2">Made by <?= $myWorkout['workout_creator'] ?></h6>
+                                <p class="card-text"><?= $myWorkout['workout_description'] ?></p>
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
 
     <div class="card-container" id="physicalTrainers-container">
         <?php foreach ($physicalTrainers as $physicalTrainer) : ?>
-            <a href="<?= site_url("workout/details/{$physicalTrainer['id']}") ?>" class="exercise-link card-link">
+            <a href="<?= site_url("exercises/details/{$physicalTrainer['id']}") ?>" class="exercise-link card-link">
                 <div class="physicalTrainers cards">
                     <div class="row">
                         <div class="col-sm-5">
