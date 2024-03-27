@@ -1,0 +1,32 @@
+a {
+    color:#FCDEBE
+}
+
+.login{
+    background-color:rgba(21, 20, 20, 0.443);
+    width: 30%;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1.8);
+}
+
+@media only screen and (max-width: 992px) {
+    .login {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .login {
+        width: 50%;
+    }
+}
+.form-group {
+    text-align: left;
+}
+
+.form-group input{
+    width: 100%;
+}

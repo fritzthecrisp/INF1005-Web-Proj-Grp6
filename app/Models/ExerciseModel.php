@@ -12,8 +12,8 @@ class ExerciseModel extends Model
     // the table columns that we will allow users to change
     protected $allowedFields = ['exer_name', 'exer_equipment', 'exer_level']; 
     
-    public function getFirst6Exercises()
+    public function getFirst10Exercises()
     {
-        return $this->limit(6)->findAll();
+        return $this->limit(10)->findAll();
     }
 }
