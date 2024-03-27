@@ -6,11 +6,6 @@ use App\Controllers\BaseController;
 
 class Workout extends BaseController
 {
-    public function index()
-    {
-        return view('exerciseInfo');
-    }
-
     public function details($id)
     {
         // Fetch exercise details based on the provided ID
@@ -22,9 +17,12 @@ class Workout extends BaseController
             'made_by' => 'John Doe', // Example creator name
             'description' => 'This is the description for Exercise ' . $id // Example description
         ];
+        // $isLoggedIn = $this->request->getCookie('isLoggedIn');
 
         // Pass exercise details to the view
-        return view('workoutInfo', ['workout' => $workout]);
+        return view('workout_info', ['workout' => $workout]);
+
+        // return view('workout_info', ['workout' => $workout, 'isLoggedIn' => $isLoggedIn]);
     }
 
     public function startWorkout($id)
@@ -40,6 +38,6 @@ class Workout extends BaseController
         ];
 
         // Pass exercise details to the view
-        return view('startWorkout', ['workout' => $workout]);
+        return view('start_workout', ['workout' => $workout]);
     }
 }

@@ -6,11 +6,6 @@ use App\Controllers\BaseController;
 
 class Exercise extends BaseController
 {
-    public function index()
-    {
-        return view('exerciseInfo');
-    }
-
     public function details($id)
     {
         // Fetch exercise details based on the provided ID
@@ -24,6 +19,6 @@ class Exercise extends BaseController
         ];
 
         // Pass exercise details to the view
-        return view('exerciseInfo', ['exercise' => $exercise]);
+        return view('exercise_info', ['exercise' => $exercise]);
     }
 }

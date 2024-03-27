@@ -30,7 +30,7 @@ function updateWorkout(checkbox) {
         var inputElement1 = document.createElement("input");
         inputElement1.setAttribute("type", "text");
         inputElement1.setAttribute("id", "sets");
-        inputElement1.setAttribute("name", "sets");
+        inputElement1.setAttribute("name", "sets[]");
         inputElement1.classList.add("form-control");
 
         // Create a new label element for "Reps"
@@ -41,7 +41,7 @@ function updateWorkout(checkbox) {
         var inputElement2 = document.createElement("input");
         inputElement2.setAttribute("type", "text");
         inputElement2.setAttribute("id", "reps");
-        inputElement2.setAttribute("name", "reps");
+        inputElement2.setAttribute("name", "reps[]");
         inputElement2.classList.add("form-control");
 
         // Create a new label element for "Weight"
@@ -52,7 +52,7 @@ function updateWorkout(checkbox) {
         var inputElement3 = document.createElement("input");
         inputElement3.setAttribute("type", "text");
         inputElement3.setAttribute("id", "weight");
-        inputElement3.setAttribute("name", "weight");
+        inputElement3.setAttribute("name", "weight[]");
         inputElement3.classList.add("form-control");
 
         // Append elements to the div

@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
 
 <main class="container" style="display: grid;place-items: center;">
-    <img src="/img/image.png" />
+    <img src="/img/image.png" alt="exerciseImg">
     <h1><?= $exercise['exercise_name'] ?></h1>
     <div class="column">
         <button>INFO</button>

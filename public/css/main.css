@@ -21,9 +21,10 @@ nav {
     /* Remove underline */
 }
 
-.w3-button{
+.w3-button {
     margin: 4px;
 }
+
 .dropdown-item {
     color: black !important;
     /* Change dropdown item color to black */
@@ -39,11 +40,12 @@ nav {
     background-color: transparent !important;
     /* Remove background color of dropdown menu */
 }
-.content{
+
+.content {
     padding-top: 68px;
 }
 
-button{
+button {
     border-radius: 10px;
     border: black 1px solid;
     margin: 10px;
@@ -54,10 +56,9 @@ footer {
     border-top: 1px solid grey;
     font-size: 0.9rem;
     margin-top: 100px;
-    background-color: rgba(128, 0, 128, 0.854);
+    background-color: red;
 }
 
-.footer_sections{
-
+.footer_sections {
     padding-top: 30px;
 }

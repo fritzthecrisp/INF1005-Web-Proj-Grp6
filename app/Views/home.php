@@ -7,11 +7,11 @@
     <h3>TOP EXERCISE</h3>
     <div class="card-container" id="exercise-container">
         <?php foreach ($exercises as $exercise) : ?>
-            <a href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link">
+            <a href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link" style="text-decoration: none;">
                 <div class="exercise cards">
                     <div class="row">
                         <div class="col-sm-5">
-                            <img class="card-img" src="/img/image.png" />
+                            <img class="card-img" src="/img/image.png" alt="exerciseImg">
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">
@@ -28,7 +28,7 @@
             <button class="btn btn-primary btn-next"><i class="material-icons" style="font-size: 10em;color:green">arrow_right</i></button>
         </div>
     </div>
-    
+
     <h3>TOP WORKOUT PLANS</h3>
     <div class="card-container" id="workout-container">
         <?php foreach ($workouts as $workout) : ?>
@@ -36,7 +36,7 @@
                 <div class="workout cards">
                     <div class="row">
                         <div class="col-sm-5">
-                            <img class="card-img" src="/img/image.png" />
+                            <img class="card-img" src="/img/image.png" alt="workoutImg">
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">

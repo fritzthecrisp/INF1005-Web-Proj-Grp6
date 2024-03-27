@@ -110,10 +110,10 @@ class MyWorkout extends BaseController
         ];
 
         // // Pass the data to the view
-        return view('myWorkout', $data);
+        return view('my_workout', $data);
     }
     public function addWorkout()
     {
-        return view('addWorkout');
+        return view('add_workout');
     }
 }

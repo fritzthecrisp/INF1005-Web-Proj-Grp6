@@ -64,13 +64,13 @@
     <div class="content">
         <?= $this->renderSection('content') ?>
     </div>
-    
+
     <div class="footer">
         <footer class="container-fluid py-4">
             <p class="text-center mb-0">&copy; 2024 UniFit Pte. Ltd. All rights reserved.</p>
             <div class="row">
                 <div class="col-md-6 footer_sections">
-                    <h6 class="text-uppercase mb-4"><u>About</u></h6>
+                    <p class="text-uppercase mb-2"><u>About</u></p>
                     <ul class="list-unstyled">
                         <li><a href="<?= site_url("about") ?>" class="text-reset" style="text-decoration: none;">About Us</a></li>
                         <li><a href="#" class="text-reset" style="text-decoration: none;">Motto</a></li>
@@ -78,7 +78,7 @@
                     </ul>
                 </div>
                 <div class="col-md-6 footer_sections">
-                    <h6 class="text-uppercase mb-4"><u>Others</u></h6>
+                    <p class="text-uppercase mb-2"><u>Others</u></p>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-reset" style="text-decoration: none;">Contact Us</a></li>
                         <li><a href="#" class="text-reset" style="text-decoration: none;">Q&A</a></li>

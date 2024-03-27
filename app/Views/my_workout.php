@@ -20,7 +20,7 @@
                 <div class="myWorkout cards">
                     <div class="row">
                         <div class="col-sm-5">
-                            <img class="card-img" src="/img/image.png" />
+                            <img class="card-img" src="/img/image.png">
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">
@@ -48,7 +48,7 @@
                 <div class="physicalTrainers cards">
                     <div class="row">
                         <div class="col-sm-5">
-                            <img class="card-img" src="/img/image.png" />
+                            <img class="card-img" src="/img/image.png">
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">
@@ -76,7 +76,7 @@
                 <div class="recommendedWorkout cards">
                     <div class="row">
                         <div class="col-sm-5">
-                            <img class="card-img" src="/img/image.png" />
+                            <img class="card-img" src="/img/image.png">
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">
