@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="<?= base_url('css/main.css') ?>">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
@@ -31,26 +32,26 @@
                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">PROFILE</a>
                           <ul class="dropdown-menu dropdown-menu-end">
                               <li>
-                                  <a class="nav-link" href="' . site_url("profile") . '">My profile</a>
+                                  <a class="" href="' . site_url("profile") . '">MY PROFILE</a>
                               </li>
                               <li>
-                                  <a class="dropdown-item" href="#">Settings</a>
+                                  <a class="dropdown-item" href="#">SETTINGS</a>
                               </li>
                               <li>
-                                  <a class="dropdown-item" href="/logout.php">Logout</a>
+                                  <a class="dropdown-item" href="/logout.php">LOGOUT</a>
                               </li>
                           </ul>
                       </li>';
                         } else {
                             // If the user is not logged in (cookie is not set), show login link
                             echo '<li class="nav-item">
-                            <a class="nav-link" href="' . site_url("register") . '">SIGN UP</a>
+                            <a class="nav-link w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-black" href="' . site_url("register") . '">SIGN UP</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="' . site_url("login") . '">LOGIN</a>
+                            <a class="nav-link w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-black" href="' . site_url("login") . '">LOGIN</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="' . site_url("myWorkout") . '">My Workout</a>
+                            <a class="nav-link w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-black" href="' . site_url("myWorkout") . '">MY WORKOUT</a>
                           </li>
                     ';
                         }
@@ -65,19 +66,19 @@
     </div>
     
     <div class="footer">
-        <footer class="container py-4">
+        <footer class="container-fluid py-4">
             <p class="text-center mb-0">&copy; 2024 UniFit Pte. Ltd. All rights reserved.</p>
             <div class="row">
-                <div class="col-md-6">
-                    <h6 class="text-uppercase mb-4">About</h6>
+                <div class="col-md-6 footer_sections">
+                    <h6 class="text-uppercase mb-4"><u>About</u></h6>
                     <ul class="list-unstyled">
                         <li><a href="<?= site_url("about") ?>" class="text-reset" style="text-decoration: none;">About Us</a></li>
                         <li><a href="#" class="text-reset" style="text-decoration: none;">Motto</a></li>
                         <li><a href="#" class="text-reset" style="text-decoration: none;">Team</a></li>
                     </ul>
                 </div>
-                <div class="col-md-6">
-                    <h6 class="text-uppercase mb-4">Others</h6>
+                <div class="col-md-6 footer_sections">
+                    <h6 class="text-uppercase mb-4"><u>Others</u></h6>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-reset" style="text-decoration: none;">Contact Us</a></li>
                         <li><a href="#" class="text-reset" style="text-decoration: none;">Q&A</a></li>

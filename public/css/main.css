@@ -1,6 +1,6 @@
 body {
     background-color: #3A445D;
-    font-family: Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #FCDEBE;
 }
 
@@ -21,6 +21,9 @@ nav {
     /* Remove underline */
 }
 
+.w3-button{
+    margin: 4px;
+}
 .dropdown-item {
     color: black !important;
     /* Change dropdown item color to black */
@@ -37,7 +40,7 @@ nav {
     /* Remove background color of dropdown menu */
 }
 .content{
-    padding-top: 20px;
+    padding-top: 68px;
 }
 
 button{
@@ -49,7 +52,12 @@ button{
 footer {
     text-align: center;
     border-top: 1px solid grey;
-    font-style: italic;
     font-size: 0.9rem;
     margin-top: 100px;
+    background-color: rgba(128, 0, 128, 0.854);
+}
+
+.footer_sections{
+
+    padding-top: 30px;
 }
