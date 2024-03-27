@@ -39,6 +39,13 @@ nav {
 .content{
     padding-top: 20px;
 }
+
+button{
+    border-radius: 10px;
+    border: black 1px solid;
+    margin: 10px;
+}
+
 footer {
     text-align: center;
     border-top: 1px solid grey;
