@@ -16,7 +16,7 @@
 
     <div class="card-container" id="myWorkout-container">
         <?php foreach ($myWorkouts as $myWorkout) : ?>
-            <a href="<?= site_url("exercises/details/{$myWorkout['id']}") ?>" class="exercise-link card-link">
+            <a href="<?= site_url("workout/details/{$myWorkout['id']}") ?>" class="exercise-link card-link">
                 <div class="myWorkout cards">
                     <div class="row">
                         <div class="col-sm-5">
@@ -44,7 +44,7 @@
 
     <div class="card-container" id="physicalTrainers-container">
         <?php foreach ($physicalTrainers as $physicalTrainer) : ?>
-            <a href="<?= site_url("exercises/details/{$physicalTrainer['id']}") ?>" class="exercise-link card-link">
+            <a href="<?= site_url("workout/details/{$physicalTrainer['id']}") ?>" class="exercise-link card-link">
                 <div class="physicalTrainers cards">
                     <div class="row">
                         <div class="col-sm-5">
