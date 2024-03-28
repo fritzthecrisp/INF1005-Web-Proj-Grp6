@@ -5,6 +5,10 @@
     padding: 5px;
 }
 
+.form-check-input {
+    position:relative;
+
+}
 .form-check-label {
     margin-left: 8px;
 }

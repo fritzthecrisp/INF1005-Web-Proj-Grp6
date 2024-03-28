@@ -41,7 +41,7 @@
         </a>
     </div>
 
-    <h2>TOP EXERCISE</h2>
+    <h2>TOP EXERCISES</h2>
     <div class="card-container" id="exercise-container">
         <?php foreach ($exercises as $exercise) : ?>
             <div class="exercise cards">
@@ -51,8 +51,8 @@
                     </div>
                     <div class="col-sm-7">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $exercise['exer_name'] ?></h5>
-                            <h6 class="card-subtitle mb-2">Level: <?= $exercise['exer_level'] ?></h6>
+                            <h3 class="card-title"><?= $exercise['exer_name'] ?></h3>
+                            <h4 class="card-subtitle mb-2">Level: <?= $exercise['exer_level'] ?></h4>
                             <p class="card-text">Exercise Eqiupment:<?= $exercise['exer_equipment'] ?></p>
                             <button onclick="window.location.href='<?= site_url("exercises/details/{$exercise['exer_id']}") ?>'">View</button>
                             <?php
@@ -78,8 +78,8 @@
                     </div>
                     <div class="col-sm-7">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $workout['workout_name'] ?></h5>
-                            <h6 class="card-subtitle mb-2">Made by:</h6>
+                            <h3 class="card-title"><?= $workout['workout_name'] ?></h3>
+                            <h4 class="card-subtitle mb-2">Made by:</h4>
                             <p class="card-text"><?= $workout['workout_description'] ?></p>
                             <button onclick="window.location.href='<?= site_url("workout/details/{$workout['workout_id']}") ?>'">View</button>
                             <?php

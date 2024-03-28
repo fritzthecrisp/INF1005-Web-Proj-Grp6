@@ -18,6 +18,6 @@
         </div>
     </form>
     <p>New to Unifit?
-        <a href="<?= site_url("register") ?>"> Sign up as a member now!</a>.</p>
+        <a class="register-link" href="<?= site_url("register") ?>"> Sign up as a member now!</a>.</p>
 </main>
 <?= $this->endSection() ?>

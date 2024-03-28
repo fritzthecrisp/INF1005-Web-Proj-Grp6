@@ -1,5 +1,9 @@
-a {
-    color: #FCDEBE
+a{
+    color: rgb(252, 222, 190, 1)
+}
+
+a:hover{
+    color: rgb(252, 222, 190, 1)
 }
 
 .content {

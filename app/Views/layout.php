@@ -70,16 +70,16 @@
                 <div class="col-md-6 footer_sections">
                     <p class="text-uppercase mb-2"><u>About</u></p>
                     <ul class="list-unstyled">
-                        <li><a href="<?= site_url("about") ?>" class="text-reset" style="text-decoration: none;">About Us</a></li>
-                        <li><a href="#" class="text-reset" style="text-decoration: none;">Motto</a></li>
-                        <li><a href="#" class="text-reset" style="text-decoration: none;">Team</a></li>
+                        <li><a href="<?= site_url("about") ?>" class="text-reset">About Us</a></li>
+                        <li><a href="#" class="text-reset">Motto</a></li>
+                        <li><a href="#" class="text-reset">Team</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6 footer_sections">
                     <p class="text-uppercase mb-2"><u>Others</u></p>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-reset" style="text-decoration: none;">Contact Us</a></li>
-                        <li><a href="#" class="text-reset" style="text-decoration: none;">Q&A</a></li>
+                        <li><a href="#" class="text-reset">Contact Us</a></li>
+                        <li><a href="#" class="text-reset">Q&A</a></li>
                     </ul>
                 </div>
             </div>
