@@ -1,10 +1,14 @@
 a {
-    color:#FCDEBE
+    color: #FCDEBE
 }
 
-.login{
-    background-color:rgba(21, 20, 20, 0.443);
-    width: 30%;
+.content {
+    padding: 68px 0px;
+}
+
+.login {
+    background-color: rgba(21, 20, 20, 0.443);
+    width: 40%;
     text-align: center;
     padding: 20px;
     border: 1px solid #ccc;
@@ -23,10 +27,11 @@ a {
         width: 50%;
     }
 }
+
 .form-group {
     text-align: left;
 }
 
-.form-group input{
+.form-group input {
     width: 100%;
 }

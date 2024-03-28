@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\WorkoutModel;
 use App\Models\InstanceModel;
 
 class Instance extends BaseController
@@ -14,12 +15,22 @@ class Instance extends BaseController
         ];
         return view('instance', $data);
     }
-    public function selected(): string
+    public function selected($id): string
     {
-        $data = [
-            'meta_title' => 'Push',
-            'page_name' => 'Push Workout'
-        ];
+        $model = new WorkoutModel();
+        $instance = $model->find($id);
+        if ($instance) {
+            $data = [
+                'meta_title' => $instance['workout_name'],
+                'page_name' => $instance['workout_name'],
+                'instance' => $instance,
+            ];
+        } else {
+            $data = [
+                'meta_title' => 'Post Not Found',
+                'page_name' => 'Post Not Found',
+            ];
+        }
         return view('single_instance', $data);
     }
     public function new()
@@ -30,10 +41,48 @@ class Instance extends BaseController
         ];
         if ($this->request->is('post')) {
             // what to run if they use post function
-            $model = new InstanceModel();
+            $workout_model = new WorkoutModel();
+            $workout_model->save($_POST);
+
+            $workout_id = $workout_model->db->insertID();
+            // Insert data into the instance table
+            $instance_model = new InstanceModel();
+            $instance_data = [
+                'workout_id' => $workout_id,
+                'user_id' => 5, // #userID #user_id find 
+            ];
+            $instance_model->insert($instance_data);
+        }
+        return view('add_workout', $data);
+    }
+    public function delete($id)
+    {
+        $model = new WorkoutModel();
+        $instance = $model->find($id);
+        if ($instance) {
+            $model->delete($id);
+            return redirect()->to('/instance');;
+        }
+    }
+
+    public function edit($id)
+    {
+        $model = new WorkoutModel();
+        $instance = $model->find($id);
+        $data = [
+            'meta_title' => $instance['workout_name'],
+            'page_name' => $instance['workout_name'],
+        ];
+
+        if ($this->request->is('post')) {
+            // what to run if they use post function
+            $model = new WorkoutModel();
+            $_POST['workout_id'] = $id;
 
             $model->save($_POST);
+            $instance = $model->find($id);
         }
-        return view('new_instance', $data);
+        $data['workout'] = $instance;
+        return view('edit_instance', $data);
     }
 }

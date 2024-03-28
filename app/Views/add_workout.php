@@ -3,13 +3,13 @@
 <?= $this->section('content') ?>
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
 <main class="container">
-    <form id="workoutForm" method="post" action="<?= base_url('workout/confirm') ?>">
+    <form id="workoutForm" method="post" action='/instance/new'>
         <div class="row">
             <div class="col-sm">
                 <label for="name">Workout Name</label><br>
-                <input type="text" id="name" name="name"><br>
+                <input type="text" id="name" name="workout_name"><br>
                 <label for="description">Workout Description</label><br>
-                <textarea id="description" name="description" rows="3" cols="40"></textarea><br>
+                <textarea id="description" name="workout_description" rows="3" cols="40"></textarea><br>
                 <input type="search" placeholder="Search..">
                 <div style="border-style: solid;border-width: 1px;margin-top: 10px;width: 200px">
                     <input type="checkbox" id="dumbbellCheckbox" name="workoutOption" value="Dumbbell" onchange="updateWorkout(this)">
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div>
-            <button style="margin-top:20px;position: fixed;right: 8%;">Confirm Workout</button>
+            <button class="btn btn-sm" style="margin-top:20px;position: fixed;right: 8%;">Confirm Workout</button>
         </div>
     </form>
 </main>

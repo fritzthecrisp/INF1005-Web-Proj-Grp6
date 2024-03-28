@@ -1,9 +1,21 @@
-body {
-    background-color: #3a445d;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #fcdebe;
+html {
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100%;
+    box-sizing: inherit;
+    background-color: rgb(58, 68, 93, 1);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(252, 222, 190, 1);
+}
 
 #logo {
     width: 60px !important;
@@ -11,7 +23,7 @@ body {
 }
 
 nav {
-    background-color: #d4d2a5;
+    background-color: rgb(212, 210, 165, 1);
 }
 
 .nav-link {
@@ -42,29 +54,34 @@ nav {
 }
 
 .content {
-    padding-top: 20px;
+    padding: 68px;
 }
 
 button {
     border-radius: 10px;
     margin: 10px;
     border: none;
-    background-color: #928779;
+    background-color: rgb(146, 135, 121, 1);
 }
 
 .secButton {
     border-radius: 10px;
     margin: 10px;
     border: none;
-    background-color: #5e5768;
+    background-color: rgb(94, 87, 104, 1);
 }
 
 footer {
     text-align: center;
     border-top: 1px solid grey;
     font-size: 0.9rem;
-    margin-top: 100px;
     background-color: rgba(128, 0, 128, 0.854);
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin-top: auto;
+    /* Push the footer to the bottom */
 }
 
 .footer_sections {
