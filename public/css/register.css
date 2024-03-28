@@ -1,0 +1,59 @@
+.form-check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.form-check-label {
+    margin-left: 8px;
+}
+
+.submit_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    padding: 10px 100px;
+}
+
+@media only screen and (max-width: 991.33px) {
+    .label_selection {
+        display: block;
+    }
+
+    .selection {
+        width: 100%;
+    }
+
+    .form-check {
+        display: block;
+        margin-left: 20px;
+    }
+
+}
+
+@media only screen and (max-width: 320px) {
+    .content {
+        padding: 28px;
+    }
+
+    .btn {
+        padding: 10px 60px;
+    }
+
+}
+
+@media only screen and (max-width: 248px) {
+    .content {
+        padding: 8px;
+    }
+
+    
+    .btn {
+        padding: 10px 30px;
+    }
+
+}
