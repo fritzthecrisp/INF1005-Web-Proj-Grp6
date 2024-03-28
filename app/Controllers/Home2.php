@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\CustomModel;
 use App\Models\InstanceModel;
+use App\Models\WorkoutModel;
 
 
 class Home2 extends BaseController
@@ -13,7 +14,7 @@ class Home2 extends BaseController
     {
         $db = db_connect();
         $exerciseModel = new CustomModel($db);
-        $workoutsModel = new InstanceModel();
+        $workoutsModel = new WorkoutModel();
 
         $exercises = $exerciseModel->where();
         $workout = $workoutsModel->findAll();
