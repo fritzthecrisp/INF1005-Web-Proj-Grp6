@@ -14,6 +14,7 @@ class ExerciseModel extends Model
     
     public function getFirst10Exercises()
     {
-        return $this->limit(10)->findAll();
+        
+        return $this->limit(10)->get()->getResult();
     }
 }

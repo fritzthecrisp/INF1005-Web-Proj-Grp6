@@ -14,12 +14,23 @@ class Instance extends BaseController
         ];
         return view('instance', $data);
     }
-    public function selected(): string
+    public function selected($id): string
     {
-        $data = [
-            'meta_title' => 'Push',
-            'page_name' => 'Push Workout'
-        ];
+        $model = new InstanceModel();
+        $instance = $model->find($id);
+        if ($instance) {
+            $data = [
+                'meta_title' => $instance['workout_name'],
+                'page_name' => $instance['workout_name'],
+                'instance' => $instance,
+            ];
+        }else{
+            $data = [
+                'meta_title' => 'Post Not Found',
+                'page_name' => 'Post Not Found',
+            ];
+
+        }
         return view('single_instance', $data);
     }
     public function new()
@@ -31,9 +42,39 @@ class Instance extends BaseController
         if ($this->request->is('post')) {
             // what to run if they use post function
             $model = new InstanceModel();
-
             $model->save($_POST);
         }
         return view('new_instance', $data);
     }
+    public function delete($id)
+    {
+        $model = new InstanceModel();
+        $instance = $model->find($id);
+        if($instance) {
+            $model->delete($id);
+            return redirect()->to('/instance');
+;        }
+    }
+
+    public function edit($id){
+        $model = new InstanceModel();
+        $instance = $model->find($id);
+        $data = [
+            'meta_title' => $instance['workout_name'],
+            'page_name' => $instance['workout_name'],
+        ];
+
+        if ($this->request->is('post')) {
+            // what to run if they use post function
+            $model = new InstanceModel();
+            $_POST['workout_id'] = $id;
+
+            $model->save($_POST);
+            $instance = $model->find($id);
+        }
+        $data['workout'] = $instance;
+        return view ('edit_instance', $data);
+
+    }
+
 }

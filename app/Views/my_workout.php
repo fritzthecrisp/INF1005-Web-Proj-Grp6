@@ -10,13 +10,13 @@
 
     <div class="myWorkoutContainer">
         <h1>My Workout</h1>
-        <a href="<?php echo base_url('admin/instance/new'); ?>" class="green-button">Create your Own Workout</a>
+        <a href="<?php echo base_url('instance/new'); ?>" class="green-button">Create your Own Workout</a>
     </div>
 
 
     <div class="card-container" id="myWorkout-container">
         <?php foreach ($myWorkouts as $myWorkout) : ?>
-            <a href="<?= site_url("admin/instance/selected/{$myWorkout['workout_id']}") ?>" class="exercise-link card-link">
+            <a href="<?= site_url("instance/selected/{$myWorkout['workout_id']}") ?>" class="exercise-link card-link">
                 <div class="myWorkout cards">
                     <div class="row">
                         <div class="col-sm-5">

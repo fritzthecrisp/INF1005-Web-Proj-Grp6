@@ -49,8 +49,8 @@ $routes->add('progress', function () {
 
 // instance routes
 $routes->add('instance', 'Instance::index');
-$routes->get('instance/new', 'Instance::createNew');
-$routes->post('instance/new', 'Instance::saveInstance');
+$routes->get('instance/new', 'Instance::new');
+$routes->post('instance/new', 'Instance::new');
 /**Notice how get and post have the same URI, but respond differently */
 
 // $routes->get('/', 'Home::index');
