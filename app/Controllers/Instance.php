@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\WorkoutModel;
 use App\Models\InstanceModel;
 
 class Instance extends BaseController
@@ -16,7 +17,7 @@ class Instance extends BaseController
     }
     public function selected($id): string
     {
-        $model = new InstanceModel();
+        $model = new WorkoutModel();
         $instance = $model->find($id);
         if ($instance) {
             $data = [
@@ -24,12 +25,11 @@ class Instance extends BaseController
                 'page_name' => $instance['workout_name'],
                 'instance' => $instance,
             ];
-        }else{
+        } else {
             $data = [
                 'meta_title' => 'Post Not Found',
                 'page_name' => 'Post Not Found',
             ];
-
         }
         return view('single_instance', $data);
     }
@@ -41,23 +41,33 @@ class Instance extends BaseController
         ];
         if ($this->request->is('post')) {
             // what to run if they use post function
-            $model = new InstanceModel();
-            $model->save($_POST);
+            $workout_model = new WorkoutModel();
+            $workout_model->save($_POST);
+
+            $workout_id = $workout_model->db->insertID();
+            // Insert data into the instance table
+            $instance_model = new InstanceModel();
+            $instance_data = [
+                'workout_id' => $workout_id,
+                'user_id' => 5, // #userID #user_id find 
+            ];
+            $instance_model->insert($instance_data);
         }
-        return view('new_instance', $data);
+        return view('add_workout', $data);
     }
     public function delete($id)
     {
-        $model = new InstanceModel();
+        $model = new WorkoutModel();
         $instance = $model->find($id);
-        if($instance) {
+        if ($instance) {
             $model->delete($id);
-            return redirect()->to('/instance');
-;        }
+            return redirect()->to('/instance');;
+        }
     }
 
-    public function edit($id){
-        $model = new InstanceModel();
+    public function edit($id)
+    {
+        $model = new WorkoutModel();
         $instance = $model->find($id);
         $data = [
             'meta_title' => $instance['workout_name'],
@@ -66,15 +76,13 @@ class Instance extends BaseController
 
         if ($this->request->is('post')) {
             // what to run if they use post function
-            $model = new InstanceModel();
+            $model = new WorkoutModel();
             $_POST['workout_id'] = $id;
 
             $model->save($_POST);
             $instance = $model->find($id);
         }
         $data['workout'] = $instance;
-        return view ('edit_instance', $data);
-
+        return view('edit_instance', $data);
     }
-
 }
