@@ -76,7 +76,7 @@ footer {
     border-top: 1px solid grey;
     font-size: 0.9rem;
     background-color: rgba(128, 0, 128, 0.854);
-    position: absolute;
+    /* position: relative; */
     right: 0;
     left: 0;
     bottom: 0;
@@ -85,5 +85,5 @@ footer {
 }
 
 .footer_sections {
-    padding-top: 30px;
+    padding-top: 10px;
 }

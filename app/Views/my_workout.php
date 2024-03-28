@@ -9,23 +9,23 @@
     <hr>
 
     <div class="myWorkoutContainer">
-        <h1>My Workout</h1>
+        <h1>My Workouts</h1>
         <a href="<?php echo base_url('instance/new'); ?>" class="green-button">Create your Own Workout</a>
     </div>
 
 
     <div class="card-container" id="myWorkout-container">
         <?php foreach ($myWorkouts as $myWorkout) : ?>
-            <a href="<?= site_url("instance/selected/{$myWorkout['workout_id']}") ?>" class="exercise-link card-link">
+            <a href="<?= site_url("instance/selected/{$myWorkout['workout_id']}") ?>" class="exercise-link card-link" aria-labelledby="">
                 <div class="myWorkout cards">
                     <div class="row">
                         <div class="col-sm-5">
-                            <img class="card-img" src="/img/image.png">
+                            <img class="card-img" src="/img/image.png" alt="myWorkout">
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">
                                 <h4 class="card-title"><?= $myWorkout['workout_name'] ?></h4>
-                                <h6 class="card-subtitle mb-2">Made by <?= $myWorkout['workout_creator'] ?></h6>
+                                <h5 class="card-subtitle mb-2">Made by <?= $myWorkout['workout_creator'] ?></h5>
                                 <p class="card-text"><?= $myWorkout['workout_description'] ?></p>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                         <div class="col-sm-7">
                             <div class="card-body">
                                 <h4 class="card-title"><?= $physicalTrainer['workout_name'] ?></h4>
-                                <h6 class="card-subtitle mb-2">Made by <?= $physicalTrainer['made_by'] ?></h6>
+                                <h5 class="card-subtitle mb-2">Made by <?= $physicalTrainer['made_by'] ?></h5>
                                 <p class="card-text"><?= $physicalTrainer['description'] ?></p>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
 
     <hr>
 
-    <h1>Recommended Workout you can follow</h1>
+    <h1>Recommended Workouts you can follow</h1>
 
     <div class="card-container" id="recommendedWorkout-container">
         <?php foreach ($recommendedWorkouts as $recommendedWorkout) : ?>
@@ -81,7 +81,7 @@
                         <div class="col-sm-7">
                             <div class="card-body">
                                 <h4 class="card-title"><?= $recommendedWorkout['workout_name'] ?></h4>
-                                <h6 class="card-subtitle mb-2"><?= $recommendedWorkout['made_by'] ?></h6>
+                                <h5 class="card-subtitle mb-2"><?= $recommendedWorkout['made_by'] ?></h5>
                                 <p class="card-text"><?= $recommendedWorkout['description'] ?></p>
                             </div>
                         </div>
