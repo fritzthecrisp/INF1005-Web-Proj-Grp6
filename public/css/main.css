@@ -1,7 +1,7 @@
 body {
-    background-color: #3A445D;
+    background-color: #3a445d;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #FCDEBE;
+    color: #fcdebe;
 }
 
 
@@ -42,13 +42,21 @@ nav {
 }
 
 .content {
-    padding-top: 68px;
+    padding-top: 20px;
 }
 
 button {
     border-radius: 10px;
-    border: black 1px solid;
     margin: 10px;
+    border: none;
+    background-color: #928779;
+}
+
+.secButton {
+    border-radius: 10px;
+    margin: 10px;
+    border: none;
+    background-color: #5e5768;
 }
 
 footer {
