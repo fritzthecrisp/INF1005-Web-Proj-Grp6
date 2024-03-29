@@ -2,6 +2,7 @@
 
 <?= $this->section('content') ?>
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/card.css') ?>">
+<link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
 
 <main class="container">
     <h1>Home</h1>
@@ -13,31 +14,29 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="/img/image.png" class="d-block w-100" alt="First slide" style="width: 800px; height: 500px;">
+                <img src="/img/image.png" class="d-block w-100" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h1>First slide label</h1>
+                    <h2>First slide label</h2>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="/img/logos.png" class="d-block w-100" alt="Second slide" style="width: 800px; height: 500px;">
+                <img src="/img/logos.png" class="d-block w-100" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h1>Second slide label</h1>
+                    <h2>Second slide label</h2>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="/img/image.png" class="d-block w-100" alt="Third slide" style="width: 800px; height: 500px;">
+                <img src="/img/image.png" class="d-block w-100" alt="Third slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h1>Third slide label</h1>
+                    <h2>Third slide label</h2>
                 </div>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span class="carousel-control-prev-icon"></span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span class="carousel-control-next-icon"></span>
         </button>
     </div>
 
@@ -45,17 +44,18 @@
     <p> Here are the Top exercises done by our UniFit members!
     <div class="card-container" id="exercise-container">
         <?php foreach ($exercises as $exercise) : ?>
-            <div class="exercise cards">
-                <?php $arialabelTopExerciseId = "Top Exercise - " . $exercise['exer_name'] ?>
-                <div class="row" aria-label=<?= $arialabelTopExerciseId ?>>
+            <?php $arialabelTopExerciseId = "Top Exercise - " . $exercise['exer_name'] ?>
+            <?php $exerciseImg =  "exerciseImg - ". $exercise['exer_name']?>
+            <div class="exercise cards" aria-label=<?= $arialabelTopExerciseId ?>>
+                <div class="row">
                     <div class="col-sm-5">
-                        <img class="card-img" src="/img/image.png" alt="exerciseImg">
+                        <img class="card-img" src="/img/image.png" alt= <?=$exerciseImg?> >
                     </div>
                     <div class="col-sm-7">
                         <div class="card-body">
                             <div class="text-section">
-                                <h5 class="card-title"><?= $exercise['exer_name'] ?></h5>
-                                <h6 class="card-subtitle mb-2">Level: <?= $exercise['exer_level'] ?></h6>
+                                <h3 class="card-title"><?= $exercise['exer_name'] ?></h5>
+                                <h4 class="card-subtitle mb-2">Level: <?= $exercise['exer_level'] ?></h4>
                                 <p class="card-text">Exercise Eqiupment: <?= $exercise['exer_equipment'] ?></p>
                             </div>
                             <div class="button-section">
@@ -69,7 +69,7 @@
             </div>
         <?php endforeach; ?>
         <div class="buttons">
-            <button class="btn btn-primary btn-next"><i class="material-icons" style="font-size: 10em;color:green">arrow_right</i></button>
+            <button class="btn btn-primary btn-next"><i class="material-icons">arrow_right</i></button>
         </div>
     </div>
 
@@ -77,17 +77,22 @@
     <p>Here are the Top Workout Plans created by Instructors and also Unifit Members!
     <div class="card-container" id="workout-container">
         <?php foreach ($workouts as $workout) : ?>
-            <div class="workout cards">
-                <?php $arialabelTopWorkoutId = "Top Workout - " . $workout['workout_id'] ?>
-                <div class="row" aria-label=<?= $arialabelTopWorkoutId ?>>
+            <?php 
+            $arialabelTopWorkoutId = "Top Workout - " . $workout['workout_name']
+            ?>
+            <?php $workoutImg =  "workoutImg - ". $workout['workout_name'] 
+            ?>
+
+            <div class="workout cards" aria-label=<?= $arialabelTopWorkoutId ?>>
+                <div class="row">
                     <div class="col-sm-5">
-                        <img class="card-img" src="/img/image.png" alt="workoutImg">
+                        <img class="card-img" src="/img/image.png" alt=<?= $workoutImg?>>
                     </div>
                     <div class="col-sm-7">
                         <div class="card-body">
                             <div class="text-section">
-                                <h5 class="card-title"><?= $workout['workout_name'] ?></h5>
-                                <h6 class="card-subtitle mb-2">Made by:</h6>
+                                <h3 class="card-title"><?= $workout['workout_name'] ?></h3>
+                                <h4 class="card-subtitle mb-2">Made by:</h4>
                                 <p class="card-text"><?= $workout['workout_description'] ?></p>
                             </div>
                             <div class="cta-section">
@@ -101,7 +106,7 @@
             </div>
         <?php endforeach; ?>
         <div class="buttons">
-            <button class="btn btn-primary btn-next"><i class="material-icons" style="font-size: 10em;color:green">arrow_right</i></button>
+            <button class="btn btn-primary btn-next"><i class="material-icons">arrow_right</i></button>
         </div>
     </div>
 </main>

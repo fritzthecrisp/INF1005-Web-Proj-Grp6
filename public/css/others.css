@@ -1,3 +1,18 @@
+/* For Home Page */
+
+.carousel-caption h2 {
+    text-decoration: none;
+}
+
+.carousel-item img {
+    width: 800px; 
+    height: 500px;
+}
+
+.top_Headings {
+    margin-top: 30px;
+}
+
 .rounded-border {
     border-radius: 20px;
     border: 2px solid #000;
@@ -8,13 +23,6 @@
     align-items: center;
     margin: auto;
 }
-
-/* .input-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 10px;
-} */
 
 .input-container {
     display: flex;

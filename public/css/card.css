@@ -1,14 +1,5 @@
-#carouselExampleIndicators {
-    padding: 70px;
-    padding-top: 30px;
-}
-
 h2 {
     text-decoration: underline;
-}
-
-.top_Headings {
-    margin-top: 10px;
 }
 
 .card-container {
@@ -38,7 +29,7 @@ h2 {
 }
 
 .card-img {
-    max-width: 80%;
+    /* max-width: 80%; */
     margin: auto;
     padding: 0.5em;
     border-radius: 0.7em;
@@ -123,6 +114,13 @@ h2 {
     justify-content: center;
     align-items: center;
 }
+
+.material-icons {
+    font-size: 10em;
+    color: green;
+}
+
+
 
 @media (max-width: 768px) {
     .cards {
