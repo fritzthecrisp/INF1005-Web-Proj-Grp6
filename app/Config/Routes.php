@@ -71,3 +71,6 @@ $routes->get('workout/startWorkout/(:num)', 'Workout::startWorkout/$1');
 // myWorkout routes
 $routes->get('myWorkout', 'MyWorkout::index');
 $routes->get('myWorkout/addWorkout', 'MyWorkout::addWorkout');
+
+//json API routes
+$routes->get('api/get-exercises', 'API::getExercises');

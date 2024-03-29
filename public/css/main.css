@@ -91,3 +91,6 @@ footer {
 .list-unstyled li a {
     color: rgb(252, 222, 190, 1);
 }
+.hide {
+    display: none;
+}

@@ -1,15 +1,78 @@
+console.log("I am attached to instance/new page");
+// console.log('Cached data:', data);
+
+const exerciseCardContainer = document.querySelector("[data-exercise-cards-container]")
+const searchInput = document.querySelector("[data-search]")
+
+let exercises = []
+// Here is the search Event listener
+searchInput.addEventListener("input", (e) =>{
+    const value = e.target.value.toLowerCase()
+    exercises.forEach(exercise => {
+
+        const isVisible = exercise.exer_name.toLowerCase().includes(value)
+        exercise.exer_card.classList.toggle("hide", !isVisible);
+    })
+})
+
+fetch('http://localhost/api/get-exercises')
+    .then(res => res.json())
+    .then(data => {
+        exercises = data.map(exercise => {
+            // Create exerciseCard element.
+            const exerciseCard = document.createElement('div')
+            exerciseCard.classList.add('exercise-card');
+
+            // Create checkbox element
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = `${exercise.exer_id}Checkbox`;
+            checkbox.name = 'workoutOption';
+            checkbox.value = exercise.exer_name;
+            checkbox.dataset.exerciseName = exercise.exer_name; // Store exercise name in dataset
+            checkbox.addEventListener('change', function () {
+                updateWorkout(this); // Call updateWorkout function on checkbox change
+            });
+
+            // Create label element
+            const label = document.createElement('label');
+            label.htmlFor = `${exercise.exer_id}Checkbox`;
+            label.innerText = exercise.exer_name;
+
+            // Append checkbox and label to container
+            exerciseCard.appendChild(checkbox);
+            exerciseCard.appendChild(label);
+            exerciseCard.appendChild(document.createElement('br')); // Line break
+            exerciseCardContainer.appendChild(exerciseCard);
+
+
+            // const card = exerciseCardTemplate.content.cloneNode(true).children[0] // child of the card template. 
+
+            //     // Handle the cached data here
+            // console.log('Cached data:', data);
+            //     // Use the cached data as needed
+            //     // For example, update the UI with the cached data
+            return {exer_name: exercise.exer_name, exer_id: exercise.exer_id, exer_card: exerciseCard}
+        })
+    })
+
+
+function searchExercises() {
+
+}
+
+
 function updateWorkout(checkbox) {
     // Get the value and id of the checkbox
-    var value = checkbox.value;
-    var id = checkbox.id + "Selected"; // Adding "Selected" to create unique id
-
+    var exercise_name = checkbox.value;
+    var id = checkbox.id + "Selected"; // Adding "new ID will be <exer_id>CheckboxSelected" to create unique id
     if (checkbox.checked) {
         // Create a new div element
         var workoutDiv = document.createElement("div");
 
         // Create a new p element
         var pElement = document.createElement("p");
-        pElement.textContent = value;
+        pElement.textContent = exercise_name;
 
         workoutDiv.appendChild(pElement);
 

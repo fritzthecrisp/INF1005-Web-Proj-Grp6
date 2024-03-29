@@ -17,7 +17,8 @@ class Instance extends BaseController
     }
     public function selected($id): string
     {
-        $model = new WorkoutModel();
+        $db = db_connect();
+        $model = new WorkoutModel($db);
         $instance = $model->find($id);
         if ($instance) {
             $data = [
@@ -40,8 +41,9 @@ class Instance extends BaseController
             'page_name' => 'Create New Workout'
         ];
         if ($this->request->is('post')) {
+            $db = db_connect();
             // what to run if they use post function
-            $workout_model = new WorkoutModel();
+            $workout_model = new WorkoutModel($db);
             $workout_model->save($_POST);
 
             $workout_id = $workout_model->db->insertID();
@@ -57,7 +59,8 @@ class Instance extends BaseController
     }
     public function delete($id)
     {
-        $model = new WorkoutModel();
+        $db = db_connect();
+        $model = new WorkoutModel($db);
         $instance = $model->find($id);
         if ($instance) {
             $model->delete($id);
@@ -67,7 +70,7 @@ class Instance extends BaseController
 
     // public function edit($id)
     // {
-    //     $model = new WorkoutModel();
+    //     $model = new WorkoutModel($db);
     //     $instance = $model->find($id);
     //     $data = [
     //         'meta_title' => $instance['workout_name'],
@@ -76,7 +79,7 @@ class Instance extends BaseController
 
     //     if ($this->request->is('post')) {
     //         // what to run if they use post function
-    //         $model = new WorkoutModel();
+    //         $model = new WorkoutModel($db);
     //         $_POST['workout_id'] = $id;
 
     //         $model->save($_POST);
@@ -100,7 +103,8 @@ class Instance extends BaseController
     
     public function edit($id)
     {
-        $model = new WorkoutModel();
+        $db = db_connect();
+        $model = new WorkoutModel($db);
         $instance = $model->find($id);
         $data['workout'] = [
             'id' => $instance['workout_id'],
@@ -112,7 +116,7 @@ class Instance extends BaseController
 
         if ($this->request->is('post')) {
             // what to run if they use post function
-            $model = new WorkoutModel();
+            $model = new WorkoutModel($db);
             $_POST['workout_id'] = $id;
 
             $model->save($_POST);

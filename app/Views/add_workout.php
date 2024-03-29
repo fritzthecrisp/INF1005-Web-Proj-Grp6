@@ -11,12 +11,15 @@
                 <input type="text" id="name" name="workout_name"><br>
                 <label for="description">Workout Description</label><br>
                 <textarea id="description" name="workout_description" rows="3" cols="40"></textarea><br>
-                <input type="search" placeholder="Search..">
-                <div style="border-style: solid;border-width: 1px;margin-top: 10px;width: 200px">
-                    <input type="checkbox" id="dumbbellCheckbox" name="workoutOption" value="Dumbbell" onchange="updateWorkout(this)">
-                    <label for="dumbbellCheckbox"> Dumbbell</label><br>
-                    <input type="checkbox" id="pushupCheckbox" name="workoutOption" value="Pushup" onchange="updateWorkout(this)">
-                    <label for="pushupCheckbox"> Pushup</label><br>
+
+                <div class="search-wrapper">
+                    <label for="search">Search Users</label>
+                    <input id='search' type="search" placeholder="Search exercises" data-search>
+                    <div class="bd-example d-md-flex">
+                        <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-dark" data-exercise-cards-container style="max-width: 260px; max-height: 100px;">
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="col-sm">
