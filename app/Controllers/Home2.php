@@ -30,15 +30,13 @@ class Home2 extends BaseController
                 }
             }
             if ($topExercises === null) { {
-                    if ($model === null){
                     $model = new ExerciseModel($db);
-                    }
-                     $topExercises = $model->top5(); //  
+                    $topExercises = $model->top5(); //  
                 }
             }
             if ($topWorkouts === null) { {
                     $model = new WorkoutModel($db);
-                    $topWorkouts= $model->fetchTopWorkouts(); // since we won't need the cached exercises here, we won't need it. 
+                    $topWorkouts = $model->fetchTopWorkouts(); // since we won't need the cached exercises here, we won't need it. 
                 }
             }
         }
