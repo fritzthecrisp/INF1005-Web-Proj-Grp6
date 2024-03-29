@@ -14,7 +14,7 @@
             <input required type="password" id="pwd" name="pwd" class="form-control" placeholder="Enter password">
         </div>
         <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit">Submit</button>
         </div>
     </form>
     <p>New to Unifit?
