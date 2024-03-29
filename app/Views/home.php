@@ -42,6 +42,7 @@
     </div>
 
     <h2 class=top_Headings>TOP EXERCISES</h2>
+    <p> Here are the Top exercises done by our UniFit members!
     <div class="card-container" id="exercise-container">
         <?php foreach ($exercises as $exercise) : ?>
             <div class="exercise cards">
@@ -49,13 +50,13 @@
                 <div class="row" aria-label= <?=$arialabelTopExerciseId?>>
                     <div class="col-sm-5">
                         <img class="card-img" src="/img/image.png" alt="exerciseImg">
+                        <button onclick="window.location.href='<?= site_url("exercises/details/{$exercise['exer_id']}") ?>'">View</button>
                     </div>
                     <div class="col-sm-7">
                         <div class="card-body">
                             <h3 class="card-title"><?= $exercise['exer_name'] ?></h3>
                             <h4 class="card-subtitle mb-2">Level: <?= $exercise['exer_level'] ?></h4>
                             <p class="card-text">Exercise Eqiupment: <?= $exercise['exer_equipment'] ?></p>     
-                            <!-- <button onclick="window.location.href='<?= site_url("exercises/details/{$exercise['exer_id']}") ?>'">View</button> -->
                         </div>
                     </div>
                 </div>
@@ -67,6 +68,7 @@
     </div>
 
     <h2 class= "top_Headings">TOP WORKOUT PLANS</h2>
+    <p>Here are the Top Workout Plans created by Instructors and also Unifit Members!
     <div class="card-container" id="workout-container">
         <?php foreach ($workouts as $workout) : ?>
             <div class="workout cards">
@@ -74,6 +76,7 @@
                 <div class="row" aria-label= <?=$arialabelTopWorkoutId?>>
                     <div class="col-sm-5">
                         <img class="card-img" src="/img/image.png" alt="workoutImg">
+                        <button onclick="window.location.href='<?= site_url("workout/details/{$workout['workout_id']}") ?>'">View</button>
                     </div>
                     <div class="col-sm-7">
                         <div class="card-body">
@@ -81,7 +84,6 @@
                             <h4 class="card-subtitle mb-2">Made by:</h4>
                             <p class="card-text"><?= $workout['workout_description'] ?></p>
                            
-                            <!-- <button onclick="window.location.href='<?= site_url("workout/details/{$workout['workout_id']}") ?>'">View</button> -->
                         </div>
                     </div>
                 </div>
