@@ -27,12 +27,15 @@ fetch('http://localhost/api/get-exercises')
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.id = `${exercise.exer_id}Checkbox`;
-            checkbox.name = 'workoutOption';
-            checkbox.value = exercise.exer_name;
+            checkbox.name = 'workoutOption[]';
+            checkbox.value = exercise.exer_id;
             checkbox.dataset.exerciseName = exercise.exer_name; // Store exercise name in dataset
             checkbox.addEventListener('change', function () {
                 updateWorkout(this); // Call updateWorkout function on checkbox change
             });
+
+            // Set accessibility for the checkbox
+            checkbox.setAttribute('aria-label', `${exercise.exer_name}`);
 
             // Create label element
             const label = document.createElement('label');
@@ -64,8 +67,9 @@ function searchExercises() {
 
 function updateWorkout(checkbox) {
     // Get the value and id of the checkbox
-    var exercise_name = checkbox.value;
-    var id = checkbox.id + "Selected"; // Adding "new ID will be <exer_id>CheckboxSelected" to create unique id
+    let exercise_name = checkbox.dataset.exerciseName;
+    let id = checkbox.id + "Selected"; // Adding "new ID will be <exer_id>CheckboxSelected" to create unique id
+    let exercise_id = checkbox.id.replace(/Checkbox/g, '');
     if (checkbox.checked) {
         // Create a new div element
         var workoutDiv = document.createElement("div");
@@ -73,6 +77,15 @@ function updateWorkout(checkbox) {
         // Create a new p element
         var pElement = document.createElement("p");
         pElement.textContent = exercise_name;
+
+        var hiddenElement = document.createElement("input");
+        hiddenElement.setAttribute("type", "hidden");
+        hiddenElement.setAttribute("name", "exercises[]");
+        hiddenElement.setAttribute("value", exercise_id);
+        hiddenElement.classList.add("form-control");
+
+        // pElement.classList.add("form-control");
+
 
         workoutDiv.appendChild(pElement);
 
@@ -93,7 +106,6 @@ function updateWorkout(checkbox) {
         labelElement1.textContent = "Sets";
         var inputElement1 = document.createElement("input");
         inputElement1.setAttribute("type", "text");
-        inputElement1.setAttribute("id", "sets");
         inputElement1.setAttribute("name", "sets[]");
         inputElement1.classList.add("form-control");
 
@@ -104,7 +116,6 @@ function updateWorkout(checkbox) {
         labelElement2.textContent = "Reps";
         var inputElement2 = document.createElement("input");
         inputElement2.setAttribute("type", "text");
-        inputElement2.setAttribute("id", "reps");
         inputElement2.setAttribute("name", "reps[]");
         inputElement2.classList.add("form-control");
 
@@ -115,7 +126,6 @@ function updateWorkout(checkbox) {
         labelElement3.textContent = "Weight (Optional)";
         var inputElement3 = document.createElement("input");
         inputElement3.setAttribute("type", "text");
-        inputElement3.setAttribute("id", "weight");
         inputElement3.setAttribute("name", "weight[]");
         inputElement3.classList.add("form-control");
 
