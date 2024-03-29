@@ -3,9 +3,15 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use CodeIgniter\Database\ConnectionInterface;
 
 class WorkoutModel extends Model
 {
+    protected $db;
+    public function __construct(ConnectionInterface &$db)
+    {
+        $this->db = &$db;
+    }
 
     protected $table    = 'workouts';
     protected $primaryKey = 'workout_id';
@@ -35,6 +41,26 @@ class WorkoutModel extends Model
         $userID = 5; //"Set user ID dynamically here"
         $data['data']['workout_creator'] = $userID;
         return $data;
+    }
+    public function fetchTopWorkouts(){
+                // "SELECT *  FROM workouts"
+                $workouts = $this->db->table('workouts')
+                ->where(['workout_id >' => 5])
+                ->where(['workout_id <=' => 10])
+                ->orderBy('workout_id', 'DESC')
+                ->get()
+                ->getResult();
+    
+            $top_workouts = array();
+            foreach ($workouts as $object) {
+                $top_workouts[] = (array) $object;
+            }
+            // Cache the fetched workouts
+            $cache = \Config\Services::cache();
+            $cache->save('top_workouts', $top_workouts, 3600); // Cache for 1 hour (3600 seconds)
+    
+            return $top_workouts;
+    
     }
 
     // public function create_instance(){

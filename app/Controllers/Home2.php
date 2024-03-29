@@ -13,24 +13,37 @@ class Home2 extends BaseController
 {
     public function index()
     {
-
-        $db = db_connect();
-        $workoutsModel = new WorkoutModel();
-        $exerciseModel = new ExerciseModel($db);
-        $topExercises = $exerciseModel->top5();
-        $workout = $workoutsModel->findAll();
-
         // get the cache for exercises. 
         $cache = \Config\Services::cache();
-        $cached_exercises = $cache->get('cached_exercises');
-        if ($cached_exercises === null) { {
-                $db = db_connect();
-                $model = new ExerciseModel($db);
-                $model->fetchExercises(); // since we won't need the cached exercises here, we won't need it. 
+
+        // check the cache 
+        $cachedExercises = $cache->get('cached_exercises');
+        $topExercises = $cache->get('top_exercises');
+        $topWorkouts = $cache->get('top_workouts');
+
+        // if cache is empty, add cache. 
+        if ($cachedExercises === null or $topExercises === null or $topWorkouts === null) {
+            $db = db_connect();
+            if ($cachedExercises === null) { {
+                    $model = new ExerciseModel($db);
+                    $model->fetchExercises(); // since we won't need the cached exercises here, we won't return it. 
+                }
+            }
+            if ($topExercises === null) { {
+                    if ($model === null){
+                    $model = new ExerciseModel($db);
+                    }
+                     $topExercises = $model->top5(); //  
+                }
+            }
+            if ($topWorkouts === null) { {
+                    $model = new WorkoutModel($db);
+                    $topWorkouts= $model->fetchTopWorkouts(); // since we won't need the cached exercises here, we won't need it. 
+                }
             }
         }
 
 
-        return view('home', ['exercises' => $topExercises, 'workouts' => $workout]);
+        return view('home', ['exercises' => $topExercises, 'workouts' => $topWorkouts]);
     }
 }
