@@ -16,7 +16,7 @@
 
     <div class="card-container" id="myWorkout-container">
         <?php foreach ($myWorkouts as $myWorkout) : ?>
-            <a href="<?= site_url("instance/selected/{$myWorkout['workout_id']}") ?>" class="exercise-link card-link" aria-labelledby="">
+            <a href="<?= site_url("instance/edit/{$myWorkout['workout_id']}") ?>" class="exercise-link card-link" aria-labelledby="">
                 <div class="myWorkout cards">
                     <div class="row">
                         <div class="col-sm-5">

@@ -65,13 +65,49 @@ class Instance extends BaseController
         }
     }
 
+    // public function edit($id)
+    // {
+    //     $model = new WorkoutModel();
+    //     $instance = $model->find($id);
+    //     $data = [
+    //         'meta_title' => $instance['workout_name'],
+    //         'name' => $instance['workout_name'],
+    //     ];
+
+    //     if ($this->request->is('post')) {
+    //         // what to run if they use post function
+    //         $model = new WorkoutModel();
+    //         $_POST['workout_id'] = $id;
+
+    //         $model->save($_POST);
+    //         $instance = $model->find($id);
+    //     }
+    //     $data['workout'] = $instance;
+    //     return view('edit_instance', $data);
+    // }
+
+    // public function edit()
+    // {
+    //     $data['workout'] = [
+    //         'id' => 1,
+    //         'name' => 'Morning Routine',
+    //         'description' => 'A quick morning workout to start the day energized.',
+    //         'options' => ['Dumbbell' => true, 'Pushup' => false]
+    //     ];
+
+    //     return view('edit_workout', $data);
+    // }
+    
     public function edit($id)
     {
         $model = new WorkoutModel();
         $instance = $model->find($id);
-        $data = [
+        $data['workout'] = [
+            'id' => $instance['workout_id'],
             'meta_title' => $instance['workout_name'],
-            'page_name' => $instance['workout_name'],
+            'name' => $instance['workout_name'],
+            'description' => $instance['workout_description'],
+            'options' => ['Dumbbell' => true, 'Pushup' => false]
         ];
 
         if ($this->request->is('post')) {
@@ -82,7 +118,6 @@ class Instance extends BaseController
             $model->save($_POST);
             $instance = $model->find($id);
         }
-        $data['workout'] = $instance;
-        return view('edit_instance', $data);
+        return view('edit_workout', $data);
     }
 }

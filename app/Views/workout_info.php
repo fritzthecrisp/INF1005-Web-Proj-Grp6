@@ -19,11 +19,13 @@
                     <button type="submit">Start Workout</button>
                 </form>
                 <!-- ?php if ($isLoggedIn) : ? -->
-                    <button>Edit Workout</button>
-                    <form action="" method="POST">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit">Delete Record</button>
-                    </form>
+                <form action="<?= site_url('instance/edit') ?>" method="get">
+                    <button type="submit">Edit Workout</button>
+                </form>
+                <form action="" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit">Delete Record</button>
+                </form>
                 <!-- ?php endif; ? -->
             </div>
         </div>

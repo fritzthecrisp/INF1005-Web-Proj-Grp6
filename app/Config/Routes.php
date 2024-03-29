@@ -17,7 +17,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  * -------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('Home2');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -51,6 +51,7 @@ $routes->add('progress', function () {
 $routes->add('instance', 'Instance::index');
 $routes->get('instance/new', 'Instance::new');
 $routes->post('instance/new', 'Instance::new');
+$routes->get('/instance/edit', 'Instance::edit');
 /**Notice how get and post have the same URI, but respond differently */
 
 // $routes->get('/', 'Home::index');
