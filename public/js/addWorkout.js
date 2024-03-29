@@ -6,7 +6,7 @@ const searchInput = document.querySelector("[data-search]")
 
 let exercises = []
 // Here is the search Event listener
-searchInput.addEventListener("input", (e) =>{
+searchInput.addEventListener("input", (e) => {
     const value = e.target.value.toLowerCase()
     exercises.forEach(exercise => {
 
@@ -52,7 +52,7 @@ fetch('http://localhost/api/get-exercises')
             // console.log('Cached data:', data);
             //     // Use the cached data as needed
             //     // For example, update the UI with the cached data
-            return {exer_name: exercise.exer_name, exer_id: exercise.exer_id, exer_card: exerciseCard}
+            return { exer_name: exercise.exer_name, exer_id: exercise.exer_id, exer_card: exerciseCard }
         })
     })
 
@@ -84,6 +84,7 @@ function updateWorkout(checkbox) {
         var setDiv = document.createElement("div");
         var repsDiv = document.createElement("div");
         var weightDiv = document.createElement("div");
+        var deleteDiv = document.createElement("div");
 
         // Create a new label element for "Sets"
         var labelElement1 = document.createElement("label");
@@ -118,6 +119,27 @@ function updateWorkout(checkbox) {
         inputElement3.setAttribute("name", "weight[]");
         inputElement3.classList.add("form-control");
 
+        // Create a new button for deleting the row
+        var deleteBtn = document.createElement("button");
+        deleteBtn.className = "delete-button"; // Set the class name for styling
+        deleteBtn.setAttribute("aria-label", "Delete"); // Set aria-label attribute for accessibility
+        // deleteBtn.classList.add('form-control');
+
+        // Create a span element for the "x" icon
+        var deleteIcon = document.createElement("span");
+        deleteIcon.setAttribute("aria-hidden", "true");
+        deleteIcon.innerHTML = "&times;"; // Insert the "x" symbol into the span
+
+        // Append the delete icon to the delete button
+        deleteBtn.appendChild(deleteIcon);
+
+        // Add click event listener to the delete button
+        deleteBtn.addEventListener('click', function () {
+            // Perform delete action here
+            checkbox.checked = false;
+            updateWorkout(checkbox);
+        });
+
         // Append elements to the div
         setDiv.appendChild(labelElement1);
         setDiv.appendChild(inputElement1);
@@ -129,6 +151,7 @@ function updateWorkout(checkbox) {
         inputContainer.appendChild(setDiv);
         inputContainer.appendChild(repsDiv);
         inputContainer.appendChild(weightDiv);
+        inputContainer.appendChild(deleteBtn);
 
         workoutDiv.appendChild(inputContainer);
 
