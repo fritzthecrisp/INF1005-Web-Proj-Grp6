@@ -27,6 +27,8 @@
             </div>
         </div>
         <div>
+            <input type="checkbox" id="publicCheckBox" name="publicWorkout" value="Public">
+            <label for="publicCheckBox"> Make Public</label><br>
             <button type="submit" style="margin-top:20px;position: fixed;right: 8%;">Confirm Workout</button>
         </div>
     </form>
