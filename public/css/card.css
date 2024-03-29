@@ -1,4 +1,4 @@
-#carouselExampleIndicators{
+#carouselExampleIndicators {
     padding: 70px;
     padding-top: 30px;
 }
@@ -7,46 +7,84 @@ h2 {
     text-decoration: underline;
 }
 
-.top_Headings{
+.top_Headings {
     margin-top: 10px;
-}
-
-.card-title{
-    margin-bottom: 18px;
-}
-
-.card-subtitle{
-    margin-bottom: 18px;
-
-}
-
-.card-body{
-    padding-top: 0px;
-    padding-right: 35px;
-    padding-bottom: 40px;
-    
-}
-
-.cards {
-    width: 500px; /* Adjust the width as needed */
-    height: 200px; /* Adjust the height as needed */
-    /* overflow: hidden;  */
-    
-    /*This hides any content that overflows the card's box */
-    /* If you want to allow scrolling, use 'overflow: auto;' instead */
-    margin: 10px; /* Optional: adds space between the cards */
 }
 
 .card-container {
     display: flex;
-    padding: 20px;
-    margin-left: 70px;
+}
+
+.card-title {
+    margin-bottom: 18px;
+}
+
+.card-subtitle {
+    margin-bottom: 18px;
 
 }
 
+.cards {
+    display: flex;
+    flex-direction: column;
+    /* Stack elements vertically */
+    justify-content: space-between;
+    /* Add space between the content and the button */
+    width: 600px;
+    height: auto;
+    overflow: hidden;
+    margin-right: 10px;
+    border: 1px solid black;
+}
+
+.card-img {
+    max-width: 80%;
+    margin: auto;
+    padding: 0.5em;
+    border-radius: 0.7em;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: row;
+    /* Stack children elements vertically */
+    position: relative;
+    /* This is required for absolute positioning of children */
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.text-section {
+    max-width: 60%;
+    display: flex;
+    /* Change display property to flex */
+    flex-direction: column;
+    justify-content: flex-end;
+    /* Align text to the bottom */
+    margin-bottom: auto;
+    /* Ensure text stays at the bottom */
+}
+
+.button-section {
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: auto;
+    /* Align button to the bottom */
+    position: absolute;
+    /* Position the button absolutely */
+    bottom: 10px;
+    /* Position it 10px from the bottom */
+    right: 10px;
+    /* Position it 10px from the right */
+}
+
 .card-link {
-    color: inherit; /* Inherit text color from parent */
-    text-decoration: none; /* Remove underline */
+    color: inherit;
+    /* Inherit text color from parent */
+    text-decoration: none;
+    /* Remove underline */
 }
 
 .btn {
@@ -86,21 +124,57 @@ h2 {
     align-items: center;
 }
 
- 
-/* @media (max-width: 992px) {
-    .container {
-        padding: 0 10px; 
+@media (max-width: 768px) {
+    .cards {
+        width: 100%;
+        height: 50%;
+        /* Make cards full width */
+        margin-bottom: 20px;
+        /* Add some space between the cards */
     }
 
-     .cards {
-        width: 100%; 
-        height: auto; 
-
+    .card-container {
+        flex-direction: column;
+        /* Stack cards vertically */
+        align-items: center;
+        /* Align cards in the center */
     }
 
-    .col-sm-5,
-    .col-sm-7 {
-        flex: 100%; 
-
+    .card-img {
+        max-width: 100%;
+        /* Allow image to use all available width */
+        height: auto;
+        /* Adjust height automatically */
+        padding: 0;
+        /* Remove padding */
     }
-} */
+
+    .card-body {
+        flex-direction: column;
+        /* Stack elements vertically */
+        align-items: flex-start;
+        /* Align items to the start of the card */
+    }
+
+    .text-section,
+    .button-section {
+        max-width: 100%;
+        /* Allow text and button sections to fill the card */
+        align-items: center;
+        /* Center align the content */
+        margin-top: 10px;
+        /* Add some space at the top */
+    }
+
+    .button-section {
+        position: static;
+        /* Reset position to default */
+        padding-bottom: 10px;
+        /* Add padding at the bottom */
+    }
+
+    .btn-next {
+        font-size: 1em;
+        /* Adjust the arrow icon size for smaller screens */
+    }
+}
