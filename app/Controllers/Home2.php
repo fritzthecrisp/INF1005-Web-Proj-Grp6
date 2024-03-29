@@ -41,7 +41,6 @@ class Home2 extends BaseController
             }
         }
 
-
         return view('home', ['exercises' => $topExercises, 'workouts' => $topWorkouts]);
     }
 }

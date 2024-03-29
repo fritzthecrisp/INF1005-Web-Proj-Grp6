@@ -120,7 +120,7 @@ h2 {
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .cards {
         width: 100%;
         height: 50%;
@@ -156,17 +156,13 @@ h2 {
     .button-section {
         max-width: 100%;
         /* Allow text and button sections to fill the card */
-        align-items: center;
         /* Center align the content */
         margin-top: 10px;
         /* Add some space at the top */
     }
 
-    .button-section {
+    .button-section form > button {
         position: static;
-        /* Reset position to default */
-        padding-bottom: 10px;
-        /* Add padding at the bottom */
     }
 
     .btn-next {
