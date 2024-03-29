@@ -35,6 +35,10 @@ class ExerciseModel extends Model
         foreach ($exercises as $object) {
             $top_exercises[] = (array) $object;
         }
+        // Cache the fetched exercises
+        $cache = \Config\Services::cache();
+        $cache->save('top_exercises', $top_exercises, 3600); // Cache for 1 hour (3600 seconds)
+
         return $top_exercises;
     }
 

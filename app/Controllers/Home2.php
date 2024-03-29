@@ -20,6 +20,16 @@ class Home2 extends BaseController
         $topExercises = $exerciseModel->top5();
         $workout = $workoutsModel->findAll();
 
+        // get the cache for exercises. 
+        $cache = \Config\Services::cache();
+        $cached_exercises = $cache->get('cached_exercises');
+        if ($cached_exercises === null) { {
+                $db = db_connect();
+                $model = new ExerciseModel($db);
+                $model->fetchExercises(); // since we won't need the cached exercises here, we won't need it. 
+            }
+        }
+
 
         return view('home', ['exercises' => $topExercises, 'workouts' => $workout]);
     }
