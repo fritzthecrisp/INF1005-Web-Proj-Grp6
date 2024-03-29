@@ -13,18 +13,6 @@ class CustomModel
     {
         $this->db = &$db;
     }
-    function all()
-    {
-        // "SELECT *  FROM exercises"
-        $all_exercises = array();
-
-        $exercises= $this->db->table('exercises')->get()->getResult();
-        foreach ($exercises as $object) {
-            $all_exercises[]= (array) $object;
-        }
-
-        return $all_exercises;
-    }
     function where()
     {
         // "SELECT *  FROM exercises"

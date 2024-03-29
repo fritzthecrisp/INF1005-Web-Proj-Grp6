@@ -12,9 +12,18 @@ class ExerciseModel extends Model
     // the table columns that we will allow users to change
     protected $allowedFields = ['exer_name', 'exer_equipment', 'exer_level']; 
     
-    public function getFirst10Exercises()
+    function fetchExercises()
     {
-        
-        return $this->limit(10)->get()->getResult();
+        // "SELECT *  FROM exercises"
+        $all_exercises = array();
+
+        $exercises= $this->db->table('exercises')->get()->getResult();
+        foreach ($exercises as $object) {
+            $all_exercises[]= (array) $object;
+        }
+
+        return $all_exercises;
     }
+
+    
 }

@@ -9,7 +9,7 @@ class Sessions extends BaseController
     public function index() {
         $db = db_connect();
         $model = new CustomModel($db);
-        $result = $model->all();
+        $result = $model->where();
         echo '<pre>';
         print_r($result);
         echo'</pre>';
