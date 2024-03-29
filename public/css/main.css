@@ -23,11 +23,11 @@ body {
 }
 
 nav {
-    background-color: rgb(212, 210, 165, 1);
+    background-color: rgb(46.4, 54.4, 74.4, 1);
 }
 
 .nav-link {
-    color: black !important;
+    color: rgb(252, 222, 190, 1) !important;
     /* Change link color to black */
     text-decoration: none !important;
     /* Remove underline */
@@ -75,7 +75,7 @@ footer {
     text-align: center;
     border-top: 1px solid grey;
     font-size: 0.9rem;
-    background-color: rgba(128, 0, 128, 0.854);
+    background-color: rgb(46.4, 54.4, 74.4, 1);
     position: relative;
     right: 0;
     left: 0;
