@@ -82,29 +82,27 @@
 
     <div class="card-container" id="recommendedWorkout-container">
         <?php foreach ($recommendedWorkouts as $recommendedWorkout) : ?>
-            <a href="<?= site_url("workout/details/{$recommendedWorkout['id']}") ?>" class="workout-link card-link">
-                <div class="recommendedWorkout cards">
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <img class="card-img" src="/img/image.png">
-                        </div>
-                        <div class="col-sm-7">
-                            <div class="card-body">
-                                <div class="text-section">
-                                    <h4 class="card-title"><?= $recommendedWorkout['workout_name'] ?></h4>
-                                    <h5 class="card-subtitle mb-2"><?= $recommendedWorkout['made_by'] ?></h5>
-                                    <p class="card-text"><?= $recommendedWorkout['description'] ?></p>
-                                </div>
-                                <div class="button-section">
-                                    <form action="<?= site_url("workout/details/{$recommendedWorkout['id']}") ?>" method="get">
-                                        <button type="submit">View</button>
-                                    </form>
-                                </div>
+            <div class="recommendedWorkout cards">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <img class="card-img" src="/img/image.png">
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="card-body">
+                            <div class="text-section">
+                                <h4 class="card-title"><?= $recommendedWorkout['workout_name'] ?></h4>
+                                <h5 class="card-subtitle mb-2"><?= $recommendedWorkout['made_by'] ?></h5>
+                                <p class="card-text"><?= $recommendedWorkout['description'] ?></p>
+                            </div>
+                            <div class="button-section">
+                                <form action="<?= site_url("workout/details/{$recommendedWorkout['id']}") ?>" method="get">
+                                    <button type="submit">View</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
         <?php endforeach; ?>
         <div class="buttons">
             <button class="btn btn-primary btn-next"><i class="material-icons" style="font-size: 10em;color:green">arrow_right</i></button>
