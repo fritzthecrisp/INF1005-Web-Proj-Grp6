@@ -41,11 +41,12 @@
         </a>
     </div>
 
-    <h2>TOP EXERCISES</h2>
+    <h2 class=top_Headings>TOP EXERCISES</h2>
     <div class="card-container" id="exercise-container">
         <?php foreach ($exercises as $exercise) : ?>
             <div class="exercise cards">
-                <div class="row">
+                <?php $arialabelTopExerciseId = "Top Exercise - " . $exercise['exer_name']?>
+                <div class="row" aria-label= <?=$arialabelTopExerciseId?>>
                     <div class="col-sm-5">
                         <img class="card-img" src="/img/image.png" alt="exerciseImg">
                     </div>
@@ -53,11 +54,8 @@
                         <div class="card-body">
                             <h3 class="card-title"><?= $exercise['exer_name'] ?></h3>
                             <h4 class="card-subtitle mb-2">Level: <?= $exercise['exer_level'] ?></h4>
-                            <p class="card-text">Exercise Eqiupment:<?= $exercise['exer_equipment'] ?></p>
-                            <button onclick="window.location.href='<?= site_url("exercises/details/{$exercise['exer_id']}") ?>'">View</button>
-                            <?php
-                            $ariaLabelExerciseId = "Exercise Number " . $exercise['exer_id'] . "- " . $exercise['exer_name'];
-                            ?>
+                            <p class="card-text">Exercise Eqiupment: <?= $exercise['exer_equipment'] ?></p>     
+                            <!-- <button onclick="window.location.href='<?= site_url("exercises/details/{$exercise['exer_id']}") ?>'">View</button> -->
                         </div>
                     </div>
                 </div>
@@ -68,11 +66,12 @@
         </div>
     </div>
 
-    <h2>TOP WORKOUT PLANS</h2>
+    <h2 class= "top_Headings">TOP WORKOUT PLANS</h2>
     <div class="card-container" id="workout-container">
         <?php foreach ($workouts as $workout) : ?>
             <div class="workout cards">
-                <div class="row">
+            <?php $arialabelTopWorkoutId = "Top Workout - " . $workout['workout_id']?>
+                <div class="row" aria-label= <?=$arialabelTopWorkoutId?>>
                     <div class="col-sm-5">
                         <img class="card-img" src="/img/image.png" alt="workoutImg">
                     </div>
@@ -81,10 +80,8 @@
                             <h3 class="card-title"><?= $workout['workout_name'] ?></h3>
                             <h4 class="card-subtitle mb-2">Made by:</h4>
                             <p class="card-text"><?= $workout['workout_description'] ?></p>
-                            <button onclick="window.location.href='<?= site_url("workout/details/{$workout['workout_id']}") ?>'">View</button>
-                            <?php
-                            $ariaLabelWorkoutId = "Workout Number " . $workout['workout_id'] . "- " . $workout['workout_name'];
-                            ?>
+                           
+                            <!-- <button onclick="window.location.href='<?= site_url("workout/details/{$workout['workout_id']}") ?>'">View</button> -->
                         </div>
                     </div>
                 </div>

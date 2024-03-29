@@ -1,5 +1,14 @@
+#carouselExampleIndicators{
+    padding: 70px;
+    padding-top: 30px;
+}
+
 h2 {
     text-decoration: underline;
+}
+
+.top_Headings{
+    margin-top: 10px;
 }
 
 .card-title{
@@ -12,23 +21,24 @@ h2 {
 }
 
 .card-body{
-    padding: 10px;
     padding-top: 0px;
     padding-right: 35px;
+    padding-bottom: 40px;
+    
 }
 
 .cards {
     width: 500px; /* Adjust the width as needed */
     height: 200px; /* Adjust the height as needed */
-    overflow: hidden; /* This hides any content that overflows the card's box */
+    /* overflow: hidden;  */
+    
+    /*This hides any content that overflows the card's box */
     /* If you want to allow scrolling, use 'overflow: auto;' instead */
     margin: 10px; /* Optional: adds space between the cards */
-    border: 1px solid black;
 }
 
 .card-container {
     display: flex;
-    align-items: center;
     padding: 20px;
     margin-left: 70px;
 
@@ -42,7 +52,6 @@ h2 {
 .btn {
     border: none;
     outline: none;
-    padding: 10px;
     color: white;
     background-color: #007bff;
     cursor: pointer;
@@ -78,18 +87,20 @@ h2 {
 }
 
  
-@media (max-width: 768px) {
+/* @media (max-width: 992px) {
     .container {
-        padding: 0 10px; /* Add some padding to the container */
+        padding: 0 10px; 
     }
 
-    .cards {
-        width: 100%; /* Cards occupy full width on smaller screens */
-        height: auto; /* Let the height adjust automatically */
+     .cards {
+        width: 100%; 
+        height: auto; 
+
     }
 
     .col-sm-5,
     .col-sm-7 {
-        flex: 100%; /* Make columns occupy full width on smaller screens */
+        flex: 100%; 
+
     }
-}
+} */

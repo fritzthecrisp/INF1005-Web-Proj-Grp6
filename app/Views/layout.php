@@ -52,6 +52,9 @@
                           <li class="nav-item">
                             <a class="nav-link w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-black" href="' . site_url("login") . '">LOGIN</a>
                           </li>
+                          <li class="nav-item">
+                            <a class="nav-link w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-black" href="' . site_url("myWorkout") . '">MY WORKOUT</a>
+                          </li>
                     ';
                         }
                         ?> </ul>
