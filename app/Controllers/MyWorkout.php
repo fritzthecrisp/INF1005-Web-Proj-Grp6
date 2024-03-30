@@ -63,7 +63,7 @@ class MyWorkout extends BaseController
         $public_instance_sets = $cache->get('public_instance_sets');
 
         // if cache is empty, add cache. 
-        if ($public_instance_sets === null || $public_instances) {
+        if ($public_instance_sets === null || $public_instances === null) {
             $model = new CustomModel($db);
 
             $result = $model->fetchPublicWorkouts();

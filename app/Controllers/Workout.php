@@ -12,13 +12,15 @@ class Workout extends BaseController
         // Fetch exercise details based on the provided ID
 
         $userID = 5;
-        // get the cache for exercises. 
-        $cache = \Config\Services::cache();
+        // // get the cache for exercises. 
+        // $cache = \Config\Services::cache();
 
         // Get from session
         // Retrieve exercises from session
         $session = \Config\Services::session();
         $userID = 5; // #userID #user_id
+        // $session->remove('user_instances_'.$userID);
+        // $session->remove('user_instance_sets_'.$userID);
 
         // Check if the session variables exist
         if (!$session->has('user_instances_' . $userID) || !$session->has('user_instance_sets_' . $userID)) {

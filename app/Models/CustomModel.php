@@ -90,7 +90,9 @@ class CustomModel
 
             $all_my_sets[] = [
                 'instance_id' => $sets_results[$i]['instance_id'],
+                // 'instance_set_id' => $sets_results[$i]['instance_set_id'],
                 'exer_name' => $sets_results[$i]['exer_name'],
+                'exer_id' => $sets_results[$i]['exer_id'],
                 'sets' => $sets_results[$i]['instance_set_count'],
                 'reps' => $sets_results[$i]['instance_set_reps'],
                 'weight' => $sets_results[$i]['instance_set_weight']                // Add other fields if needed            ]

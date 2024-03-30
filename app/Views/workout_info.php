@@ -24,7 +24,7 @@
                     <button type="submit">Start Workout</button>
                 </form>
                 <!-- ?php if ($isLoggedIn) : ? -->
-                <form action="<?= site_url('instance/edit') ?>" method="get">
+                <form action="<?= site_url('instance/edit/'.$workout['instance_id']) ?>" method="get">
                     <button type="submit">Edit Workout</button>
                 </form>
                 <form action="" method="POST">

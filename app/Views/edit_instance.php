@@ -1,21 +1,75 @@
-<?= $this->extend('layouts/main') ?>
-
+<?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>
-<h1><?= $page_name ?></h1>
-<div class="col-12 col-md-8 offset-md-2">
-    <form method="post">
-        <div class="form-group">
-            <label for="">Title</label> 
-            <input type="text" class="form-control" name="workout_name" value="<?= $workout['workout_name'] ?>">
+<link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
+<main class="container">
+    <?php if (isset($validation)) : ?>
+        <div class="text-danger">
+            <?= $validation->listErrors() ?>
         </div>
-        <div class="form-group">
-            <label for="">Description</label>
-            <textarea type="text" class="form-control" name="workout_description" rows="3"><?= $workout['workout_description'] ?></textarea>
+    <?php endif; ?>
+    <form id="workoutForm" method="post">
+        <div class="row">
+            <div class="col-sm">
+                <h1>Add Workout</h1>
+                <div class="mb-3">
+                    <label for="workout_name" class="form-label">Workout Name</label><br>
+                    <input required type="text" id="workout_name" name="workout_name" class="form-control" value=<?= $workout["workout_name"] ?>><br>
+                </div>
+
+                <div class="mb-3">
+                    <label for="workout_description" class="form-label">Workout Description</label><br>
+                    <textarea required type="text" id="workout_description" name="workout_description" rows="3" cols="40" class="form-control"><?= $workout["workout_description"] ?></textarea><br>
+                </div>
+
+                <div class="mb-3 search-wrapper">
+                    <label for="search" class="form-label">Search Exercises</label><br>
+                    <input id='search' type="search" placeholder="Search exercises" class="form-control" data-search>
+                </div>
+                <div class="mb-3 bd-example d-md-flex">
+                    <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-dark" id="exercise-list" data-exercise-cards-container>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm" id="selectedWorkouts">
+                <h1>Selected Workouts</h1>
+                <?php // Loop through each set
+                foreach ($sets as $set) {
+                ?>
+                    <div id="<?= $set["exer_id"]?>CheckboxSelected">
+                    <p><?= $set["exer_name"]?></p>
+                        <!-- You can add labels and input fields here -->
+                        <div class="input-container">
+                            <div>
+                                <label for="sets" class="form-label">Sets</label>
+                                <input type="text" name="sets[]" class="form-control" value="<?php echo $set['sets']; ?>" required="">
+                            </div>
+                            <div>
+                                <label for="reps" class="form-label">Reps</label>
+                                <input type="text" name="reps[]" class="form-control" value="<?php echo $set['reps']; ?>" required="">
+                            </div>
+                            <div>
+                                <label for="weight" class="form-label">Weight (Optional)</label>
+                                <input type="text" name="weight[]" class="form-control" value="<?php echo $set['weight']; ?>">
+                            </div>
+                            <button class="delete-button" aria-label="Delete"><span aria-hidden="true">×</span></button>
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
+            </div>
         </div>
-        <div class="form-group">
-            <button class="btn btn-success btn-sm">Save</button>
+        <div class="mb-3 form-check">
+            <input type="checkbox" name="workout_public" id="publicCheckBox" class="form-check-input">
+            <label class="form-check-label" for="publicCheckBox" value="" <?= $workout["checked"] ?>>
+                Make workout Public
+            </label>
+        </div>
+        <div>
+            <button type="submit" id="cfmWorkout">Save Changes</button>
         </div>
     </form>
-</div>
-<?= $this->endSection('content') ?>
+</main>
+<script src="<?= base_url('js/addWorkout.js') ?>"></script>
+<?= $this->endSection() ?>

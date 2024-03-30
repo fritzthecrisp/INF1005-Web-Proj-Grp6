@@ -14,6 +14,15 @@ searchInput.addEventListener("input", (e) => {
         exercise.exer_card.classList.toggle("hide", !isVisible);
     })
 })
+const selectedExercises = [];
+const checkboxSelectedElements = document.querySelectorAll('[id$=CheckboxSelected]');
+
+checkboxSelectedElements.forEach(element => {
+    // Get the ID and remove "CheckboxSelected" from it
+    const id = element.id.replace('CheckboxSelected', '');
+    selectedExercises.push(id);
+}); console.log(selectedExercises); // This will contain the IDs of selected exercises
+
 
 fetch('http://localhost/api/get-exercises')
     .then(res => res.json())
@@ -34,6 +43,10 @@ fetch('http://localhost/api/get-exercises')
                 updateWorkout(this); // Call updateWorkout function on checkbox change
             });
 
+            // Check if exercise ID is in selectedExercises
+            if (selectedExercises.includes(exercise.exer_id.toString())) {
+                checkbox.checked = true;
+            }
             // Set accessibility for the checkbox
             checkbox.setAttribute('aria-label', `${exercise.exer_name}`);
 
@@ -104,7 +117,7 @@ function updateWorkout(checkbox) {
         inputElement1.setAttribute("type", "text");
         inputElement1.setAttribute("name", "sets[]");
         inputElement1.classList.add("form-control");
-        inputElement1.setAttribute("required", ""); 
+        inputElement1.setAttribute("required", "");
 
         // Create a new label element for "Reps"
         var labelElement2 = document.createElement("label");
@@ -115,7 +128,7 @@ function updateWorkout(checkbox) {
         inputElement2.setAttribute("type", "text");
         inputElement2.setAttribute("name", "reps[]");
         inputElement2.classList.add("form-control");
-        inputElement2.setAttribute("required", ""); 
+        inputElement2.setAttribute("required", "");
 
         // Create a new label element for "Weight"
         var labelElement3 = document.createElement("label");
