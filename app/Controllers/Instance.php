@@ -70,7 +70,7 @@ class Instance extends BaseController
                     $workout_id = $workout_model->db->insertID();
 
                     // Insert data into the instance table
-                    $instance_model = new InstanceModel();
+                    $instance_model = new InstanceModel($db);
                     $instance_data = [
                         'workout_id' => $workout_id,
                         'user_id' => 5, // #userID #user_id find 
@@ -106,9 +106,7 @@ class Instance extends BaseController
                     $db->transCommit(); // Commit transaction
 
                     $model = new CustomModel($db); //update the cache
-        
-                    $myWorkouts = $model->getWorkouts();
-        
+                    $model->getPublicWorkouts();
                 } catch (\Exception $e) {
                     $db->transRollback(); // Rollback transaction if any query fails
                     // Handle exception or error here

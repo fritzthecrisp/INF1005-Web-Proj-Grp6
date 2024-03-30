@@ -24,7 +24,7 @@ class CustomModel
             ->getResult();
     }
 
-    function getWorkouts()
+    function getPublicWorkouts()
     {
         $cache = \Config\Services::cache();
         $user_id = 5; // here you will set the user ID
@@ -32,17 +32,17 @@ class CustomModel
 
         $builder = $this->db->table('workouts');
         $builder->join('users', 'workouts.workout_creator = users.user_id AND users.user_id = ' . $user_id);
-        $user_workouts = $builder->get()->getResult();
-        $my_workouts = array();
-        foreach ($user_workouts as $object) {
-            $my_workouts[] = (array) $object;
+        $workout_results = $builder->where('workout_public', 'Public')->get()->getResult();        
+        $public_workouts = array();
+        foreach ($workout_results as $object) {
+            $public_workouts[] = (array) $object;
         }
 
 
 
         // Cache the fetched exercises
-        $cache->save('my_workouts', $my_workouts, 3600); // Cache for 1 hour (3600 seconds)
-        return $user_workouts;
+        $cache->save('public_workouts', $public_workouts, 3600); // Cache for 1 hour (3600 seconds)
+        return $public_workouts;
     }
 }
 
