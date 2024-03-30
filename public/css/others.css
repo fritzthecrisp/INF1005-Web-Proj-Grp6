@@ -1,5 +1,9 @@
 /* For home.php Page */
 
+.openingTagline {
+    text-align: center;
+}
+
 .carousel-caption h2 {
     text-decoration: none;
 }
@@ -22,11 +26,11 @@
         display: none;
     }
 
-    .alt-headings{
+    .alt-headings {
         padding-bottom: 4px;
     }
 
-    .alt-headings > h1 {
+    .alt-headings>h1 {
         display: block;
         text-align: center;
         font-style: italic;
@@ -53,6 +57,38 @@
     }
 }
 
+/* For myWorkout.php */
+
+
+.myWorkoutContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.green-button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+@media (max-width: 576px) {
+
+    .myWorkoutContainer {
+        display: block;
+        padding-bottom: 20px;
+    }
+
+    .green-button{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
 .rounded-border {
     border-radius: 20px;
     border: 2px solid #000;
@@ -77,18 +113,4 @@
 
 .column {
     grid-gap: 100px;
-}
-
-.myWorkoutContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.green-button {
-    background-color: green;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
 }

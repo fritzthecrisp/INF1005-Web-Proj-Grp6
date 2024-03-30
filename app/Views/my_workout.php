@@ -16,11 +16,16 @@
 
     <div class="card-container" id="myWorkout-container">
         <?php foreach ($myWorkouts as $myWorkout) : ?>
-            <a href="<?= site_url("workout/details/{$myWorkout['instance_id']}") ?>" class="exercise-link card-link">
+            <?php
+            $arialabelMyWorkoutName = "My Workout - " . $myWorkout['workout_name']
+            ?>
+            <?php $myWorkoutImg =  "my_workoutImg_" . $myWorkout['workout_name']
+            ?>
+            <a href="<?= site_url("workout/details/{$myWorkout['instance_id']}") ?>" class="exercise-link card-link" aria-label=<?= $arialabelMyWorkoutName ?>>
                 <div class="myWorkout cards">
                     <div class="row">
                         <div class="col-sm-5">
-                            <img class="card-img" src="/img/image.png" alt="myWorkout">
+                            <img class="card-img" src="/img/image.png" alt=<?= $myWorkoutImg ?>>
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">
@@ -41,31 +46,31 @@
             </a>
         <?php endforeach; ?>
         <div class="buttons">
-            <button class="btn btn-primary btn-next"><i class="material-icons" style="font-size: 10em;color:green">arrow_right</i></button>
+            <button class="btn btn-primary btn-next"><i class="material-icons">arrow_right</i></button>
         </div>
     </div>
 
     <hr>
 
     <h2>Create a Workout by Physical Trainers</h2>
-    <p>Unsure how to create your workout? Here are a list of workouts created by our physical trainers! Click below to find out more and start your workout journey!</p> 
+    <p>Unsure how to create your workout? Here are a list of workouts created by our physical trainers! Click below to find out more and start your workout journey!</p>
     <div class="card-container" id="physicalTrainers-container">
         <?php foreach ($physicalTrainers as $physicalTrainer) : ?>
             <a href="<?= site_url("workout/details/{$physicalTrainer['id']}") ?>" class="exercise-link card-link">
                 <div class="physicalTrainers cards">
                     <div class="row">
                         <div class="col-sm-5">
-                            <img class="card-img" src="/img/image.png">
+                            <img class="card-img" src="/img/image.png" alt="PTworkoutImg">
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">
                                 <div class="text-section">
-                                    <h4 class="card-title"><?= $physicalTrainer['workout_name'] ?></h4>
-                                    <h5 class="card-subtitle mb-2">Made by <?= $physicalTrainer['made_by'] ?></h5>
+                                    <h3 class="card-title"><?= $physicalTrainer['workout_name'] ?></h3>
+                                    <h4 class="card-subtitle mb-2">Made by <?= $physicalTrainer['made_by'] ?></h4>
                                     <p class="card-text"><?= $physicalTrainer['description'] ?></p>
                                 </div>
                                 <div class="button-section">
-                                    <form action="<?= site_url("exercises/details/{$physicalTrainer['id']}") ?>" method="get">
+                                    <form action="<?= site_url("workout/details/{$physicalTrainer['id']}") ?>" method="get">
                                         <button type="submit">View</button>
                                     </form>
                                 </div>
@@ -76,7 +81,7 @@
             </a>
         <?php endforeach; ?>
         <div class="buttons">
-            <button class="btn btn-primary btn-next"><i class="material-icons" style="font-size: 10em;color:green">arrow_right</i></button>
+            <button class="btn btn-primary btn-next"><i class="material-icons">arrow_right</i></button>
         </div>
     </div>
 
@@ -87,11 +92,16 @@
 
     <div class="card-container" id="recommendedWorkout-container">
         <?php foreach ($recommendedWorkouts as $recommendedWorkout) : ?>
-            <a href="<?= site_url("workout/details/{$recommendedWorkout['workout_id']}") ?>" class="exercise-link card-link">
+            <?php
+            $arialabelRecommendedWorkoutName = "Recommended Workout - " . $recommendedWorkout['workout_name']
+            ?>
+            <?php $recommendedWorkoutImg =  "rec_workoutImg_" . $recommendedWorkout['workout_name']
+            ?>
+            <a href="<?= site_url("workout/details/{$recommendedWorkout['workout_id']}") ?>" class="exercise-link card-link" aria-label=<?= $arialabelRecommendedWorkoutName ?>>
                 <div class="recommendedWorkout cards">
                     <div class="row">
                         <div class="col-sm-5">
-                            <img class="card-img" src="/img/image.png">
+                            <img class="card-img" src="/img/image.png" alt=<?= $recommendedWorkoutImg ?>>
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">
@@ -112,7 +122,7 @@
             </a>
         <?php endforeach; ?>
         <div class="buttons">
-            <button class="btn btn-primary btn-next"><i class="material-icons" style="font-size: 10em;color:green">arrow_right</i></button>
+            <button class="btn btn-primary btn-next"><i class="material-icons">arrow_right</i></button>
         </div>
     </div>
 </main>

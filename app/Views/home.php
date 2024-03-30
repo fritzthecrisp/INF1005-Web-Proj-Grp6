@@ -5,6 +5,7 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
 
 <main class="container">
+    <h1 class="openingTagline">WELCOME TO UNIFIT</h1>
     <div id="carousel" class="carousel slide">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -48,10 +49,10 @@
     <p>Here are the Top exercises done by our UniFit members!</p>
     <div class="card-container" id="exercise-container">
         <?php foreach ($exercises as $exercise) : ?>
-            <?php $arialabelTopExerciseId = "Top Exercise - " . $exercise['exer_name'] ?>
-            <?php $exerciseImg =  "exerciseImg - " . $exercise['exer_name'] ?>
-            <a href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopExerciseId ?>">
-                <div class="exercise cards" aria-label=<?= $arialabelTopExerciseId ?>>
+            <?php $arialabelTopExerciseName = "Top Exercise - " . $exercise['exer_name'] ?>
+            <?php $exerciseImg =  "exerciseImg_" . $exercise['exer_name'] ?>
+            <a href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopExerciseName ?>">
+                <div class="exercise cards" aria-label=<?= $arialabelTopExerciseName ?>>
                     <div class="row">
                         <div class="col-sm-5">
                             <img class="card-img" src=<?= $imgURLs . $exercise['exer_images'] . "?raw=true" ?> alt=<?= $exerciseImg ?>>
@@ -84,12 +85,12 @@
     <div class="card-container" id="workout-container">
         <?php foreach ($workouts as $workout) : ?>
             <?php
-            $arialabelTopWorkoutId = "Top Workout - " . $workout['workout_name']
+            $arialabelTopWorkoutName = "Top Workout - " . $workout['workout_name']
             ?>
-            <?php $workoutImg =  "workoutImg - " . $workout['workout_name']
+            <?php $workoutImg =  "workoutImg_" . $workout['workout_name']
             ?>
-            <a href="<?= site_url("workout/details/{$workout['workout_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopWorkoutId ?>">
-                <div class="workout cards" aria-label=<?= $arialabelTopWorkoutId ?>>
+            <a href="<?= site_url("workout/details/{$workout['workout_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopWorkoutName ?>">
+                <div class="workout cards" aria-label=<?= $arialabelTopWorkoutName ?>>
                     <div class="row">
                         <div class="col-sm-5">
                             <img class="card-img" src="/img/image.png" alt=<?= $workoutImg ?>>
