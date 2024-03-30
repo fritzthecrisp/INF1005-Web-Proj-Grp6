@@ -5,7 +5,6 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
 
 <main class="container">
-    <h1>Home</h1>
     <div id="carousel" class="carousel slide">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -38,6 +37,11 @@
         <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
             <span class="carousel-control-next-icon"></span>
         </button>
+    </div>
+
+    <div class="alt-headings">
+        <h1>WELCOME TO UNIFIT!</h1>
+        <h1>Your One-stop Fitness Tracking Application</h1>
     </div>
  
     <h2 class=top_Headings>TOP EXERCISES</h2>
