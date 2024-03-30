@@ -104,6 +104,7 @@ function updateWorkout(checkbox) {
         inputElement1.setAttribute("type", "text");
         inputElement1.setAttribute("name", "sets[]");
         inputElement1.classList.add("form-control");
+        inputElement1.setAttribute("required", ""); 
 
         // Create a new label element for "Reps"
         var labelElement2 = document.createElement("label");
@@ -114,6 +115,7 @@ function updateWorkout(checkbox) {
         inputElement2.setAttribute("type", "text");
         inputElement2.setAttribute("name", "reps[]");
         inputElement2.classList.add("form-control");
+        inputElement2.setAttribute("required", ""); 
 
         // Create a new label element for "Weight"
         var labelElement3 = document.createElement("label");

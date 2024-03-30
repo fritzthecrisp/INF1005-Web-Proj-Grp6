@@ -3,7 +3,6 @@
 <?= $this->section('content') ?>
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
 <main class="container">
-    <h1>Add Workout</h1>
     <?php if (isset($validation)) : ?>
         <div class="text-danger">
             <?= $validation->listErrors() ?>
@@ -12,31 +11,38 @@
     <form id="workoutForm" method="post" action='/instance/new'>
         <div class="row">
             <div class="col-sm">
-                <label for="name">Workout Name</label><br>
-                <input type="text" id="name" name="workout_name"><br>
-                <label for="description">Workout Description</label><br>
-                <textarea id="description" name="workout_description" rows="3" cols="40"></textarea><br>
+                <h1>Add Workout</h1>
+                <div class="mb-3">
+                    <label for="workout_name" class="form-label">Workout Name</label><br>
+                    <input required type="text" id="workout_name" name="workout_name" class="form-control"><br>
+                </div>
 
-                <div class="search-wrapper">
-                    <label for="search">Search Users</label>
-                    <input id='search' type="search" placeholder="Search exercises" data-search>
-                    <div class="bd-example d-md-flex">
-                        <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-dark" data-exercise-cards-container style="max-width: 260px; max-height: 100px;">
-                        </div>
+                <div class="mb-3">
+                    <label for="workout_description" class="form-label">Workout Description</label><br>
+                    <textarea required type="text" id="workout_description" name="workout_description" rows="3" cols="40" class="form-control"></textarea><br>
+                </div>
+
+                <div class="mb-3 search-wrapper">
+                    <label for="search" class="form-label">Search Exercises</label><br>
+                    <input id='search' type="search" placeholder="Search exercises"  class="form-control" data-search>
+                </div>
+                <div class="mb-3 bd-example d-md-flex">
+                    <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-dark" id="exercise-list" data-exercise-cards-container>
                     </div>
-
                 </div>
             </div>
-            <div class="col-sm">
-                <h2>Selected Workouts</h2>
+            <div class="col-sm" id="selectedWorkouts">
+                <h1>Selected Workouts</h1>
             </div>
         </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check input" id="publicCheckBox" name="workout_public" value="Public">
-            <label class="form-check-label" for="publicCheckBox"> Make Public</label>
+        <div class="mb-3 form-check">
+            <input type="checkbox" name="workout_public" id="publicCheckBox" class="form-check-input">
+            <label class="form-check-label" for="publicCheckBox">
+                Make workout Public
+            </label>
         </div>
         <div>
-            <button type="submit" style="margin-top:20px;position: fixed;right: 8%;">Confirm Workout</button>
+            <button type="submit" id="cfmWorkout">Confirm Workout</button>
         </div>
     </form>
 </main>

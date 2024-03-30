@@ -82,12 +82,32 @@
         padding-bottom: 20px;
     }
 
-    .green-button{
+    .green-button {
         display: flex;
         justify-content: center;
     }
 }
 
+/* For addWorkout.php */
+
+#exercise-list {
+    max-width: 400px;
+    max-height: 200px;
+}
+
+#cfmWorkout {
+    float: right;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 767.33px) {
+    .col-sm {
+        flex: none;
+    }
+    #cfmWorkout {
+        float: none;
+    }
+}
 
 .rounded-border {
     border-radius: 20px;
