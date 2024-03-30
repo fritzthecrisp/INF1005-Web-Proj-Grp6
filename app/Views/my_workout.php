@@ -25,7 +25,7 @@
                 <div class="myWorkout cards">
                     <div class="row">
                         <div class="col-sm-5">
-                            <img class="card-img" src="/img/image.png" alt=<?= $myWorkoutImg ?>>
+                            <img class="card-img" src=<?= $imgURLs . $myWorkout['workout_image'] . "?raw=true"?> alt=<?= $myWorkoutImg ?>>
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">

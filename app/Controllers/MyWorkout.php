@@ -65,7 +65,9 @@ class MyWorkout extends BaseController
         $data = [
             'myWorkouts' => $user_workouts,
             'physicalTrainers' => $physicalTrainers,
-            'recommendedWorkouts' => $recommendedWorkouts
+            'recommendedWorkouts' => $recommendedWorkouts,
+            'imgURLs' => 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/' // set this string so all the images can be retrieved from the github
+
         ];
 
         // echo '<pre>';
@@ -80,8 +82,5 @@ class MyWorkout extends BaseController
         return view('my_workout', $data);
         
     }
-    public function addWorkout()
-    {
-        return view('add_workout');
-    }
+
 }
