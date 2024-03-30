@@ -104,7 +104,7 @@ class Instance extends BaseController
                     $db->transComplete(); // Commit transaction
 
                     $model = new CustomModel($db); //update the cache
-                    $model->getPublicWorkouts();
+                    $model->fetchPublicWorkouts();
                     $model = new InstanceModel($db); //update the cache
                     $model->fetchUserInstances();
                 } catch (\Exception $e) {

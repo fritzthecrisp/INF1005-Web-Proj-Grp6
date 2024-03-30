@@ -53,7 +53,6 @@ class InstanceModel extends Model
         $sets_results = array();
         $all_my_sets = array();
         $all_my_instances = array();
-        $workout_image = array();
         $userID = 5; //set user ID
 
         $instances = $this->db->table('instances')

@@ -103,21 +103,21 @@
             ?>
             <?php $recommendedWorkoutImg =  "rec_workoutImg_" . $recommendedWorkout['workout_name']
             ?>
-            <a href="<?= site_url("workout/details/{$recommendedWorkout['workout_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelRecommendedWorkoutName ?>">
+            <a href="<?= site_url("workout/details/{$recommendedWorkout['instance_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelRecommendedWorkoutName ?>">
                 <div class="recommendedWorkout cards">
                     <div class="row">
                         <div class="col-sm-5">
-                            <img class="card-img" src="/img/image.png" alt="<?= $recommendedWorkoutImg ?>">
+                            <img class="card-img" src=<?= $imgURLs . $recommendedWorkout['workout_image'] . "?raw=true"?>  alt="<?= $recommendedWorkoutImg ?>">
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">
                                 <div class="text-section">
                                     <h3 class="card-title"><?= $recommendedWorkout['workout_name'] ?></h3>
-                                    <h4 class="card-subtitle mb-2">User ID: <?= $recommendedWorkout['user_id'] ?></h4>
+                                    <h4 class="card-subtitle mb-2">User ID: <?= $recommendedWorkout['user_name'] ?></h4>
                                     <p class="card-text"><?= $recommendedWorkout['workout_description'] ?></p>
                                 </div>
                                 <div class="button-section">
-                                    <form action="<?= site_url("workout/details/{$recommendedWorkout['workout_id']}") ?>" method="get">
+                                    <form action="<?= site_url("workout/details/{$recommendedWorkout['instance_id']}") ?>" method="get">
                                         <button type="submit">View</button>
                                     </form>
                                 </div>

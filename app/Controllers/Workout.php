@@ -15,19 +15,24 @@ class Workout extends BaseController
         // get the cache for exercises. 
         $cache = \Config\Services::cache();
 
-        // check the cache 
-        $cachedUserInstanceSets = $cache->get('user_instance_sets_' . $userID);
-        $cachedUserInstances = $cache->get('user_instance_' . $userID);
+        // Get from session
+        // Retrieve exercises from session
+        $session = \Config\Services::session();
+        $userID = 5; // #userID #user_id
 
-        // if cache is empty, add cache. 
-        if ($cachedUserInstances === null) {
+        // Check if the session variables exist
+        if (!$session->has('user_instances_' . $userID) || !$session->has('user_instance_sets_' . $userID)) {
+            // If session data doesn't exist, fetch from the database
             $db = db_connect();
             $model = new InstanceModel($db);
             $result = $model->fetchUserInstances();
             $cachedUserInstances = $result[0];
             $cachedUserInstanceSets = $result[1];
+        } else {
+            // If session data exists, retrieve it
+            $cachedUserInstances = $session->get('user_instances_' . $userID);
+            $cachedUserInstanceSets = $session->get('user_instance_sets_' . $userID);
         }
-
         // You can fetch details from a predefined array or database
         // For now, let's assume you have a predefined array of exercises
 
@@ -49,7 +54,7 @@ class Workout extends BaseController
 
 
         // Pass exercise details to the view
-        return view('workout_info', ['workout' => $workout, 'sets' => $setDetails, 'imgURLs'=>$imgURLs]);
+        return view('workout_info', ['workout' => $workout, 'sets' => $setDetails, 'imgURLs' => $imgURLs]);
 
         // return view('workout_info', ['workout' => $workout, 'isLoggedIn' => $isLoggedIn]);
     }
