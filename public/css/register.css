@@ -19,10 +19,6 @@
     align-items: center;
 }
 
-.btn {
-    padding: 10px 100px;
-}
-
 @media only screen and (max-width: 991.33px) {
     .label_selection {
         display: block;

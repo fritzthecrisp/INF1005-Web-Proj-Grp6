@@ -1,16 +1,37 @@
-/* For Home Page */
+/* For home.php Page */
 
 .carousel-caption h2 {
     text-decoration: none;
 }
 
 .carousel-item img {
-    width: 800px; 
+    width: 800px;
     height: 500px;
 }
 
 .top_Headings {
     margin-top: 30px;
+}
+
+
+/* For workout_info.php Page */
+.workoutGuide h2 {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+@media (max-width: 570px) {
+    #workoutButtons {
+        flex-direction: column;
+        /* Stack cards vertically */
+        align-items: center;
+        /* Align cards in the center */
+    }
+
+    .workoutImg {
+        max-width: 100%;
+        height: auto;
+      }
 }
 
 .rounded-border {
@@ -44,6 +65,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
 .green-button {
     background-color: green;
     color: white;

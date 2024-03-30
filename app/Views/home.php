@@ -92,7 +92,7 @@
                         <div class="card-body">
                             <div class="text-section">
                                 <h3 class="card-title"><?= $workout['workout_name'] ?></h3>
-                                <h4 class="card-subtitle mb-2">Made by:</h4>
+                                <h4 class="card-subtitle mb-2">Made by: </h4>
                                 <p class="card-text"><?= $workout['workout_description'] ?></p>
                             </div>
                             <div class="button-section">

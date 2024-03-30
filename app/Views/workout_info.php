@@ -1,19 +1,25 @@
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>
+<link rel="stylesheet" type="text/css" href="<?= base_url('css/card.css') ?>">
+<link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
+
 <main class="container">
     <div class="row">
-        <div class="col-sm">
-            <img src="/img/image.png" alt="workoutImg">
+        <div class="col-sm" id="workoutDetails">
+            <?php $workoutImg =  "workoutImg - " . $workout['workout_name']
+            ?>
             <h1><?= $workout['workout_name'] ?></h1>
-            <h2><?= $workout['description'] ?></h2>
-            <p>5X Chest Press</p>
-            <p>Break</p>
-            <p>6X Chest Press</p>
-            <p>Break</p>
+            <img class="workoutImg" src="/img/image.png" alt=<?= $workoutImg ?>>
+            <div class="workoutGuide">
+                <h2><?= "Your Guide to " . $workout['workout_name'] ?></h2>
+                <p><?="Created by " . "username" . " on ". "creation_time"?></p>
+                <p><?="Updated on " . "updated_time"?></p>
+                <p><?= $workout['description'] ?></p>
+            </div>
         </div>
         <div class="col-sm">
-            <div class="d-flex justify-content-end"> <!-- Added classes here -->
+            <div class="d-flex justify-content-end" id="workoutButtons"> <!-- Added classes here -->
                 <button>SHARE</button>
                 <form style="display: inline" action="<?php echo base_url('workout/startWorkout/1'); ?>" method="get">
                     <button type="submit">Start Workout</button>
@@ -30,7 +36,7 @@
             </div>
         </div>
     </div>
-
-
 </main>
+<script src="<?= base_url('js/workoutInfo.js') ?>"></script>
+
 <?= $this->endSection() ?>
