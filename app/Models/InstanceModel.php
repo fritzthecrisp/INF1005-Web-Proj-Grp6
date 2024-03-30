@@ -53,13 +53,15 @@ class InstanceModel extends Model
         $sets_results = array();
         $all_my_sets = array();
         $all_my_instances = array();
+        $workout_image = array();
         $userID = 5; //set user ID
 
         $instances = $this->db->table('instances')
-            ->select('instances.*, workouts.*, instance_sets.*, users.user_username') // Select columns from all tables
+            ->select('instances.*, workouts.*, instance_sets.*, users.user_username, exercises.*') // Select columns from all tables
             ->join('workouts', 'instances.workout_id = workouts.workout_id') // Join with workouts table
             ->join('users', 'instances.user_id = users.user_id') // Join with users table
             ->join('instance_sets', 'instances.instance_id = instance_sets.instance_id') // Join with instance_sets table
+            ->join('exercises', 'instance_sets.exer_id = exercises.exer_id') // Join with exercises table
             ->where('instances.user_id', $userID) // Filter instances by user_id
             ->get()
             ->getResult();
@@ -67,11 +69,19 @@ class InstanceModel extends Model
         foreach ($instances as $object) {
             $sets_results[] = (array) $object; // contains every single set in all the users instances
             $instance_id = $sets_results[$i]["instance_id"];
+
+            // Extract and assign workout image
+            $images = json_decode($sets_results[$i]["exer_images"], true);
+            if (!empty($images)) {
+                $image1 = $images[1];
+            }
+
             if (!isset($all_my_instances[$instance_id])) {
                 $all_my_instances[$instance_id] = [
                     'workout_id' => $sets_results[$i]['workout_id'],
                     'user_name' => $sets_results[$i]['user_username'],
                     'instance_id' => $sets_results[$i]['instance_id'],
+                    'workout_image'=> $image1,
                     'workout_name' => $sets_results[$i]['workout_name'],
                     'workout_description' => $sets_results[$i]['workout_description'],
                     'workout_public' => $sets_results[$i]['workout_public']
@@ -81,7 +91,7 @@ class InstanceModel extends Model
 
             $all_my_sets[] = [
                 'instance_id' => $sets_results[$i]['instance_id'],
-                'exer_id' => $sets_results[$i]['exer_id'],
+                'exer_name' => $sets_results[$i]['exer_name'],
                 'sets' => $sets_results[$i]['instance_set_count'],
                 'reps' => $sets_results[$i]['instance_set_reps'],
                 'weight' => $sets_results[$i]['instance_set_weight']                // Add other fields if needed            ]
@@ -102,7 +112,7 @@ class InstanceModel extends Model
         $cache = \Config\Services::cache();
         $cache->save('user_instance_sets_' . $userID, $all_my_sets, 3600); // Cache for 1 hour (3600 seconds)
         $cache->save('user_instances_' . $userID, $all_my_instances, 3600); // Cache for 1 hour (3600 seconds)
-        $result=[$all_my_instances,$all_my_sets];
+        $result = [$all_my_instances, $all_my_sets];
         return $result;
     }
 

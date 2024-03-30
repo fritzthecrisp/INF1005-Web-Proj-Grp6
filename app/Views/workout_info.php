@@ -10,10 +10,10 @@
             <?php $workoutImg =  "workoutImg - " . $workout['workout_name']
             ?>
             <h1><?= $workout['workout_name'] ?></h1>
-            <img class="workoutImg" src="/img/image.png" alt=<?= $workoutImg ?>>
+            <img class="workoutImg" src=<?= $imgURLs . $workout['workout_image'] . "?raw=true" ?> alt=<?= $workoutImg ?>>
             <div class="workoutGuide">
                 <h2><?= "Your Guide to " . $workout['workout_name'] ?></h2>
-                <p><?="Created by " . $workout['user_name'] ?></p>
+                <p><?= "Created by " . $workout['user_name'] ?></p>
                 <p><?= $workout['workout_description'] ?></p>
             </div>
         </div>
@@ -32,7 +32,31 @@
                     <button type="submit">Delete Record</button>
                 </form>
                 <!-- ?php endif; ? -->
+
             </div>
+            <div id="thisdiv">
+                <table id="exerciseTable" class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>Exercise Name</th>
+                            <th>Sets</th>
+                            <th>Reps</th>
+                            <th>Weights</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($sets as $set) : ?>
+                            <tr>
+                                <td><?= $set['exer_name'] ?></td>
+                                <td><?= $set['sets'] ?></td>
+                                <td><?= $set['reps'] ?></td>
+                                <td><?= $set['weight'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     </div>
 </main>
