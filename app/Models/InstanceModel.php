@@ -34,7 +34,6 @@ class InstanceModel extends Model
     // protected $beforeFind = ['checkName']; // $beforeFind is an event, and checkName is a function that runs when the event occurs. 
     // protected $afterDelete = ['checkName']; // $afterDelete is an event, and checkName is a function that runs when the event occurs. 
 
-
     public function checkName(array $data)
     {
         $newTitle = $data['data']['instance_name'] . ' Extra Features';

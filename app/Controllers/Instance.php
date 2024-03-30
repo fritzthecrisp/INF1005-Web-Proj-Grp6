@@ -19,6 +19,7 @@ class Instance extends BaseController
         ];
         return view('instance', $data);
     }
+    
     public function selected($id): string
     {
         $db = db_connect();
@@ -107,6 +108,9 @@ class Instance extends BaseController
 
                     $model = new CustomModel($db); //update the cache
                     $model->getPublicWorkouts();
+                    $model = new InstanceModel($db); //update the cache
+                    $model->fetchUserInstances();
+                    
                 } catch (\Exception $e) {
                     $db->transRollback(); // Rollback transaction if any query fails
                     // Handle exception or error here
