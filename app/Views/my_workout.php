@@ -16,7 +16,7 @@
 
     <div class="card-container" id="myWorkout-container">
         <?php foreach ($myWorkouts as $myWorkout) : ?>
-            <a href="<?= site_url("workout/details/{$myWorkout['workout_id']}") ?>" class="exercise-link card-link">
+            <a href="<?= site_url("workout/details/{$myWorkout['instance_id']}") ?>" class="exercise-link card-link">
                 <div class="myWorkout cards">
                     <div class="row">
                         <div class="col-sm-5">
@@ -30,7 +30,7 @@
                                     <p class="card-text"><?= $myWorkout['workout_description'] ?></p>
                                 </div>
                                 <div class="button-section">
-                                    <form action="<?= site_url("workout/details/{$myWorkout['workout_id']}") ?>" method="get">
+                                    <form action="<?= site_url("workout/details/{$myWorkout['instance_id']}") ?>" method="get">
                                         <button type="submit">View</button>
                                     </form>
                                 </div>

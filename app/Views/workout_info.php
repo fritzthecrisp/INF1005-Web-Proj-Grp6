@@ -13,14 +13,13 @@
             <img class="workoutImg" src="/img/image.png" alt=<?= $workoutImg ?>>
             <div class="workoutGuide">
                 <h2><?= "Your Guide to " . $workout['workout_name'] ?></h2>
-                <p><?="Created by " . "username" . " on ". "creation_time"?></p>
-                <p><?="Updated on " . "updated_time"?></p>
-                <p><?= $workout['description'] ?></p>
+                <p><?="Created by " . $workout['user_name'] ?></p>
+                <p><?= $workout['workout_description'] ?></p>
             </div>
         </div>
         <div class="col-sm">
             <div class="d-flex justify-content-end" id="workoutButtons"> <!-- Added classes here -->
-                <button>SHARE</button>
+                <!-- <button>SHARE</button> -->
                 <form style="display: inline" action="<?php echo base_url('workout/startWorkout/1'); ?>" method="get">
                     <button type="submit">Start Workout</button>
                 </form>

@@ -69,7 +69,7 @@ class MyWorkout extends BaseController
         ];
 
         // echo '<pre>';
-        // print_r($all_my_instances);
+        // print_r($user_workouts);
         // echo '</pre>';
         // echo '<pre>';
         // print_r($recommendedWorkouts);
@@ -78,6 +78,7 @@ class MyWorkout extends BaseController
 
         // // Pass the data to the view
         return view('my_workout', $data);
+        
     }
     public function addWorkout()
     {

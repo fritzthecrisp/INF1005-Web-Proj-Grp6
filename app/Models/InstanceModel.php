@@ -102,7 +102,8 @@ class InstanceModel extends Model
         $cache = \Config\Services::cache();
         $cache->save('user_instance_sets_' . $userID, $all_my_sets, 3600); // Cache for 1 hour (3600 seconds)
         $cache->save('user_instances_' . $userID, $all_my_instances, 3600); // Cache for 1 hour (3600 seconds)
-        return $all_my_instances;
+        $result=[$all_my_instances,$all_my_sets];
+        return $result;
     }
 
 
