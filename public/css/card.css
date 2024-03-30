@@ -7,33 +7,46 @@ h2 {
     padding-bottom: 20px;
 }
 
-.card-container {
+/* Card style */
+
+.card-link {
     display: flex;
+    color: inherit;
+    /* Inherit text color from parent */
+    text-decoration: none;
+    /* Remove underline */
 }
 
-.card-title {
-    margin-bottom: 18px;
+.card-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
+.card-title,
 .card-subtitle {
     margin-bottom: 18px;
-
-}
-
-.cards {
-    flex: 1;
-    box-sizing: border-box;
-    width: 500px;
-    height: 280px;
-    overflow: hidden;
-    border: 1px solid black;
-    margin-right: 10px;
 }
 
 .card-img {
     margin: auto;
     padding: 0.5em;
     border-radius: 0.7em;
+    width: 100%;
+    /* Make sure image is responsive */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+.cards {
+    box-sizing: border-box;
+    /* Include padding and border in the element's size */
+    flex: 1;
+    border: 1px solid black;
+    margin-right: 10px;
+    overflow: hidden;
+    width: auto;
+    height: 280px;
 }
 
 .card-body {
@@ -70,22 +83,20 @@ h2 {
     /* Position it 10px from the right */
 }
 
-.card-link {
-    color: inherit;
-    /* Inherit text color from parent */
-    text-decoration: none;
-    /* Remove underline */
-}
+/* Button style */
 
 .btn {
-    border: none;
     outline: none;
     color: white;
-    background-color: #007bff;
-    cursor: pointer;
     border-radius: 5px;
     width: 100px;
     /* Adjust width as needed */
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-next {
@@ -107,13 +118,6 @@ h2 {
     cursor: not-allowed;
 }
 
-/* Flexbox setup for button alignment */
-.buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .material-icons {
     font-size: 10em;
     color: green;
@@ -121,7 +125,7 @@ h2 {
 
 @media (max-width: 992px) {
     .cards {
-        width: 100%;
+        width: 400px;
         height: 50%;
         /* Make cards full width */
         margin-bottom: 20px;
