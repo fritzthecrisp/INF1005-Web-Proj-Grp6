@@ -22,9 +22,10 @@ h2 {
 }
 
 .cards {
+    flex: 1;
     box-sizing: border-box;
-    /* width: 600px; */
-    height: auto;
+    width: 600px;
+    height: 280px;
     overflow: hidden;
     border: 1px solid black;
     margin-right: 10px;

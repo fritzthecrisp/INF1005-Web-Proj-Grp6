@@ -16,27 +16,29 @@
 
     <div class="card-container" id="myWorkout-container">
         <?php foreach ($myWorkouts as $myWorkout) : ?>
-            <div class="myWorkout cards">
-                <div class="row">
-                    <div class="col-sm-5">
-                        <img class="card-img" src="/img/image.png" alt="myWorkout">
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="card-body">
-                            <div class="text-section">
-                                <h4 class="card-title"><?= $myWorkout['workout_name'] ?></h4>
-                                <h5 class="card-subtitle mb-2">Made by <?= $myWorkout['workout_creator'] ?></h5>
-                                <p class="card-text"><?= $myWorkout['workout_description'] ?></p>
-                            </div>
-                            <div class="button-section">
-                                <form action="<?= site_url("workout/details/{$myWorkout['workout_id']}") ?>" method="get">
-                                    <button type="submit">View</button>
-                                </form>
+            <a href="<?= site_url("workout/details/{$myWorkout['workout_id']}") ?>" class="exercise-link card-link">
+                <div class="myWorkout cards">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <img class="card-img" src="/img/image.png" alt="myWorkout">
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="card-body">
+                                <div class="text-section">
+                                    <h4 class="card-title"><?= $myWorkout['workout_name'] ?></h4>
+                                    <h5 class="card-subtitle mb-2">Made by <?= $myWorkout['workout_creator'] ?></h5>
+                                    <p class="card-text"><?= $myWorkout['workout_description'] ?></p>
+                                </div>
+                                <div class="button-section">
+                                    <form action="<?= site_url("workout/details/{$myWorkout['workout_id']}") ?>" method="get">
+                                        <button type="submit">View</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         <?php endforeach; ?>
         <div class="buttons">
             <button class="btn btn-primary btn-next"><i class="material-icons" style="font-size: 10em;color:green">arrow_right</i></button>
@@ -49,27 +51,29 @@
 
     <div class="card-container" id="physicalTrainers-container">
         <?php foreach ($physicalTrainers as $physicalTrainer) : ?>
-            <div class="physicalTrainers cards">
-                <div class="row">
-                    <div class="col-sm-5">
-                        <img class="card-img" src="/img/image.png">
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="card-body">
-                            <div class="text-section">
-                                <h4 class="card-title"><?= $physicalTrainer['workout_name'] ?></h4>
-                                <h5 class="card-subtitle mb-2">Made by <?= $physicalTrainer['made_by'] ?></h5>
-                                <p class="card-text"><?= $physicalTrainer['description'] ?></p>
-                            </div>
-                            <div class="button-section">
-                                <form action="<?= site_url("exercises/details/{$physicalTrainer['id']}") ?>" method="get">
-                                    <button type="submit">View</button>
-                                </form>
+            <a href="<?= site_url("exercises/details/{$physicalTrainer['id']}") ?>" class="exercise-link card-link">
+                <div class="physicalTrainers cards">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <img class="card-img" src="/img/image.png">
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="card-body">
+                                <div class="text-section">
+                                    <h4 class="card-title"><?= $physicalTrainer['workout_name'] ?></h4>
+                                    <h5 class="card-subtitle mb-2">Made by <?= $physicalTrainer['made_by'] ?></h5>
+                                    <p class="card-text"><?= $physicalTrainer['description'] ?></p>
+                                </div>
+                                <div class="button-section">
+                                    <form action="<?= site_url("exercises/details/{$physicalTrainer['id']}") ?>" method="get">
+                                        <button type="submit">View</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         <?php endforeach; ?>
         <div class="buttons">
             <button class="btn btn-primary btn-next"><i class="material-icons" style="font-size: 10em;color:green">arrow_right</i></button>
@@ -82,27 +86,29 @@
 
     <div class="card-container" id="recommendedWorkout-container">
         <?php foreach ($recommendedWorkouts as $recommendedWorkout) : ?>
-            <div class="recommendedWorkout cards">
-                <div class="row">
-                    <div class="col-sm-5">
-                        <img class="card-img" src="/img/image.png">
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="card-body">
-                            <div class="text-section">
-                                <h4 class="card-title"><?= $recommendedWorkout['workout_name'] ?></h4>
-                                <h5 class="card-subtitle mb-2"><?= $recommendedWorkout['made_by'] ?></h5>
-                                <p class="card-text"><?= $recommendedWorkout['description'] ?></p>
-                            </div>
-                            <div class="button-section">
-                                <form action="<?= site_url("workout/details/{$recommendedWorkout['id']}") ?>" method="get">
-                                    <button type="submit">View</button>
-                                </form>
+            <a href="<?= site_url("workout/details/{$recommendedWorkout['id']}") ?>" class="exercise-link card-link">
+                <div class="recommendedWorkout cards">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <img class="card-img" src="/img/image.png">
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="card-body">
+                                <div class="text-section">
+                                    <h4 class="card-title"><?= $recommendedWorkout['workout_name'] ?></h4>
+                                    <h5 class="card-subtitle mb-2"><?= $recommendedWorkout['made_by'] ?></h5>
+                                    <p class="card-text"><?= $recommendedWorkout['description'] ?></p>
+                                </div>
+                                <div class="button-section">
+                                    <form action="<?= site_url("workout/details/{$recommendedWorkout['id']}") ?>" method="get">
+                                        <button type="submit">View</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         <?php endforeach; ?>
         <div class="buttons">
             <button class="btn btn-primary btn-next"><i class="material-icons" style="font-size: 10em;color:green">arrow_right</i></button>

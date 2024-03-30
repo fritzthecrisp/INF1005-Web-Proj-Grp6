@@ -43,34 +43,36 @@
         <h1>WELCOME TO UNIFIT!</h1>
         <h1>Your One-stop Fitness Tracking Application</h1>
     </div>
- 
+
     <h2 class=top_Headings>TOP EXERCISES</h2>
     <p> Here are the Top exercises done by our UniFit members!
     <div class="card-container" id="exercise-container">
         <?php foreach ($exercises as $exercise) : ?>
             <?php $arialabelTopExerciseId = "Top Exercise - " . $exercise['exer_name'] ?>
             <?php $exerciseImg =  "exerciseImg - " . $exercise['exer_name'] ?>
-            <div class="exercise cards" aria-label=<?= $arialabelTopExerciseId ?>>
-                <div class="row">
-                    <div class="col-sm-5">
-                        <img class="card-img" src="/img/image.png" alt=<?= $exerciseImg ?>>
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="card-body">
-                            <div class="text-section">
-                                <h3 class="card-title"><?= $exercise['exer_name'] ?></h5>
-                                    <h4 class="card-subtitle mb-2">Level: <?= $exercise['exer_level'] ?></h4>
-                                    <p class="card-text">Exercise Eqiupment: <?= $exercise['exer_equipment'] ?></p>
-                            </div>
-                            <div class="button-section">
-                                <form action="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" method="get">
-                                    <button type="submit">View</button>
-                                </form>
+            <a href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopExerciseId ?>">
+                <div class="exercise cards" aria-label=<?= $arialabelTopExerciseId ?>>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <img class="card-img" src="/img/image.png" alt=<?= $exerciseImg ?>>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="card-body">
+                                <div class="text-section">
+                                    <h3 class="card-title"><?= $exercise['exer_name'] ?></h5>
+                                        <h4 class="card-subtitle mb-2">Level: <?= $exercise['exer_level'] ?></h4>
+                                        <p class="card-text">Exercise Eqiupment: <?= $exercise['exer_equipment'] ?></p>
+                                </div>
+                                <div class="button-section">
+                                    <form action="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" method="get">
+                                        <button type="submit">View</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         <?php endforeach; ?>
         <div class="buttons">
             <button class="btn btn-primary btn-next"><i class="material-icons">arrow_right</i></button>
@@ -86,28 +88,29 @@
             ?>
             <?php $workoutImg =  "workoutImg - " . $workout['workout_name']
             ?>
-
-            <div class="workout cards" aria-label=<?= $arialabelTopWorkoutId ?>>
-                <div class="row">
-                    <div class="col-sm-5">
-                        <img class="card-img" src="/img/image.png" alt=<?= $workoutImg ?>>
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="card-body">
-                            <div class="text-section">
-                                <h3 class="card-title"><?= $workout['workout_name'] ?></h3>
-                                <h4 class="card-subtitle mb-2">Made by: </h4>
-                                <p class="card-text"><?= $workout['workout_description'] ?></p>
-                            </div>
-                            <div class="button-section">
-                                <form action="<?= site_url("workout/details/{$workout['workout_id']}") ?>" method="get">
-                                    <button type="submit">View</button>
-                                </form>
+            <a href="<?= site_url("workout/details/{$workout['workout_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopWorkoutId ?>">
+                <div class="workout cards" aria-label=<?= $arialabelTopWorkoutId ?>>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <img class="card-img" src="/img/image.png" alt=<?= $workoutImg ?>>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="card-body">
+                                <div class="text-section">
+                                    <h3 class="card-title"><?= $workout['workout_name'] ?></h3>
+                                    <h4 class="card-subtitle mb-2">Made by: </h4>
+                                    <p class="card-text"><?= $workout['workout_description'] ?></p>
+                                </div>
+                                <div class="button-section">
+                                    <form action="<?= site_url("workout/details/{$workout['workout_id']}") ?>" method="get">
+                                        <button type="submit">View</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         <?php endforeach; ?>
         <div class="buttons">
             <button class="btn btn-primary btn-next"><i class="material-icons">arrow_right</i></button>
