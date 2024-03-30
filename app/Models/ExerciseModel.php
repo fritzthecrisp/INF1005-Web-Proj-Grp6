@@ -32,9 +32,19 @@ class ExerciseModel extends Model
             ->getResult();
 
         $top_exercises = array();
+        $i = 0;
         foreach ($exercises as $object) {
             $top_exercises[] = (array) $object;
+            $images = json_decode($top_exercises[$i]["exer_images"], true);
+            $image1 = $images[0];
+            $top_exercises[$i]["exer_images"] = $image1;
+            $i ++;
         }
+        // echo '<pre>';
+        // print_r($top_exercises);
+        // echo '</pre>';
+        // exit;
+
         // Cache the fetched exercises
         $cache = \Config\Services::cache();
         $cache->save('top_exercises', $top_exercises, 3600); // Cache for 1 hour (3600 seconds)
@@ -49,8 +59,14 @@ class ExerciseModel extends Model
         $all_exercises = array();
 
         $exercises = $this->db->table('exercises')->get()->getResult();
+        $i = 0;
         foreach ($exercises as $object) {
             $all_exercises[] = (array) $object;
+
+            $images = json_decode($all_exercises[$i]["exer_images"], true);
+            $image1 = $images[0];
+            $all_exercises[$i]["exer_images"] = $image1;
+            $i++;
         }
 
         // Cache the fetched exercises
