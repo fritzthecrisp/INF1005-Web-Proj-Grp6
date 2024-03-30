@@ -23,6 +23,7 @@ class MyWorkout extends BaseController
             $model = new InstanceModel($db);
 
             $user_workouts = $model->fetchUserInstances();
+            $user_workouts = $user_workouts[0];
         }
 
         $physicalTrainers = [
