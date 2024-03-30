@@ -36,11 +36,14 @@ class Home2 extends BaseController
             }
             if ($topWorkouts === null) { {
                     $model = new WorkoutModel($db);
-                    $topWorkouts = $model->fetchTopWorkouts(); // since we won't need the cached exercises here, we won't need it. 
+                    $topWorkouts = $model->fetchTopWorkouts();  
                 }
             }
         }
+        $imgURLs = 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/'; // set this string so all the images can be retrieved from the github
+    
 
-        return view('home', ['exercises' => $topExercises, 'workouts' => $topWorkouts]);
+
+        return view('home', ['exercises' => $topExercises, 'workouts' => $topWorkouts, 'imgURLs' => $imgURLs]);
     }
 }
