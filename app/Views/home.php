@@ -32,10 +32,10 @@
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev" aria-label="previous-slide">
             <span class="carousel-control-prev-icon"></span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next" aria-label="next-slide">
             <span class="carousel-control-next-icon"></span>
         </button>
     </div>
