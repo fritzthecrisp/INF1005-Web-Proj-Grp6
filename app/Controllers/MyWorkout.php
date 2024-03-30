@@ -26,7 +26,6 @@ class MyWorkout extends BaseController
             $model = new InstanceModel($db);
             $user_workouts = $model->fetchUserInstances();
             $user_workouts = $user_workouts[0];
-            
         } else {
             // If session data exists, retrieve it
             $user_workouts = $session->get('user_instances_' . $userID);
@@ -60,19 +59,22 @@ class MyWorkout extends BaseController
         ];
 
         // check the cache 
-        $recommendedWorkouts = $cache->get('public_workouts');
+        $public_instances = $cache->get('public_instances');
+        $public_instance_sets = $cache->get('public_instance_sets');
 
         // if cache is empty, add cache. 
-        if ($recommendedWorkouts === null) {
+        if ($public_instance_sets === null || $public_instances) {
             $model = new CustomModel($db);
 
-            $recommendedWorkouts = $model->getPublicWorkouts();
+            $result = $model->fetchPublicWorkouts();
+            $public_instances = $result[0];
+            $public_instance_sets = $result[1];
         }
 
         $data = [
             'myWorkouts' => $user_workouts,
             'physicalTrainers' => $physicalTrainers,
-            'recommendedWorkouts' => $recommendedWorkouts,
+            'recommendedWorkouts' => $public_instances,
             'imgURLs' => 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/' // set this string so all the images can be retrieved from the github
 
         ];
