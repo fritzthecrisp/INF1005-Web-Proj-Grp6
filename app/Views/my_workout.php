@@ -107,7 +107,7 @@
                             <div class="card-body">
                                 <div class="text-section">
                                     <h4 class="card-title"><?= $recommendedWorkout['workout_name'] ?></h4>
-                                    <h5 class="card-subtitle mb-2">User ID: <?= $recommendedWorkout['workout_creator'] ?></h5>
+                                    <h5 class="card-subtitle mb-2">User ID: <?= $recommendedWorkout['user_id'] ?></h5>
                                     <p class="card-text"><?= $recommendedWorkout['workout_description'] ?></p>
                                 </div>
                                 <div class="button-section">

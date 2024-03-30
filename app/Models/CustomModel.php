@@ -31,7 +31,7 @@ class CustomModel
         
 
         $builder = $this->db->table('workouts');
-        $builder->join('users', 'workouts.workout_creator = users.user_id AND users.user_id = ' . $user_id);
+        $builder->join('users', 'workouts.user_id = users.user_id AND users.user_id = ' . $user_id);
         $workout_results = $builder->where('workout_public', 'Public')->get()->getResult();        
         $public_workouts = array();
         foreach ($workout_results as $object) {

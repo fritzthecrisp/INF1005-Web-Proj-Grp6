@@ -39,7 +39,7 @@ class InstanceSetModel extends Model
     }
     public function getUserID(array $data){
         $userID = 5; //"Set user ID dynamically here"
-        $data['data']['workout_creator'] = $userID;
+        $data['data']['user_id'] = $userID;
         return $data;
     }
 

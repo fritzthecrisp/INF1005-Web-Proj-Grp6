@@ -17,7 +17,7 @@ class WorkoutModel extends Model
     protected $primaryKey = 'workout_id';
 
     // the table columns that we will allow users to change
-    protected $allowedFields = ['workout_name', 'workout_description', 'workout_public'];
+    protected $allowedFields = ['workout_name', 'workout_description', 'workout_public', 'user_id'];
 
     protected $useTimestamps = true;
     protected $createdField = 'workout_created_at';
@@ -25,25 +25,27 @@ class WorkoutModel extends Model
 
     // protected $deletedField = 'workout_deleted_at';
 
-    protected $beforeInsert = ['checkName', 'getUserID']; // $beforeInsert is an event, and checkName is a function that runs when the event occurs. 
+    // protected $beforeInsert = ['getUserID','checkName']; // $beforeInsert is an event, and checkName is a function that runs when the event occurs. 
     // protected $afterInsert = ['checkName']; // $afterInsert is an event, and checkName is a function that runs when the event occurs. 
     // protected $beforeUpdate = ['checkName']; // $beforeUpdate is an event, and checkName is a function that runs when the event occurs. 
     // protected $beforeFind = ['checkName']; // $beforeFind is an event, and checkName is a function that runs when the event occurs. 
     // protected $afterDelete = ['checkName']; // $afterDelete is an event, and checkName is a function that runs when the event occurs. 
 
 
-    public function checkName(array $data)
-    {
-        $newTitle = $data['data']['workout_name'] . ' Extra Features';
-        $data['data']['workout_name'] = $newTitle;
-        return $data;
-    }
-    public function getUserID(array $data)
-    {
-        $userID = 5; //"Set user ID dynamically here"
-        $data['data']['workout_creator'] = $userID;
-        return $data;
-    }
+    // public function checkName(array $data)
+    // {
+    //     $newTitle = $data['data']['workout_name'] . ' Extra Features';
+    //     $data['data']['workout_name'] = $newTitle;
+    //     return $data;
+    // }
+    // public function getUserID(array $data)
+    // {
+    //     // Log the contents of the $data variable
+    //     log_message('debug', 'Contents of $data variable: ' . print_r($data, true));
+    //     $userID = 5; //"Set user ID dynamically here"
+    //     $data['user_id'] = $userID;
+    //     return $data;
+    // }
     public function fetchTopWorkouts()
     {
         // "SELECT *  FROM workouts"

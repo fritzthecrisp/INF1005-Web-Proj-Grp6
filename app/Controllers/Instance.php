@@ -19,7 +19,7 @@ class Instance extends BaseController
         ];
         return view('instance', $data);
     }
-    
+
     public function selected($id): string
     {
         $db = db_connect();
@@ -65,6 +65,7 @@ class Instance extends BaseController
                     $instance_set_data = [];
                     // Insert data into the Workout table
                     $workout_model = new WorkoutModel($db);
+                    $_POST['user_id']=5; // #user_id set dynamically
                     $workout_model->save($_POST);
 
                     // get the workout ID
@@ -94,25 +95,25 @@ class Instance extends BaseController
                             'instance_set_weight' => $_POST['weight'][$i]
                         ];
                     }
-                    // echo '<pre>';
-                    // print_r($instance_set_data);
-                    // echo '</pre>';
-                    // exit;
 
                     if (!empty($instance_set_data)) {
                         // Perform batch insertion using Model's insertBatch method
                         $instance_set_model->insertBatch($instance_set_data);
                     }
 
-                    $db->transCommit(); // Commit transaction
+                    $db->transComplete(); // Commit transaction
 
                     $model = new CustomModel($db); //update the cache
                     $model->getPublicWorkouts();
                     $model = new InstanceModel($db); //update the cache
                     $model->fetchUserInstances();
-                    
                 } catch (\Exception $e) {
                     $db->transRollback(); // Rollback transaction if any query fails
+                    log_message('error', $e->getMessage()); // Logs the exception message
+                    // Display a user-friendly error message
+                    // You can set a flash message or render an error view
+                    echo "An error occurred. Please try again later.";
+
                     // Handle exception or error here
                 }
             } else {
