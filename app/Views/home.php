@@ -55,7 +55,7 @@
                 <div class="exercise cards" aria-label=<?= $arialabelTopExerciseName ?>>
                     <div class="row">
                         <div class="col-sm-5">
-                            <img class="card-img" src=<?= $imgURLs . $exercise['exer_images'] . "?raw=true" ?> alt=<?= $exerciseImg ?>>
+                            <img class="card-img" src=<?= $imgURLs . $exercise['exer_images'] . "?raw=true" ?> alt="<?= $exerciseImg ?>">
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">
@@ -93,7 +93,7 @@
                 <div class="workout cards" aria-label=<?= $arialabelTopWorkoutName ?>>
                     <div class="row">
                         <div class="col-sm-5">
-                            <img class="card-img" src="/img/image.png" alt=<?= $workoutImg ?>>
+                            <img class="card-img" src="/img/image.png" alt="<?= $workoutImg ?>">
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">

@@ -21,17 +21,17 @@
             ?>
             <?php $myWorkoutImg =  "my_workoutImg_" . $myWorkout['workout_name']
             ?>
-            <a href="<?= site_url("workout/details/{$myWorkout['instance_id']}") ?>" class="exercise-link card-link" aria-label=<?= $arialabelMyWorkoutName ?>>
+            <a href="<?= site_url("workout/details/{$myWorkout['instance_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelMyWorkoutName ?>">
                 <div class="myWorkout cards">
                     <div class="row">
                         <div class="col-sm-5">
-                            <img class="card-img" src=<?= $imgURLs . $myWorkout['workout_image'] . "?raw=true"?> alt=<?= $myWorkoutImg ?>>
+                            <img class="card-img" src=<?= $imgURLs . $myWorkout['workout_image'] . "?raw=true"?> alt="<?= $myWorkoutImg ?>">
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">
                                 <div class="text-section">
-                                    <h4 class="card-title"><?= $myWorkout['workout_name'] ?></h4>
-                                    <h5 class="card-subtitle mb-2">Made by <?= $myWorkout['user_name'] ?></h5>
+                                    <h3 class="card-title"><?= $myWorkout['workout_name'] ?></h3>
+                                    <h4 class="card-subtitle mb-2">Made by <?= $myWorkout['user_name'] ?></h4>
                                     <p class="card-text"><?= $myWorkout['workout_description'] ?></p>
                                 </div>
                                 <div class="button-section">
@@ -56,11 +56,17 @@
     <p>Unsure how to create your workout? Here are a list of workouts created by our physical trainers! Click below to find out more and start your workout journey!</p>
     <div class="card-container" id="physicalTrainers-container">
         <?php foreach ($physicalTrainers as $physicalTrainer) : ?>
-            <a href="<?= site_url("workout/details/{$physicalTrainer['id']}") ?>" class="exercise-link card-link">
+            <?php
+            $arialabelPTWorkoutName = "Workouts by Physical Trainers - " . $physicalTrainer['workout_name']
+            ?>
+            <?php $PTWorkoutImg =  "PTworkoutImg_" . $physicalTrainer['workout_name']
+            ?>
+
+            <a href="<?= site_url("workout/details/{$physicalTrainer['id']}") ?>" class="exercise-link card-link" aria-label="<?=$arialabelPTWorkoutName?>">
                 <div class="physicalTrainers cards">
                     <div class="row">
                         <div class="col-sm-5">
-                            <img class="card-img" src="/img/image.png" alt="PTworkoutImg">
+                            <img class="card-img" src="/img/image.png" alt="<?= $PTWorkoutImg ?>">
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">
@@ -97,17 +103,17 @@
             ?>
             <?php $recommendedWorkoutImg =  "rec_workoutImg_" . $recommendedWorkout['workout_name']
             ?>
-            <a href="<?= site_url("workout/details/{$recommendedWorkout['workout_id']}") ?>" class="exercise-link card-link" aria-label=<?= $arialabelRecommendedWorkoutName ?>>
+            <a href="<?= site_url("workout/details/{$recommendedWorkout['workout_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelRecommendedWorkoutName ?>">
                 <div class="recommendedWorkout cards">
                     <div class="row">
                         <div class="col-sm-5">
-                            <img class="card-img" src="/img/image.png" alt=<?= $recommendedWorkoutImg ?>>
+                            <img class="card-img" src="/img/image.png" alt="<?= $recommendedWorkoutImg ?>">
                         </div>
                         <div class="col-sm-7">
                             <div class="card-body">
                                 <div class="text-section">
-                                    <h4 class="card-title"><?= $recommendedWorkout['workout_name'] ?></h4>
-                                    <h5 class="card-subtitle mb-2">User ID: <?= $recommendedWorkout['user_id'] ?></h5>
+                                    <h3 class="card-title"><?= $recommendedWorkout['workout_name'] ?></h3>
+                                    <h4 class="card-subtitle mb-2">User ID: <?= $recommendedWorkout['user_id'] ?></h4>
                                     <p class="card-text"><?= $recommendedWorkout['workout_description'] ?></p>
                                 </div>
                                 <div class="button-section">
