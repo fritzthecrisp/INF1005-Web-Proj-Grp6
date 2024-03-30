@@ -9,10 +9,29 @@
     height: 500px;
 }
 
+.alt-headings h1 {
+    display: none;
+}
+
 .top_Headings {
     margin-top: 30px;
 }
 
+@media (max-width: 576px) {
+    .carousel {
+        display: none;
+    }
+
+    .alt-headings{
+        padding-bottom: 4px;
+    }
+
+    .alt-headings > h1 {
+        display: block;
+        text-align: center;
+        font-style: italic;
+    }
+}
 
 /* For workout_info.php Page */
 .workoutGuide h2 {
@@ -31,7 +50,7 @@
     .workoutImg {
         max-width: 100%;
         height: auto;
-      }
+    }
 }
 
 .rounded-border {

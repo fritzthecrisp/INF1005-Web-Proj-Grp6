@@ -23,7 +23,7 @@ h2 {
 
 .cards {
     box-sizing: border-box;
-    width: 600px;
+    /* width: 600px; */
     height: auto;
     overflow: hidden;
     border: 1px solid black;
@@ -31,7 +31,6 @@ h2 {
 }
 
 .card-img {
-    /* max-width: 80%; */
     margin: auto;
     padding: 0.5em;
     border-radius: 0.7em;
@@ -56,6 +55,7 @@ h2 {
     /* Align text to the bottom */
     margin-bottom: auto;
     /* Ensure text stays at the bottom */
+    padding: 20px 0px;
 }
 
 .button-section {
@@ -63,10 +63,7 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    margin-top: auto;
     /* Align button to the bottom */
-    position: absolute;
-    /* Position the button absolutely */
     bottom: 10px;
     /* Position it 10px from the bottom */
     right: 10px;
@@ -122,7 +119,6 @@ h2 {
     color: green;
 }
 
-
 @media (max-width: 992px) {
     .cards {
         width: 100%;
@@ -162,10 +158,6 @@ h2 {
         /* Center align the content */
         margin-top: 10px;
         /* Add some space at the top */
-    }
-
-    .button-section form > button {
-        position: static;
     }
 
     .btn-next {
