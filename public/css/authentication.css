@@ -6,7 +6,7 @@ a{
     padding: 68px 0px;
 }
 
-.login {
+.authentication {
     background-color: rgba(21, 20, 20, 0.443);
     width: 40%;
     text-align: center;
@@ -17,14 +17,26 @@ a{
 }
 
 @media only screen and (max-width: 992px) {
-    .login {
+    .authentication {
         width: 50%;
     }
 }
 
 @media only screen and (max-width: 768px) {
-    .login {
+    .authentication {
         width: 50%;
+    }
+}
+
+@media only screen and (max-width: 585px) {
+    .authentication {
+        width: 80%;
+    }
+    button{
+        margin:0px;
+    }
+    .pwd_criteria{
+        font-size: 15px;
     }
 }
 
@@ -34,4 +46,18 @@ a{
 
 .form-group input {
     width: 100%;
+}
+
+
+/* For reset_password.php only */
+.pwd_criteria{
+    text-align: left;
+    padding: 20px;
+}
+
+
+@media only screen and (max-width: 585px) {
+    .pwd_criteria{
+        font-size: 10px;
+    }
 }

@@ -58,6 +58,7 @@ $routes->get('/instance/edit', 'Instance::edit');
 $routes->get('workout', 'Workout::index');
 $routes->get('login', 'Login::index');
 $routes->get('register', 'Register::index');
+$routes->get('reset_password', 'Reset_Password::index');
 $routes->get('profile', 'Profile::index');
 $routes->get('about', 'About::index');
 
