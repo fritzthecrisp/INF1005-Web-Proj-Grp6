@@ -11,6 +11,7 @@ body {
     padding: 0;
     position: relative;
     min-height: 100%;
+    min-width: 300px;
     box-sizing: inherit;
     background-color: rgb(58, 68, 93, 1);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
