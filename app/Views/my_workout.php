@@ -9,10 +9,10 @@
     <hr>
 
     <div class="myWorkoutContainer">
-        <h1>My Workouts</h1>
+        <h2>My Workouts</h2>
         <a href="<?php echo base_url('instance/new'); ?>" class="green-button">Create your Own Workout</a>
     </div>
-
+    <p>Here are a list of exisitng workouts you have saved and created. Creating a new one? Click on the "Create your Own Workout button" to begin!</p>
 
     <div class="card-container" id="myWorkout-container">
         <?php foreach ($myWorkouts as $myWorkout) : ?>
@@ -47,8 +47,8 @@
 
     <hr>
 
-    <h1>Create a Workout by Physical Trainers</h1>
-
+    <h2>Create a Workout by Physical Trainers</h2>
+    <p>Unsure how to create your workout? Here are a list of workouts created by our physical trainers! Click below to find out more and start your workout journey!</p> 
     <div class="card-container" id="physicalTrainers-container">
         <?php foreach ($physicalTrainers as $physicalTrainer) : ?>
             <a href="<?= site_url("workout/details/{$physicalTrainer['id']}") ?>" class="exercise-link card-link">
@@ -82,7 +82,8 @@
 
     <hr>
 
-    <h1>Recommended Workouts you can follow</h1>
+    <h2>Recommended Workouts For You</h2>
+    <p> We have also provided additional recommendations to assist you in creating your workouts. Click below to find out more! </p>
 
     <div class="card-container" id="recommendedWorkout-container">
         <?php foreach ($recommendedWorkouts as $recommendedWorkout) : ?>

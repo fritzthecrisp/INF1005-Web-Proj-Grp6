@@ -45,7 +45,7 @@
     </div>
 
     <h2 class=top_Headings>TOP EXERCISES</h2>
-    <p> Here are the Top exercises done by our UniFit members!
+    <p>Here are the Top exercises done by our UniFit members!</p>
     <div class="card-container" id="exercise-container">
         <?php foreach ($exercises as $exercise) : ?>
             <?php $arialabelTopExerciseId = "Top Exercise - " . $exercise['exer_name'] ?>
@@ -80,7 +80,7 @@
     </div>
 
     <h2 class="top_Headings">TOP WORKOUT PLANS</h2>
-    <p>Here are the Top Workout Plans created by Instructors and also Unifit Members!
+    <p>Here are the Top Workout Plans created by physical trainers and also Unifit Members!</p>
     <div class="card-container" id="workout-container">
         <?php foreach ($workouts as $workout) : ?>
             <?php
