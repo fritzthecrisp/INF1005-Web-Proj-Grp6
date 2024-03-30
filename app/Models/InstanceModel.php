@@ -81,7 +81,7 @@ class InstanceModel extends Model
                     'workout_id' => $sets_results[$i]['workout_id'],
                     'user_name' => $sets_results[$i]['user_username'],
                     'instance_id' => $sets_results[$i]['instance_id'],
-                    'workout_image'=> $image1,
+                    'workout_image' => $image1,
                     'workout_name' => $sets_results[$i]['workout_name'],
                     'workout_description' => $sets_results[$i]['workout_description'],
                     'workout_public' => $sets_results[$i]['workout_public']
@@ -108,10 +108,25 @@ class InstanceModel extends Model
         // exit;
 
 
-        // Cache the fetched exercises
-        $cache = \Config\Services::cache();
-        $cache->save('user_instance_sets_' . $userID, $all_my_sets, 3600); // Cache for 1 hour (3600 seconds)
-        $cache->save('user_instances_' . $userID, $all_my_instances, 3600); // Cache for 1 hour (3600 seconds)
+        // // Cache the fetched exercises
+        // $cache = \Config\Services::cache();
+        // $cache->save('user_instance_sets_' . $userID, $all_my_sets, 3600); // Cache for 1 hour (3600 seconds)
+        // $cache->save('user_instances_' . $userID, $all_my_instances, 3600); // Cache for 1 hour (3600 seconds)
+
+        // Add to session
+        // Store the fetched exercises in session
+        $session = \Config\Services::session();
+        $userID = 5; // #userID #user_id
+
+        // Set session variables
+        $session->set('user_instance_sets_' . $userID, $all_my_sets);
+        $session->set('user_instances_' . $userID, $all_my_instances);
+
+        // Set session expiration (optional)
+        $session->markAsTempdata('user_instance_sets_' . $userID, 3600); // Expire after 1 hour
+        $session->markAsTempdata('user_instances_' . $userID, 3600); // Expire after 1 hour
+
+
         $result = [$all_my_instances, $all_my_sets];
         return $result;
     }

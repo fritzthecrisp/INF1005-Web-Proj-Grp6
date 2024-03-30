@@ -12,18 +12,24 @@ class MyWorkout extends BaseController
     {
 
         $db = db_connect();
-        // get the cache for exercises. 
+        // get the cache for Public workouts. 
         $cache = \Config\Services::cache();
+
+        // Get from session
+        // Retrieve exercises from session
+        $session = \Config\Services::session();
         $userID = 5; // #userID #user_id
-        // check the cache 
-        $user_workouts = $cache->get('user_instances_' . $userID);
 
-        // if cache is empty, add cache. 
-        if ($user_workouts === null) {
+        // Check if the session variables exist
+        if (!$session->has('user_instances_' . $userID)) {
+            // If session data doesn't exist, fetch from the database
             $model = new InstanceModel($db);
-
             $user_workouts = $model->fetchUserInstances();
             $user_workouts = $user_workouts[0];
+            
+        } else {
+            // If session data exists, retrieve it
+            $user_workouts = $session->get('user_instances_' . $userID);
         }
 
         $physicalTrainers = [
@@ -81,7 +87,5 @@ class MyWorkout extends BaseController
 
         // // Pass the data to the view
         return view('my_workout', $data);
-        
     }
-
 }
