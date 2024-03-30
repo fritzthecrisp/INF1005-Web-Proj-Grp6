@@ -60,10 +60,6 @@ fetch('http://localhost/api/get-exercises')
     })
 
 
-function searchExercises() {
-
-}
-
 
 function updateWorkout(checkbox) {
     // Get the value and id of the checkbox
@@ -127,6 +123,7 @@ function updateWorkout(checkbox) {
         var inputElement3 = document.createElement("input");
         inputElement3.setAttribute("type", "text");
         inputElement3.setAttribute("name", "weight[]");
+        inputElement3.setAttribute("value", 0);
         inputElement3.classList.add("form-control");
 
         // Create a new button for deleting the row

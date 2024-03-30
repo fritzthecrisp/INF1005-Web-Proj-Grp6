@@ -3,7 +3,11 @@
 namespace App\Controllers;
 
 use App\Models\WorkoutModel;
+use App\Models\InstanceSetModel;
 use App\Models\InstanceModel;
+use App\Models\CustomModel;
+
+use function PHPSTORM_META\type;
 
 class Instance extends BaseController
 {
@@ -36,24 +40,82 @@ class Instance extends BaseController
     }
     public function new()
     {
+        helper(['form']); //form validation
+
+
         $data = [
             'meta_title' => 'New Workout',
             'page_name' => 'Create New Workout'
         ];
-        if ($this->request->is('post')) {
-            $db = db_connect();
-            // what to run if they use post function
-            $workout_model = new WorkoutModel($db);
-            $workout_model->save($_POST);
 
-            $workout_id = $workout_model->db->insertID();
-            // Insert data into the instance table
-            $instance_model = new InstanceModel();
-            $instance_data = [
-                'workout_id' => $workout_id,
-                'user_id' => 5, // #userID #user_id find 
+
+        if ($this->request->is('post')) {
+            $rules = [
+                'workout_name' => 'required',
+                'workout_description' => 'required',
+                'sets' => 'required',
+                'reps' => 'required',
             ];
-            $instance_model->insert($instance_data);
+            if ($this->validate($rules)) {
+                # code...
+                $db = db_connect();
+                $db->transStart(); // start transaction
+                try {
+                    $instance_set_data = [];
+                    // Insert data into the Workout table
+                    $workout_model = new WorkoutModel($db);
+                    $workout_model->save($_POST);
+
+                    // get the workout ID
+                    $workout_id = $workout_model->db->insertID();
+
+                    // Insert data into the instance table
+                    $instance_model = new InstanceModel();
+                    $instance_data = [
+                        'workout_id' => $workout_id,
+                        'user_id' => 5, // #userID #user_id find 
+                    ];
+                    $instance_model->insert($instance_data);
+
+                    // get the instance ID
+                    $instance_id = $instance_model->db->insertID();
+
+                    //Insert data into the instance_set table
+                    $instance_set_model = new InstanceSetModel($db);
+                    foreach ($_POST['workoutOption'] as $i => $value) {
+                        $instance_id = (int)$instance_id;
+                        $exercise_id = (int)$value;
+                        $instance_set_data[] = [
+                            'instance_id' => $instance_id,
+                            'exer_id' => $exercise_id,
+                            'instance_set_count' => $_POST['sets'][$i],
+                            'instance_set_reps' => $_POST['reps'][$i],
+                            'instance_set_weight' => $_POST['weight'][$i]
+                        ];
+                    }
+                    // echo '<pre>';
+                    // print_r($instance_set_data);
+                    // echo '</pre>';
+                    // exit;
+
+                    if (!empty($instance_set_data)) {
+                        // Perform batch insertion using Model's insertBatch method
+                        $instance_set_model->insertBatch($instance_set_data);
+                    }
+
+                    $db->transCommit(); // Commit transaction
+
+                    $model = new CustomModel($db); //update the cache
+        
+                    $myWorkouts = $model->getWorkouts();
+        
+                } catch (\Exception $e) {
+                    $db->transRollback(); // Rollback transaction if any query fails
+                    // Handle exception or error here
+                }
+            } else {
+                $data['validation'] = $this->validator;
+            }
         }
         return view('add_workout', $data);
     }
@@ -64,43 +126,11 @@ class Instance extends BaseController
         $instance = $model->find($id);
         if ($instance) {
             $model->delete($id);
-            return redirect()->to('/instance');;
+            return redirect()->to('/myWorkout');;
         }
     }
 
-    // public function edit($id)
-    // {
-    //     $model = new WorkoutModel($db);
-    //     $instance = $model->find($id);
-    //     $data = [
-    //         'meta_title' => $instance['workout_name'],
-    //         'name' => $instance['workout_name'],
-    //     ];
 
-    //     if ($this->request->is('post')) {
-    //         // what to run if they use post function
-    //         $model = new WorkoutModel($db);
-    //         $_POST['workout_id'] = $id;
-
-    //         $model->save($_POST);
-    //         $instance = $model->find($id);
-    //     }
-    //     $data['workout'] = $instance;
-    //     return view('edit_instance', $data);
-    // }
-
-    // public function edit()
-    // {
-    //     $data['workout'] = [
-    //         'id' => 1,
-    //         'name' => 'Morning Routine',
-    //         'description' => 'A quick morning workout to start the day energized.',
-    //         'options' => ['Dumbbell' => true, 'Pushup' => false]
-    //     ];
-
-    //     return view('edit_workout', $data);
-    // }
-    
     public function edit($id)
     {
         $db = db_connect();

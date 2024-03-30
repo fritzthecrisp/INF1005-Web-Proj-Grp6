@@ -17,7 +17,7 @@ class WorkoutModel extends Model
     protected $primaryKey = 'workout_id';
 
     // the table columns that we will allow users to change
-    protected $allowedFields = ['workout_name', 'workout_description'];
+    protected $allowedFields = ['workout_name', 'workout_description','workout_public'];
     
     protected $useTimestamps = true;
     protected $createdField = 'workout_created_at';

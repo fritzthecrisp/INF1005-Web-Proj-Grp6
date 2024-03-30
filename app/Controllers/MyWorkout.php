@@ -9,46 +9,20 @@ class MyWorkout extends BaseController
 {
     public function index()
     {
-        $db = db_connect();
-        $model = new CustomModel($db);
 
-        $model->getWorkouts();
-        $myWorkoutsObjects=$model->getWorkouts();
-        $myWorkouts = array();
-        foreach ($myWorkoutsObjects as $object) {
-            $myWorkouts[]= (array) $object;
+        // get the cache for exercises. 
+        $cache = \Config\Services::cache();
+
+        // check the cache 
+        $myWorkouts = $cache->get('my_workouts');
+
+        // if cache is empty, add cache. 
+        if ($myWorkouts === null) {
+            $db = db_connect();
+            $model = new CustomModel($db);
+
+            $myWorkouts = $model->getWorkouts();
         }
-
-
-        // $myWorkouts = [
-        //     [
-        //         'workout_id' => '1',
-        //         'workout_name' => 'Workout 1',
-        //         'workout_creator' => 'John Doe',
-        //         'workout_description' => 'This is the description for Exercise 1.'
-        //     ],
-        //     [
-        //         'workout_id' => '2',
-        //         'workout_name' => 'Workout 2',
-        //         'workout_creator' => 'Jane Smith',
-        //         'workout_description' => 'This is the description for Exercise 2.'
-        //     ],
-        //     [
-        //         'workout_id' => '3',
-        //         'workout_name' => 'Workout 3',
-        //         'workout_creator' => 'Alice Johnson',
-        //         'workout_description' => 'This is the description for Exercise 3.'
-        //     ],
-        //     [
-        //         'workout_id' => '4',
-        //         'workout_name' => 'Workout 4',
-        //         'workout_creator' => 'Alice Doe',
-        //         'workout_description' => 'This is the description for Exercise 4.'
-        //     ]
-        // ];
-        // echo '<pre>';
-        // print_r($myWorkouts);
-        // echo '</pre>';
 
         $physicalTrainers = [
             [

@@ -4,6 +4,11 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
 <main class="container">
     <h1>Add Workout</h1>
+    <?php if (isset($validation)) : ?>
+        <div class="text-danger">
+            <?= $validation->listErrors() ?>
+        </div>
+    <?php endif; ?>
     <form id="workoutForm" method="post" action='/instance/new'>
         <div class="row">
             <div class="col-sm">
@@ -26,9 +31,11 @@
                 <h2>Selected Workouts</h2>
             </div>
         </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check input" id="publicCheckBox" name="workout_public" value="Public">
+            <label class="form-check-label" for="publicCheckBox"> Make Public</label>
+        </div>
         <div>
-            <input type="checkbox" id="publicCheckBox" name="publicWorkout" value="Public">
-            <label for="publicCheckBox"> Make Public</label><br>
             <button type="submit" style="margin-top:20px;position: fixed;right: 8%;">Confirm Workout</button>
         </div>
     </form>
