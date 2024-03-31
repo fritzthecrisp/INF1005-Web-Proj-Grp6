@@ -42,7 +42,7 @@ class Instance extends BaseController
     public function new()
     {
         helper(['form']); //form validation
-
+        $userID= 15; 
 
         $data = [
             'meta_title' => 'New Workout',
@@ -66,6 +66,12 @@ class Instance extends BaseController
                     // Insert data into the Workout table
                     $workout_model = new WorkoutModel($db);
                     $_POST['user_id'] = 5; // #user_id set dynamically
+                    if ($_POST["workout_public"] === "on") {
+                        $_POST["workout_public"] = "Public";
+                    } else {
+                        $_POST["workout_public"] = "Private";
+                    }
+
                     $workout_model->save($_POST);
 
                     // get the workout ID
@@ -107,6 +113,9 @@ class Instance extends BaseController
                     $model->fetchPublicWorkouts();
                     $model = new InstanceModel($db); //update the cache
                     $model->fetchUserInstances();
+
+                    header("Location: http://localhost/myWorkout");
+                    exit();
                 } catch (\Exception $e) {
                     $db->transRollback(); // Rollback transaction if any query fails
                     log_message('error', $e->getMessage()); // Logs the exception message
@@ -145,9 +154,8 @@ class Instance extends BaseController
         // Get from session
         // Retrieve exercises from session
         $session = \Config\Services::session();
-        $userID = 5; // #userID #user_id
-        $session->remove('user_instances_' . $userID);
-        $session->remove('user_instance_sets_' . $userID);
+        // $session->remove('user_instances_' . $userID);
+        // $session->remove('user_instance_sets_' . $userID);
 
         // Check if the session variables exist
         if (!$session->has('user_instances_' . $userID) || !$session->has('user_instance_sets_' . $userID)) {
