@@ -54,13 +54,17 @@ $routes->post('instance/new', 'Instance::new');
 $routes->get('/instance/edit', 'Instance::edit');
 /**Notice how get and post have the same URI, but respond differently */
 
-// $routes->get('/', 'Home::index');
+$routes->get('/', 'Home2::index');
 $routes->get('workout', 'Workout::index');
 $routes->get('login', 'Login::index');
 $routes->get('register', 'Register::index');
 $routes->get('reset_password', 'Reset_Password::index');
 $routes->get('profile', 'Profile::index');
 $routes->get('about', 'About::index');
+
+$routes->get('/publicExercise', 'Home2::publicExercise');
+$routes->get('/publicWorkout', 'Home2::publicWorkout');
+
 
 // exercise routes
 $routes->get('exercises/details/(:num)', 'Exercise::details/$1');

@@ -19,7 +19,7 @@
 
                 <div class="mb-3">
                     <label for="workout_description" class="form-label">Workout Description</label><br>
-                    <textarea required type="text" id="workout_description" name="workout_description" rows="3" cols="40" class="form-control"></textarea><br>
+                    <textarea required id="workout_description" name="workout_description" rows="3" cols="40" class="form-control"></textarea><br>
                 </div>
 
                 <div class="mb-3 search-wrapper">

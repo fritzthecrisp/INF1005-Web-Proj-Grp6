@@ -75,7 +75,7 @@
             <?php endforeach; ?>
         </div>
     </div>
-    <a style="float: right;" href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopExerciseName ?>">More</a>
+    <a style="float: right;" href="<?= site_url("/publicExercise") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopExerciseName ?>">Explore more exercises</a>
     <h2 class="top_Headings">TOP WORKOUT PLANS</h2>
     <p>Here are the Top Workout Plans created by physical trainers and also Unifit Members!</p>
     <div class="card-container" id="workout-container">
@@ -109,7 +109,6 @@
             <?php endforeach; ?>
         </div>
     </div>
-    <a style="float: right;" href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopExerciseName ?>">Explore more workout</a>
+    <a style="float: right;" href="<?= site_url("/publicWorkout") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopExerciseName ?>">Explore more workout</a>
 </main>
-<!-- <script src="<?= base_url('js/home.js') ?>"></script> -->
 <?= $this->endSection() ?>
