@@ -14,7 +14,7 @@ class InstanceSetModel extends Model
     }
 
     protected $table    = 'instance_sets';
-    protected $primaryKey = ['instance_set_id'];
+    protected $primaryKey = 'instance_set_id';
 
     // the table columns that we will allow users to change
     protected $allowedFields = ['instance_id', 'exer_id', 'instance_set_count', 'instance_set_reps', 'instance_set_weight'];

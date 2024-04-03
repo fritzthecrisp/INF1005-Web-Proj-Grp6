@@ -5,20 +5,20 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
 
 <main class="container">
+            <div class=".bg-image">
+                <img src="https://images.unsplash.com/photo-1599058918144-1ffabb6ab9a0?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>First slide label</h2>
+                </div>
+            </div>
     <h1 class="openingTagline">WELCOME TO UNIFIT</h1>
-    <div id="carousel" class="carousel slide">
+    <!-- <div id="carousel" class="carousel slide">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="/img/image.png" class="d-block w-100" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2>First slide label</h2>
-                </div>
-            </div>
             <div class="carousel-item">
                 <img src="/img/logos.png" class="d-block w-100" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block">
@@ -38,7 +38,7 @@
         <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next" aria-label="next-slide">
             <span class="carousel-control-next-icon"></span>
         </button>
-    </div>
+    </div> -->
 
     <div class="alt-headings">
         <h1>WELCOME TO UNIFIT!</h1>
