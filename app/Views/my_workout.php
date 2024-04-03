@@ -90,4 +90,5 @@
     <a style="float: right;" href="<?= site_url("workout/details/{$recommendedWorkout['instance_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelRecommendedWorkoutName ?>">More</a>
 </main>
 <script src="<?= base_url('js/myWorkout.js') ?>"></script>
+<script src= "<?= base_url('js/main.js') ?>"></script>
 <?= $this->endSection() ?>
