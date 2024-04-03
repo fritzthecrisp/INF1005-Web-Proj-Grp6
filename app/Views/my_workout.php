@@ -73,11 +73,6 @@
                                             <h4 class="card-subtitle mb-2">User ID: <?= $recommendedWorkout['user_name'] ?></h4>
                                             <p class="card-text"><?= $recommendedWorkout['workout_description'] ?></p>
                                         </div>
-                                        <div class="button-section">
-                                            <form action="<?= site_url("workout/details/{$recommendedWorkout['instance_id']}") ?>" method="get">
-                                                <button type="submit">View</button>
-                                            </form>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

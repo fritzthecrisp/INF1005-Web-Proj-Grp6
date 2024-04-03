@@ -1,9 +1,13 @@
+/* Base Colour of webpages */
+
 :root {
     --bg-color: #020316;
     --body-color: #f7f5f5;
     --nav-color: #03052C;
 }
 
+
+/* Overall styling of webpage */
 html {
     height: 100%;
     box-sizing: border-box;
@@ -21,6 +25,13 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: var(--body-color);
 }
+
+.content {
+    padding: 68px;
+    min-height: 100vh;
+}
+
+/* Navigation bar */
 
 #logo {
     width: 60px !important;
@@ -72,10 +83,8 @@ nav {
     /* Remove background color of dropdown menu */
 }
 
-/* .content {
-    padding: 68px;
-    min-height: 100vh;
-} */
+
+/* Button Styles */
 
 button {
     border-radius: 4px;
@@ -83,14 +92,10 @@ button {
     border: none;
     background-color: rgb(146, 135, 121, 1);
     padding: 10px;
+    color: var(--body-color);
 }
 
-.secButton {
-    border-radius: 10px;
-    margin: 10px;
-    border: none;
-    background-color: rgb(94, 87, 104, 1);
-}
+/* Footer Styles */
 
 footer {
     text-align: center;
@@ -112,7 +117,4 @@ footer {
 .list-unstyled li a {
     color: var(--body-color);
     text-decoration: none;
-}
-.hide {
-    display: none;
 }
