@@ -1,5 +1,5 @@
 a{
-    color: rgb(252, 222, 190, 1)
+    color: var(--body-color);
 }
 
 .content {
@@ -7,12 +7,12 @@ a{
 }
 
 .authentication {
-    background-color: rgba(21, 20, 20, 0.443);
+    background-color: #03052C;
     width: 40%;
     text-align: center;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 3px solid #ccc;
+    border-radius: 3px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 1.8);
 }
 
@@ -46,6 +46,7 @@ a{
 
 .form-group input {
     width: 100%;
+    border-radius: 5px;
 }
 
 

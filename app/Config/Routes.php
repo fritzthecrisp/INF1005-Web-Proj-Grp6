@@ -67,10 +67,9 @@ $routes->get('exercises/details/(:num)', 'Exercise::details/$1');
 
 // instance routes
 $routes->get('instance/details/(:num)', 'Instance::details/$1');
-$routes->get('instance/startWorkout/(:num)', 'Instance::startWorkout/$1');
 // workout routes
 $routes->get('workout/details/(:num)', 'Workout::details/$1');
-$routes->get('workout/startWorkout/(:num)', 'Workout::startWorkout/$1');
+$routes->get('workout/start/(:num)', 'Workout::startWorkout/$1');
 
 // myWorkout routes
 $routes->get('myWorkout', 'MyWorkout::index');
