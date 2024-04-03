@@ -20,7 +20,7 @@
     <p>New to Unifit?
         <a class="register-link" href="<?= site_url("register") ?>"> Sign up as a member now!</a>.</p>
     <p>Forget password?
-        <a class="register-link" href="<?= site_url("reset_password") ?>">Click here.</a>.</p>
+        <a class="register-link" href="<?= site_url("??") ?>">Click here.</a>.</p>
 
 </main>
 <?= $this->endSection() ?>
