@@ -5,7 +5,7 @@
 
 <main class="container">
     <h1><?= $workout["workout_name"] ?></h1>
-    <form id="workoutForm" action="process_workout.php" method="POST">
+    <form id="workoutForm" method="POST">
         <div class="exercise-container" >
             <?php foreach ($sets as $set) : ?>
                 <div class="exercise" data-sets="<?= $set['sets'] ?>">
@@ -19,10 +19,10 @@
                     <div class="exercise-inputs" >
                         <!-- Inputs will be generated here -->
                         <?php for ($i = 1; $i <= $set['sets']; $i++) { ?>
-                            <div class="set" style="display: none;">
+                            <div class="set" >
                                 <span>Set <?= $i?>: </span>
-                                <input type="number" placeholder="Reps" class="reps-input">
-                                <input type="number" placeholder="Weight" class="weight-input">
+                                <input type="number" placeholder="Reps" name="set_reps[<?= $set["exer_id"]?>][]" class="reps-input">
+                                <input type="number" placeholder="Weight" name="set_weight[<?= $set["exer_id"]?>][]" class="weight-input">
                             </div>
 
                         <?php } ?>

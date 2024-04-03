@@ -20,11 +20,11 @@
         <div class="col-sm">
             <div class="d-flex justify-content-end" id="workoutButtons"> <!-- Added classes here -->
                 <!-- <button>SHARE</button> -->
-                <form style="display: inline" action="<?php echo base_url('workout/start/'.$workout['instance_id']); ?>" method="get">
+                <form style="display: inline" action="<?php echo base_url('workout/start/' . $workout['instance_id']); ?>" method="get">
                     <button type="submit">Start Workout</button>
                 </form>
                 <!-- ?php if ($isLoggedIn) : ? -->
-                <form action="<?= site_url('instance/edit/'.$workout['instance_id']) ?>" method="get">
+                <form action="<?= site_url('instance/edit/' . $workout['instance_id']) ?>" method="get">
                     <button type="submit">Edit Workout</button>
                 </form>
                 <form action="" method="POST">
@@ -59,6 +59,39 @@
 
         </div>
     </div>
+    <?php foreach ($sessionInfo as $sessionNo => $details) : ?>
+
+        <div id="sessionRecords">
+            <table id="sessionRecordsTable" class="table table-dark">
+                <thead>
+                    <tr>
+                    <th>Session <?= (int)$sessionNo+1 ?></th>
+                    <th><?= $details["session_date_created"] ?></th>
+                    </tr>
+                    <tr>
+                        <th>Exercise Name</th>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                        <th>Weights</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($details as $det) : 
+                        if (is_array($det)) {?>
+                        <tr>
+                            <td><?= $det['exer_name'] ?></td>
+                            <td><?= (int)$det['set_no']+1 ?></td>
+                            <td><?= $det['set_reps'] ?></td>
+                            <td><?= $det['session_set_weight'] ?></td>
+                        </tr>
+                        
+                        
+                    <?php } endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    <?php endforeach; ?>
+
 </main>
 <script src="<?= base_url('js/workoutInfo.js') ?>"></script>
 

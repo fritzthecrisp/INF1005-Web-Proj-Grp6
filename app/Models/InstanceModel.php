@@ -51,7 +51,7 @@ class InstanceModel extends Model
     {
         // "SELECT *  FROM instances"
         $sets_results = array();
-        $all_my_sets = array();
+        $all_my_session_sets = array();
         $all_my_instances = array();
         $userID = 5; //set user ID
 
@@ -134,6 +134,66 @@ class InstanceModel extends Model
 
         $result = [$all_my_instances, $all_my_sets];
         return $result;
+    }
+    function fetchUserWorkoutSessions()
+    {
+        // "SELECT *  FROM instances"
+        $sets_results = array();
+        $all_my_session_sets = array();
+        $all_my_instances = array();
+        $userID = 5; //set user ID
+
+        $instances = $this->db->table('instances')
+            ->select('instances.*, exercises.*, users.*, instance_sessions.*, session_sets.*') // Select columns from all tables
+            ->join('users', 'instances.user_id = users.user_id') // Join users table
+            ->join('instance_sessions', 'instances.instance_id = instance_sessions.instance_id') // Join instance_sessions table
+            ->join('session_sets', 'instance_sessions.session_id = session_sets.session_id') // Join session_sets table
+            ->join('exercises', 'session_sets.session_exer_id = exercises.exer_id') // Join exercises table
+            ->where('instances.user_id', $userID) // Filter instances by user_id
+            ->orderBy('instance_sessions.session_date_created', 'DESC') // Sort by session_date_created in descending order
+            ->get()
+            ->getResult();
+        $i = 0;
+        foreach ($instances as $object) {
+            $sets_results[] = (array) $object; // contains every single set in all the users instances
+            $instance_id = $sets_results[$i]["instance_id"];
+            $session_id = $sets_results[$i]["session_id"];
+
+            // extract images from json to array
+            $images = json_decode($sets_results[$i]["exer_images"], true);
+            if (!empty($images)) {
+                $image1 = $images[1];
+                $image0 = $images[0];
+            }
+            if (!isset($all_my_session_sets[$instance_id][$session_id]['session_date_created'])) {
+                $all_my_session_sets[$instance_id][$session_id]['session_date_created'] = $sets_results[$i]['session_date_created'];
+            }
+
+            $all_my_session_sets[$instance_id][$session_id][] = [
+                'exer_name' => $sets_results[$i]['exer_name'],
+                'set_no' => $sets_results[$i]['session_set_no'],
+                'set_reps' => $sets_results[$i]['session_set_reps'],
+                'exer_image' => $image0,
+                'session_set_weight' => $sets_results[$i]['session_set_weight'],
+            ];
+
+            $i++;
+        }
+        // echo '<pre>';
+        // print_r($all_my_session_sets);
+        // echo '</pre>';
+        // exit;
+        // Add to session
+        // Store the fetched exercises in session
+        $session = \Config\Services::session();
+
+        // Set session variables
+        $session->set('user_instance_sessions_' . $userID, $all_my_session_sets);
+
+        // Set session expiration (optional)
+        $session->markAsTempdata('user_instance_sessions_' . $userID, 3600); // Expire after 1 hour
+
+        return $all_my_session_sets;
     }
 
 
