@@ -22,17 +22,11 @@ z.exercise-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.exercise img {
-    width: 40px;
-    /* Assuming you have icons for exercises */
-}
-
-.exercise-info {
     flex-grow: 1;
     padding-left: 10px;
 }
+
+
 
 .start-button {
     padding: 5px 10px;
@@ -45,4 +39,30 @@ z.exercise-container {
 
 .start-button:hover {
     background-color: #4cae4c;
+}
+
+.info {
+    display: flex; /* Enables flexbox */
+    align-items: center; /* Centers children vertically */
+    justify-content: start; /* Aligns children at the start of the container */
+}
+
+.info-left, .info-right {
+    display: inline-flex; /* Allows the divs to grow as needed, but not take full width */
+    align-items: center; /* Centers the content of each div vertically */
+}
+
+.info-left {
+    padding-right: 20px; /* Adds some space between the left and right sides */
+}
+
+.info-left img {
+    width: 200px; /* Specifies the width of the image */
+    height: auto; /* Keeps the image aspect ratio intact */
+}
+
+.info-right {
+    text-align: right; /* Aligns the equipment and sets information to the right */
+    /* Add margin-left if you need more space between the .info-left and .info-right */
+    margin-left: 20px; /* Adjust this value as needed to control spacing */
 }

@@ -19,7 +19,7 @@
 
                 <div class="mb-3">
                     <label for="workout_description" class="form-label">Workout Description</label><br>
-                    <textarea required type="text" id="workout_description" name="workout_description" rows="3" cols="40" class="form-control"><?= $workout["workout_description"] ?></textarea><br>
+                    <textarea required id="workout_description" name="workout_description" rows="3" cols="40" class="form-control"><?= $workout["workout_description"] ?></textarea><br>
                 </div>
 
                 <div class="mb-3 search-wrapper">
@@ -42,15 +42,15 @@
                         <div class="input-container">
                             <div>
                                 <label for="sets" class="form-label">Sets</label>
-                                <input type="text" name="sets[]" class="form-control" value="<?php echo $set['sets']; ?>" required="">
+                                <input id="sets" type="text" name="sets[]" class="form-control" value="<?php echo $set['sets']; ?>" required="">
                             </div>
                             <div>
                                 <label for="reps" class="form-label">Reps</label>
-                                <input type="text" name="reps[]" class="form-control" value="<?php echo $set['reps']; ?>" required="">
+                                <input id="reps" type="text" name="reps[]" class="form-control" value="<?php echo $set['reps']; ?>" required="">
                             </div>
                             <div>
                                 <label for="weight" class="form-label">Weight (Optional)</label>
-                                <input type="text" name="weight[]" class="form-control" value="<?php echo $set['weight']; ?>">
+                                <input id="weight" type="text" name="weight[]" class="form-control" value="<?php echo $set['weight']; ?>">
                             </div>
                             <button class="delete-button" aria-label="Delete"><span aria-hidden="true">×</span></button>
                         </div>

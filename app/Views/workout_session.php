@@ -6,20 +6,27 @@
 <main class="container">
     <h1><?= $workout["workout_name"] ?></h1>
     <form id="workoutForm" method="POST">
-        <div class="exercise-container" >
-            <?php foreach ($sets as $set) : ?>
+        <?php $counter = 1; ?>
+        <?php foreach ($sets as $set) : ?>
+            <div class="info" style="display: none;">
+                <div class="info-left"> 
+                    <img src=<?= $imgURLs . $set['exer_image'] . "?raw=true" ?> alt="Exercise Icon">
+                </div>
+                <div class="info-right">
+                    <div class="equipment">Equipment</div>
+                    <div class="sets" style="display: block; clear: both;"><?= $set['sets'] ?> sets</div>
+                </div>
+            </div>
+            <div class="exercise-container">
                 <div class="exercise" data-sets="<?= $set['sets'] ?>">
                     <div class="exercise-info">
-                        <img src=<?= $imgURLs . $set['exer_image'] . "?raw=true" ?> alt="Exercise Icon">
-                        <div class="exercise-name"><?= $set['exer_name'] ?></div>
-                        <div class="equipment">Equipment</div>
-                        <div class="sets"><?= $set['sets'] ?> sets</div>
+                        <div class="exercise-name">Exercise <?= ($counter) ?> : <?= $set['exer_name'] ?></div>
                         <button type="button" class="start-btn">START</button>
                     </div>
-                    <div class="exercise-inputs" >
+                    <div class="exercise-inputs">
                         <!-- Inputs will be generated here -->
                         <?php for ($i = 1; $i <= $set['sets']; $i++) { ?>
-                            <div class="set" >
+                            <div class="set" style="display: none;">
                                 <span>Set <?= $i?>: </span>
                                 <input type="number" placeholder="Reps" name="set_reps[<?= $set["exer_id"]?>][]" class="reps-input">
                                 <input type="number" placeholder="Weight" name="set_weight[<?= $set["exer_id"]?>][]" class="weight-input">
@@ -29,9 +36,9 @@
 
                     </div>
                 </div>
-
-            <?php endforeach; ?>
-        </div>
+            </div>
+            <?php $counter++; ?>
+        <?php endforeach; ?>
         <button type="submit">Submit</button>
     </form>
 </main>

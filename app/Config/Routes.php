@@ -54,13 +54,39 @@ $routes->post('instance/new', 'Instance::new');
 $routes->get('/instance/edit', 'Instance::edit');
 /**Notice how get and post have the same URI, but respond differently */
 
-// $routes->get('/', 'Home::index');
+$routes->get('/', 'Home2::index');
 $routes->get('workout', 'Workout::index');
 $routes->get('login', 'Login::index');
 $routes->get('register', 'Register::index');
 $routes->get('reset_password', 'Reset_Password::index');
 $routes->get('profile', 'Profile::index');
 $routes->get('about', 'About::index');
+
+$routes->get('/publicExercise', 'Home2::publicExercise');
+$routes->get('/publicWorkout', 'Home2::publicWorkout');
+
+// Registration Routes
+$routes->get('register', 'AuthController::register');
+$routes->post('register', 'AuthController::register');
+
+// User Activation Routes
+$routes->get('/activate/(:any)', 'AuthController::activate/$1');
+
+// Login Routes
+$routes->get('login', 'AuthController::login');
+$routes->post('login', 'AuthController::login');
+$routes->match(['get', 'post'], 'login', 'AuthController::login');
+
+// Logout Route
+$routes->get('logout', 'AuthController::logout');
+
+// Reset Password Route
+// Gathers email
+$routes->get('forgotPassword', 'AuthController::forgotPassword');
+
+// Processes forgot password
+$routes->get('reset/resetPassword/(:any)', 'AuthController::resetPassword/$1');
+$routes->post('reset/resetPasswordProcess/(:any)', 'AuthController::resetPasswordProcess/$1');
 
 // exercise routes
 $routes->get('exercises/details/(:num)', 'Exercise::details/$1');
