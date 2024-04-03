@@ -52,7 +52,7 @@
             <?php $arialabelTopExerciseName = "Top Exercise - " . $exercise['exer_name'] ?>
             <?php $exerciseImg =  "exerciseImg_" . $exercise['exer_name'] ?>
             <a href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopExerciseName ?>">
-                <div class="exercise cards" aria-label=<?= $arialabelTopExerciseName ?>>
+                <div class="exercise cards" aria-label="<?= $arialabelTopExerciseName ?>">
                     <div class="row">
                         <div class="col-sm-5">
                             <img class="card-img" src=<?= $imgURLs . $exercise['exer_images'] . "?raw=true" ?> alt="<?= $exerciseImg ?>">
