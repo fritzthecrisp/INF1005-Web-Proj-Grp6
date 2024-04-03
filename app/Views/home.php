@@ -4,13 +4,14 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/card.css') ?>">
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
 
+<div class="bg-image">
+    <img src="https://images.unsplash.com/photo-1599058918144-1ffabb6ab9a0?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="First slide">
+    <div class="quote">
+        <h1>If it doesn't challenge you, it doesn't change you!</h1>
+    </div>
+</div>
+
 <main class="container">
-            <div class=".bg-image">
-                <img src="https://images.unsplash.com/photo-1599058918144-1ffabb6ab9a0?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2>First slide label</h2>
-                </div>
-            </div>
     <h1 class="openingTagline">WELCOME TO UNIFIT</h1>
     <!-- <div id="carousel" class="carousel slide">
         <div class="carousel-indicators">

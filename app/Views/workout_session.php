@@ -24,16 +24,13 @@
                         <button type="button" class="start-btn">START</button>
                     </div>
                     <div class="exercise-inputs">
-                        <!-- Inputs will be generated here -->
                         <?php for ($i = 1; $i <= $set['sets']; $i++) { ?>
                             <div class="set" style="display: none;">
                                 <span>Set <?= $i?>: </span>
                                 <input type="number" placeholder="Reps" name="set_reps[<?= $set["exer_id"]?>][]" class="reps-input">
                                 <input type="number" placeholder="Weight" name="set_weight[<?= $set["exer_id"]?>][]" class="weight-input">
                             </div>
-
                         <?php } ?>
-
                     </div>
                 </div>
             </div>

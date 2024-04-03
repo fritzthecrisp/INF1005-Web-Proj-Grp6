@@ -1,8 +1,3 @@
-z.exercise-container {
-    width: 500px;
-    margin: auto;
-}
-
 .workout-name {
     text-align: center;
     font-size: 24px;
@@ -26,8 +21,6 @@ z.exercise-container {
     padding-left: 10px;
 }
 
-
-
 .start-button {
     padding: 5px 10px;
     background-color: #5cb85c;
@@ -42,27 +35,41 @@ z.exercise-container {
 }
 
 .info {
-    display: flex; /* Enables flexbox */
-    align-items: center; /* Centers children vertically */
-    justify-content: start; /* Aligns children at the start of the container */
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
 
-.info-left, .info-right {
-    display: inline-flex; /* Allows the divs to grow as needed, but not take full width */
-    align-items: center; /* Centers the content of each div vertically */
+.info-left,
+.info-right {
+    align-items: center;
 }
 
 .info-left {
-    padding-right: 20px; /* Adds some space between the left and right sides */
+    padding-right: 20px;
 }
 
 .info-left img {
-    width: 200px; /* Specifies the width of the image */
-    height: auto; /* Keeps the image aspect ratio intact */
+    width: 300px;
+    height: auto;
 }
 
 .info-right {
-    text-align: right; /* Aligns the equipment and sets information to the right */
-    /* Add margin-left if you need more space between the .info-left and .info-right */
-    margin-left: 20px; /* Adjust this value as needed to control spacing */
+    font-size: large;
+    margin-left: 20px;
+}
+
+.set {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.set input {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.set span {
+    margin-right: 10px;
 }
