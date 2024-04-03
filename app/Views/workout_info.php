@@ -20,7 +20,7 @@
         <div class="col-sm">
             <div class="d-flex justify-content-end" id="workoutButtons"> <!-- Added classes here -->
                 <!-- <button>SHARE</button> -->
-                <form style="display: inline" action="<?php echo base_url('workout/startWorkout/1'); ?>" method="get">
+                <form style="display: inline" action="<?php echo base_url('workout/start/'.$workout['instance_id']); ?>" method="get">
                     <button type="submit">Start Workout</button>
                 </form>
                 <!-- ?php if ($isLoggedIn) : ? -->

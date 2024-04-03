@@ -73,6 +73,7 @@ class InstanceModel extends Model
             $images = json_decode($sets_results[$i]["exer_images"], true);
             if (!empty($images)) {
                 $image1 = $images[1];
+                $image0 = $images[0];
             }
 
 
@@ -93,6 +94,8 @@ class InstanceModel extends Model
                 'instance_id' => $sets_results[$i]['instance_id'],
                 'instance_set_id' => $sets_results[$i]['instance_set_id'],
                 'exer_name' => $sets_results[$i]['exer_name'],
+                'exer_image' => $image0,
+                'exer_equipment' => $sets_results[$i]['exer_equipment'],
                 'exer_id' => $sets_results[$i]['exer_id'],
                 'sets' => $sets_results[$i]['instance_set_count'],
                 'reps' => $sets_results[$i]['instance_set_reps'],
