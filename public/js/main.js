@@ -33,3 +33,17 @@ function activateMenuNormal() {
         }
     })
 }
+
+function copyCurrentUrl() {
+    // Use window.location.href to get the current URL
+    navigator.clipboard.writeText(window.location.href)
+        .then(() => {
+            // Success message
+            alert("URL copied to clipboard!");
+        })
+        .catch(err => {
+            // Error handling
+            console.error('Failed to copy: ', err);
+        });
+}
+

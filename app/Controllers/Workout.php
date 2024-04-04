@@ -12,7 +12,7 @@ class Workout extends BaseController
 {
     public function details($id)
     {
-        // Fetch exercise details based on the provided ID
+        $session = \Config\Services::session();
 
         // get the cache for exercises. 
         $cache = \Config\Services::cache();
@@ -20,6 +20,17 @@ class Workout extends BaseController
         // check the cache 
         $public_instances = $cache->get('public_instances');
         $public_instance_sets = $cache->get('public_instance_sets');
+        // Fetch exercise details based on the provided ID
+        $userID = $session->get('user_id');
+        // // get the cache for exercises. 
+        // $cache = \Config\Services::cache();
+
+        // Get from session
+        // Retrieve exercises from session
+        $session = \Config\Services::session();
+      
+        // $session->remove('user_instances_' . $userID);
+        // $session->remove('user_instance_sets_' . $userID);
 
         // if cache is empty, add cache. 
         if ($public_instances === null) {
@@ -64,12 +75,10 @@ class Workout extends BaseController
 
     public function start($id)
     {
-        // Fetch exercise details based on the provided ID
-        $userID = 5;
         // Get from session
         // Retrieve exercises from session
         $session = \Config\Services::session();
-        $userID = 5; // #userID #user_id
+        $userID = $session->get('user_id'); // #userID #user_id
         // $session->remove('user_instances_'.$userID);
         // $session->remove('user_instance_sets_'.$userID);
 
