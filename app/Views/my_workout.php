@@ -25,7 +25,7 @@
                 <?php $myWorkoutImg =  "my_workoutImg_" . $myWorkout['workout_name']
                 ?>
                 <div class="col-md-6 mb-4 card-border">
-                    <a href="<?= site_url("workout/details/{$myWorkout['instance_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelMyWorkoutName ?>">
+                    <a href="<?= site_url("instance/details/{$myWorkout['instance_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelMyWorkoutName ?>">
                         <div class="myWorkout cards">
                             <div class="row">
                                 <div class="col-sm-5">

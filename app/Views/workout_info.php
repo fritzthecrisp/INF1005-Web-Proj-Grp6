@@ -10,26 +10,22 @@
         <div id="workoutDetails">
             <?php $workoutImg =  "workoutImg - " . $workout['workout_name']
             ?>
-            <img class="workoutImg" src="<?= $imgURLs . $workout['workout_image'] . "?raw=true" ?>" alt="<?= $workoutImg ?>">
+            <img class="workoutImg" src=<?= $imgURLs . $workout['workout_image'] . "?raw=true" ?> alt=<?= $workoutImg ?>>
         </div>
         <div class="workoutGuide-description">
             <h2><?= "Your Guide to " . $workout['workout_name'] ?></h2>
             <p><?= " (created by: " . $workout['user_name'] . ")" ?></p>
-            <h3 class="title">Description:</h3>
+            <h3>Description:</h3>
             <p><?= $workout['workout_description'] ?></p>
         </div>
     </div>
     <div>
         <div class="d-flex justify-content-end" id="workoutButtons"> <!-- Added classes here -->
-            <!-- <button>SHARE</button> -->
-            <form action="<?php echo base_url('workout/start/' . $workout['instance_id']); ?>" method="get">
-                <button type="submit">Share</button>
-            </form>
-            <!-- ?php if ($isLoggedIn) : ? -->
+
             <form action="<?= site_url('instance/edit/' . $workout['instance_id']) ?>" method="get">
                 <button type="submit">Create Workout</button>
             </form>
-            <?php if ($workouts['workout_public'] === "Public"): ?>
+            <?php if ($workout['workout_public'] === "Public"): ?>
             <form action="">
                 <input type="hidden" id="linkToCopy"">
                     <button onclick="copyCurrentUrl()">Copy Link</button>

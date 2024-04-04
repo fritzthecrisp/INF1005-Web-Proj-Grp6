@@ -46,4 +46,3 @@ function copyCurrentUrl() {
             console.error('Failed to copy: ', err);
         });
 }
-
