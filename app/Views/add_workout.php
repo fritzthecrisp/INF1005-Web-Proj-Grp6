@@ -24,10 +24,10 @@
 
                 <div class="mb-3 search-wrapper">
                     <label for="search" class="form-label">Search Exercises</label><br>
-                    <input id='search' type="search" placeholder="Search exercises"  class="form-control" data-search>
-                </div>
-                <div class="mb-3 bd-example d-md-flex">
-                    <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-dark" id="exercise-list" data-exercise-cards-container>
+                    <input id='search' type="search" placeholder="Search exercises" class="form-control" data-search>
+                    <div class="mb-3 bd-example d-md-flex">
+                        <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-dark" id="exercise-list" data-exercise-cards-container>
+                        </div>
                     </div>
                 </div>
             </div>

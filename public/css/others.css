@@ -127,3 +127,8 @@
 .column {
     grid-gap: 100px;
 }
+
+
+.hide {
+    display: none;
+}
