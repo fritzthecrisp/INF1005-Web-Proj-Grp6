@@ -6,8 +6,8 @@
 
 <main class="container">
     <div class="card-headings">
-        <h2 class="title">TOP WORKOUT PLANS</h2>
-        <p>Here are the Top Workout Plans created by physical trainers and also Unifit Members!</p>
+        <h1 class="title">WORKOUT PLANS</h1>
+        <p>Displaying to you our list of Workout Plans created by our physical trainers and Unifit Members!</p>
     </div>
     <div class="card-container" id="workout-container">
         <div class="row">
@@ -27,8 +27,8 @@
                                 <div class="col-sm-7">
                                     <div class="card-body">
                                         <div class="text-section">
-                                            <h3 class="card-title"><?= $workout['workout_name'] ?></h3>
-                                            <h4 class="card-subtitle mb-2">Made by: </h4>
+                                            <h2 class="card-title"><?= $workout['workout_name'] ?></h2>
+                                            <h3 class="card-subtitle mb-2">Made by: </h3>
                                             <p class="card-text"><?= $workout['workout_description'] ?></p>
                                         </div>
                                     </div>

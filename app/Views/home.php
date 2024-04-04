@@ -35,8 +35,8 @@
                                 <div class="col-sm-7">
                                     <div class="card-body">
                                         <div class="text-section">
-                                            <h3 class="card-title"><?= $exercise['exer_name'] ?></h3>
-                                                <h4 class="card-subtitle mb-2">Level: <?= $exercise['exer_level'] ?></h4>
+                                            <h2 class="title card-title"><?= $exercise['exer_name'] ?></h2>
+                                                <h3 class="card-subtitle mb-2">Level: <?= $exercise['exer_level'] ?></h3>
                                                 <p class="card-text">Exercise Eqiupment: <?= $exercise['exer_equipment'] ?></p>
                                         </div>
                                     </div>
@@ -76,8 +76,8 @@
                                 <div class="col-sm-7">
                                     <div class="card-body">
                                         <div class="text-section">
-                                            <h3 class="card-title"><?= $workout['workout_name'] ?></h3>
-                                            <h4 class="card-subtitle mb-2">Made by: <?= $workout['user_name'] ?></h4>
+                                            <h2 class="title card-title"><?= $workout['workout_name'] ?></h2>
+                                            <h3 class="card-subtitle mb-2">Made by: <?= $workout['user_name'] ?></h3>
                                             <p class="card-text"><?= $workout['workout_description'] ?></p>
                                         </div>
                                     </div>

@@ -4,6 +4,10 @@ h1 {
     margin-bottom: 20px;
 }
 
+.card-headings h1{
+    text-decoration: underline;
+}
+
 .card-headings h2{
     text-decoration: underline;
     padding-bottom: 20px;
