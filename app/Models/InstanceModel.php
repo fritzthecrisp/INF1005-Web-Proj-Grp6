@@ -5,6 +5,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 use CodeIgniter\Database\ConnectionInterface;
 
+use function PHPUnit\Framework\isEmpty;
 
 class InstanceModel extends Model
 {
@@ -12,7 +13,7 @@ class InstanceModel extends Model
     protected $db;
     public function __construct(ConnectionInterface &$db)
     {
-        
+
         $this->db = &$db;
     }
 
@@ -121,7 +122,19 @@ class InstanceModel extends Model
         // $cache->save('user_instance_sets_' . $userID, $all_my_sets, 3600); // Cache for 1 hour (3600 seconds)
         // $cache->save('user_instances_' . $userID, $all_my_instances, 3600); // Cache for 1 hour (3600 seconds)
 
-        // Add to session
+        // Check if there are sets and instances
+        if (empty($all_my_sets) || empty($all_my_instances)) {
+            // Handle the case where there are no sets or instances
+            // For example, you can set a default message or return an empty array
+            $errorMessage = "No sets or instances found for the user.";
+            // Log the error or display it to the user as needed
+            // Here, we'll set the error message in the session for display
+            $session->setFlashdata('error_message', $errorMessage);
+
+            // Return empty arrays for smooth results
+            return [[], []];
+        }
+
         // Store the fetched exercises in session
         $session = \Config\Services::session();
         $userID = $session->get('user_id'); // #userID #user_id
@@ -134,9 +147,8 @@ class InstanceModel extends Model
         $session->markAsTempdata('user_instance_sets_' . $userID, 3600); // Expire after 1 hour
         $session->markAsTempdata('user_instances_' . $userID, 3600); // Expire after 1 hour
 
-
-        $result = [$all_my_instances, $all_my_sets];
-        return $result;
+        // Return the fetched sets and instances
+        return [$all_my_instances, $all_my_sets];
     }
     function fetchUserWorkoutSessions()
     {
