@@ -90,8 +90,12 @@ nav {
 
 .nav-item.dropdown .nav-link {
     color: #ffffff;
-    text-align: unset;
+    text-align: center;
     /* Set the desired white color */
+}
+
+.navbar-toggler{
+    background-color: rgb(113, 95, 75);
 }
 
 /* Button Styles */

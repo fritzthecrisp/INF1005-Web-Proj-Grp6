@@ -39,22 +39,22 @@
                         } else {
                             // If the user is not logged in (cookie is not set), show login link
                             echo '
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">EXPLORE</a>
+                                <ul class="dropdown-menu dropdown-align">
+                                    <li>
+                                        <a class="nav-link" href="' . site_url("/publicExercise") . '">EXERCISES</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link" href="' . site_url("/publicWorkout") . '">WORKOUTS</a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="' . site_url("register") . '">SIGN UP</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="' . site_url("login") . '">LOGIN</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">EXPLORE</a>
-                                <ul class="dropdown-menu dropdown-align">
-                                    <li>
-                                        <a class="nav-link" href="' . site_url("/publicExercise") . '">EXERCISE</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="' . site_url("/publicWorkout") . '">WORKOUT</a>
-                                    </li>
-                                </ul>
                             </li>
                     ';
                         }
