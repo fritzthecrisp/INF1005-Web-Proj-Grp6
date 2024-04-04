@@ -54,10 +54,11 @@ nav {
     color: var(--body-color);
     margin: 4px;
     background-color: transparent;
+    text-align: center;
 }
 
 .nav-link.active {
-    color: var(--body-color);
+    color: var(--body-color) !important;
     border-bottom: 2px solid white;
 }
 
@@ -72,11 +73,6 @@ nav {
     background-color: #565EF3;
 }
 
-.dropdown-item {
-    color: black !important;
-    /* Change dropdown item color to black */
-}
-
 .dropdown-item:focus,
 .dropdown-item:active {
     background-color: transparent !important;
@@ -88,6 +84,19 @@ nav {
     /* Remove background color of dropdown menu */
 }
 
+.navbar-nav .nav-link.show {
+    color: white !important;
+}
+
+.nav-item.dropdown .nav-link {
+    color: #ffffff;
+    /* Set the desired white color */
+}
+
+.dropdown-align {
+    left: 0;
+    transform: translateX(-20%);
+}
 
 /* Button Styles */
 

@@ -28,34 +28,37 @@
                         <?php
                         if ($session->has('logged_in') && $session->get('logged_in') === TRUE) {
                             // If the user is logged in (cookie is set), show profile link
-                            echo '<li class="nav-item">
-                              <a class="nav-link" href="/myWorkout">MY WORKOUT</a>
-                          </li>
-                          <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">PROFILE</a>
-                          <ul class="dropdown-menu dropdown-menu-end">
-                              <li>
-                                  <a class="" href="' . site_url("profile") . '">MY PROFILE</a>
-                              </li>
-                              <li>
-                                  <a class="dropdown-item" href="#">SETTINGS</a>
-                              </li>
-                              <li>
-                                  <a class="dropdown-item" href="/logout">LOGOUT</a>
-                              </li>
-                          </ul>
-                      </li>';
+                            echo '
+                            <li class="nav-item">
+                                <a class="nav-link" href="' . site_url("myWorkout") . '">MY WORKOUT</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="' . site_url("logout") . '">LOGOUT</a>
+                            </li>
+                          ';
                         } else {
                             // If the user is not logged in (cookie is not set), show login link
-                            echo '<li class="nav-item">
-                            <a class="nav-link" href="' . site_url("register") . '">SIGN UP</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="' . site_url("login") . '">LOGIN</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="' . site_url("myWorkout") . '">MY WORKOUT</a>
-                          </li>
+                            echo '
+                            <li class="nav-item">
+                                <a class="nav-link" href="' . site_url("register") . '">SIGN UP</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="' . site_url("login") . '">LOGIN</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="' . site_url("myWorkout") . '">MY WORKOUT</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">EXPLORE</a>
+                                <ul class="dropdown-menu dropdown-align">
+                                    <li>
+                                        <a class="nav-link" href="' . site_url("/publicExercise") . '">EXERCISE</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link" href="' . site_url("/publicWorkout") . '">WORKOUT</a>
+                                    </li>
+                                </ul>
+                            </li>
                     ';
                         }
                         ?> </ul>
