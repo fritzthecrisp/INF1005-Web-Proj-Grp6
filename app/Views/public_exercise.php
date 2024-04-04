@@ -6,7 +6,7 @@
 
 <main class="container">
     <div class="card-hedings">
-        <h2>TOP EXERCISES</h2>
+        <h2 class="title">TOP EXERCISES</h2>
         <p>Here are the Top exercises done by our UniFit members!</p>
     </div>
     <div class="card-container" id="exercise-container">
@@ -24,7 +24,7 @@
                                 <div class="col-sm-7">
                                     <div class="card-body">
                                         <div class="text-section">
-                                            <h2 class="card-title"><?= $exercise['exer_name'] ?></h2>
+                                            <h2 class=" title card-title"><?= $exercise['exer_name'] ?></h2>
                                                 <h3 class="card-subtitle mb-2">Level: <?= $exercise['exer_level'] ?></h3>
                                                 <p class="card-text">Exercise Eqiupment: <?= $exercise['exer_equipment'] ?></p>
                                         </div>

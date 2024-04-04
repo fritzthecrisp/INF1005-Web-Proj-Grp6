@@ -7,20 +7,17 @@
 
 <main class="container">
     <div class="bg-image">
-        <img src="https://images.unsplash.com/photo-1599058918144-1ffabb6ab9a0?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="motivational_image">
-        <div class="quote">
-            <h2>"The pain you feel today is the strength you feel tomorrow." <br>-Stephen Richards</h2>
-        </div>
+        <img src="/img/banner.jpg" class="d-block w-100" alt="motivational_image">
     </div>
     <div class="quote-responsive">
-        <h2>"The pain you feel today is the strength you feel tomorrow." <br>-Stephen Richards</h2>
+        <h2 class="title">"The pain you feel today is the strength you feel tomorrow." <br>-Stephen Richards</h2>
     </div>
     <div class="openingTagline">
-        <h1>WELCOME TO UNIFIT!</h1>
-        <h1>Your One-stop Fitness Tracking Application</h1>
+        <h1 class="title">WELCOME TO UNIFIT!</h1>
+        <h1 class="title">Your One-stop Fitness Tracking Application</h1>
     </div>
     <div class="card-headings">
-        <h2>TOP EXERCISES</h2>
+        <h2 class="title">TOP EXERCISES</h2>
         <p>Here are the Top exercises done by our UniFit members! Click on the exercises below to find out more!</p>
     </div>
     <div class="card-container" id="exercise-container">
@@ -58,7 +55,7 @@
         </form>
     </div>
     <div class="card-headings">
-        <h2>TOP WORKOUT PLANS</h2>
+        <h2 class="title">TOP WORKOUT PLANS</h2>
         <p>Here are the Top Workout Plans created by physical trainers and also Unifit Members! Click on the workout plans below to find out more!</p>
     </div>
     <div class="card-container" id="workout-container">

@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/register.css') ?>">
 <main class="container">
-    <h1>Member Registration</h1>
+    <h1 class="title">Member Registration</h1>
     <p>Interested and motivated to work out more and build up your fitness level? Join the UniFit family now! Simply fill up the registration form to become a Unifit member today! It is that simple and easy!</p>
 
     <form action="/AuthController/register" method="post">

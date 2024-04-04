@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/authentication.css') ?>">
 
 <main class="container authentication">
-    <h1>Reset Password</h1>
+    <h1 class="title">Reset Password</h1>
     <div class="pwd_criteria">
         <p>New password set must be:</p>
         <ul>
@@ -35,7 +35,7 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/authentication.css') ?>">
 
 <main class="container authentication">
-    <h1>Reset Password</h1>
+    <h1 class="title">Reset Password</h1>
     <div class="pwd_criteria">
         <p>New password set must be:</p>
         <ul>

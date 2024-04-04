@@ -2,6 +2,6 @@
 
 <?= $this->section('content') ?>
 <main class="container">
-    <h3>About</h3>
+    <h3 class="title">About</h3>
 </main>
 <?= $this->endSection() ?>

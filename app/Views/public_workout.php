@@ -6,7 +6,7 @@
 
 <main class="container">
     <div class="card-headings">
-        <h2>TOP WORKOUT PLANS</h2>
+        <h2 class="title">TOP WORKOUT PLANS</h2>
         <p>Here are the Top Workout Plans created by physical trainers and also Unifit Members!</p>
     </div>
     <div class="card-container" id="workout-container">

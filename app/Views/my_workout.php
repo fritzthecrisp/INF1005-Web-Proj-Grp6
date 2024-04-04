@@ -6,10 +6,10 @@
 
 <main class="container">
     
-    <h1>Workout Sessions</h1>
+    <h1 class="title">Workout Sessions</h1>
     <hr>
     <div class="myWorkoutContainer card-headings">
-        <h2>My Workouts</h2>
+        <h2 class="title">My Workouts</h2>
         <a href="<?php echo base_url('instance/new'); ?>" class="green-button">Create your Own Workouts</a>
     </div>
     <p>Here are a list of exisitng workouts you have saved and created. Creating a new one? Click on the "Create your Own Workouts" button to begin!</p>
@@ -51,7 +51,7 @@
     <hr>
 
     <div class="card-headings">
-        <h2>Recommended Workouts For You</h2>
+        <h2 class="title">Recommended Workouts For You</h2>
         <p> Here are our recommended workouts for you. Click below to find out more! </p>
     </div>
 

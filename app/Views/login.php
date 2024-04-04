@@ -8,7 +8,7 @@
         <?= session('message') ?>
     </div>
 <?php endif; ?>
-    <h1>Login</h1>
+    <h1 class="title">Login</h1>
     <form action="<?= base_url('AuthController/login') ?>" method="post">
         <div class="mb-3 form-group">
             <label for="email" class="form-label">Email:</label>

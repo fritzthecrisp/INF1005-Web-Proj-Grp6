@@ -5,7 +5,7 @@
 
 <main class="container" style="display: grid;place-items: center;">
     <img src=<?= $imgURLs . $exercise['exer_images'] . "?raw=true" ?> alt="exerciseImg">
-    <h1><?= $exercise['exer_name'] ?></h1>
+    <h1 class="title"><?= $exercise['exer_name'] ?></h1>
     <div class="column">
         <button>INFO</button>
         <button>INSTRUCTIONS</button>
