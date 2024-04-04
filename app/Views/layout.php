@@ -29,6 +29,17 @@
                         if ($session->has('logged_in') && $session->get('logged_in') === TRUE) {
                             // If the user is logged in (cookie is set), show profile link
                             echo '
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">EXPLORE</a>
+                                <ul class="dropdown-menu dropdown-align">
+                                    <li>
+                                        <a class="nav-link" href="' . site_url("/publicExercise") . '">EXERCISES</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link" href="' . site_url("/publicWorkout") . '">WORKOUTS</a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="' . site_url("myWorkout") . '">MY WORKOUT</a>
                             </li>
