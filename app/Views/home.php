@@ -33,7 +33,7 @@
                         <div class="exercise cards">
                             <div class="row">
                                 <div class="col-sm-5">
-                                    <img class="card-img" src=<?= $imgURLs . $exercise['exer_images'] . "?raw=true" ?> alt="<?= $exerciseImg ?>">
+                                    <img class="card-img" src="<?= $imgURLs . $exercise['exer_images'] . "?raw=true" ?>" alt="<?= $exerciseImg ?>">
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="card-body">

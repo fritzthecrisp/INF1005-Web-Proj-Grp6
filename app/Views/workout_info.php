@@ -10,7 +10,7 @@
             <?php $workoutImg =  "workoutImg - " . $workout['workout_name']
             ?>
             <h1><?= $workout['workout_name'] ?></h1>
-            <img class="workoutImg" src=<?= $imgURLs . $workout['workout_image'] . "?raw=true" ?> alt=<?= $workoutImg ?>>
+            <img class="workoutImg" src="<?= $imgURLs . $workout['workout_image'] . "?raw=true" ?>" alt="<?= $workoutImg ?>">
             <div class="workoutGuide">
                 <h2><?= "Your Guide to " . $workout['workout_name'] ?></h2>
                 <p><?= "Created by " . $workout['user_name'] ?></p>

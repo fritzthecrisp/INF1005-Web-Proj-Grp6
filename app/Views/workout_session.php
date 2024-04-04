@@ -10,7 +10,7 @@
         <?php foreach ($sets as $set) : ?>
             <div class="info" style="display: none;">
                 <div class="info-left"> 
-                    <img src=<?= $imgURLs . $set['exer_image'] . "?raw=true" ?> alt="Exercise Icon">
+                    <img src="<?= $imgURLs . $set['exer_image'] . "?raw=true" ?>" alt="Exercise Icon">
                 </div>
                 <div class="info-right">
                     <div class="equipment">Equipment</div>

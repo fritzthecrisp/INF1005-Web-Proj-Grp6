@@ -29,7 +29,7 @@
                         <div class="myWorkout cards">
                             <div class="row">
                                 <div class="col-sm-5">
-                                    <img class="card-img" src=<?= $imgURLs . $myWorkout['workout_image'] . "?raw=true" ?> alt="<?= $myWorkoutImg ?>">
+                                    <img class="card-img" src="<?= $imgURLs . $myWorkout['workout_image'] . "?raw=true" ?>" alt="<?= $myWorkoutImg ?>">
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="card-body">
@@ -68,7 +68,7 @@
                         <div class="recommendedWorkout cards">
                             <div class="row">
                                 <div class="col-sm-5">
-                                    <img class="card-img" src=<?= $imgURLs . $recommendedWorkout['workout_image'] . "?raw=true" ?> alt="<?= $recommendedWorkoutImg ?>">
+                                    <img class="card-img" src="<?= $imgURLs . $recommendedWorkout['workout_image'] . "?raw=true" ?>" alt="<?= $recommendedWorkoutImg ?>">
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="card-body">

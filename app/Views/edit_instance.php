@@ -11,7 +11,7 @@
     <form id="workoutForm" method="post">
         <div class="row">
             <div class="col-sm">
-                <h1>Add Workout</h1>
+                <h1>Edit Workout</h1>
                 <div class="mb-3">
                     <label for="workout_name" class="form-label">Workout Name</label><br>
                     <input required type="text" id="workout_name" name="workout_name" class="form-control" value=<?= $workout["workout_name"] ?>><br>
@@ -61,8 +61,8 @@
             </div>
         </div>
         <div class="mb-3 form-check">
-            <input type="checkbox" name="workout_public" id="publicCheckBox" class="form-check-input">
-            <label class="form-check-label" for="publicCheckBox" value="" <?= $workout["checked"] ?>>
+            <input type="checkbox" name="workout_public" id="publicCheckBox" class="form-check-input" <?= $workout["checked"] ?>>
+            <label class="form-check-label" for="publicCheckBox">
                 Make workout Public
             </label>
         </div>
