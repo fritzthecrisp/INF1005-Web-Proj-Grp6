@@ -30,7 +30,7 @@
                 <?php $exerciseImg =  "exerciseImg_" . $exercise['exer_name'] ?>
                 <div class="col-sm-6 mb-4 card-border">
                     <a href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopExerciseName ?>">
-                        <div class="exercise cards" aria-label="<?= $arialabelTopExerciseName ?>">
+                        <div class="exercise cards">
                             <div class="row">
                                 <div class="col-sm-5">
                                     <img class="card-img" src=<?= $imgURLs . $exercise['exer_images'] . "?raw=true" ?> alt="<?= $exerciseImg ?>">
@@ -71,7 +71,7 @@
                 ?>
                 <div class="col-md-6 mb-4 card-border">
                     <a href="<?= site_url("workout/details/{$workout['workout_id']}") ?>" class="workout-link card-link" aria-label="<?= $arialabelTopWorkoutName ?>">
-                        <div class="workout cards" aria-label="<?= $arialabelTopWorkoutName ?>">
+                        <div class="workout cards">
                             <div class="row">
                                 <div class="col-sm-5">
                                     <img class="card-img" src="/img/image.png" alt="<?= $workoutImg ?>">
