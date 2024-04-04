@@ -12,16 +12,17 @@ class Workout extends BaseController
 {
     public function details($id)
     {
-        // Fetch exercise details based on the provided ID
+        $session = \Config\Services::session();
 
-        $userID = 5;
+        // Fetch exercise details based on the provided ID
+        $userID = $session->get('user_id');
         // // get the cache for exercises. 
         // $cache = \Config\Services::cache();
 
         // Get from session
         // Retrieve exercises from session
         $session = \Config\Services::session();
-        $userID = 5; // #userID #user_id
+      
         // $session->remove('user_instances_' . $userID);
         // $session->remove('user_instance_sets_' . $userID);
 
@@ -82,12 +83,10 @@ class Workout extends BaseController
 
     public function start($id)
     {
-        // Fetch exercise details based on the provided ID
-        $userID = 5;
         // Get from session
         // Retrieve exercises from session
         $session = \Config\Services::session();
-        $userID = 5; // #userID #user_id
+        $userID = $session->get('user_id'); // #userID #user_id
         // $session->remove('user_instances_'.$userID);
         // $session->remove('user_instance_sets_'.$userID);
 

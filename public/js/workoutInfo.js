@@ -8,3 +8,4 @@ window.addEventListener('resize', function () {
         workoutDetailsRow.classList.remove('text-center');
     }
 });
+

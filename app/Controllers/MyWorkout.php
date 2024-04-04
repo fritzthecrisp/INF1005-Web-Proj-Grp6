@@ -18,7 +18,7 @@ class MyWorkout extends BaseController
         // Get from session
         // Retrieve exercises from session
         $session = \Config\Services::session();
-        $userID = 5; // #userID #user_id
+        $userID = $session->get('user_id'); // #userID #user_id
         //         $session->remove('user_instances_'.$userID);
         // $session->remove('user_instance_sets_'.$userID);
 

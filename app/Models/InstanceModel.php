@@ -12,6 +12,7 @@ class InstanceModel extends Model
     protected $db;
     public function __construct(ConnectionInterface &$db)
     {
+        
         $this->db = &$db;
     }
 
@@ -42,18 +43,20 @@ class InstanceModel extends Model
     }
     public function getUserID(array $data)
     {
-        $userID = 5; //"Set user ID dynamically here"
+        $session = \Config\Services::session();
+        $userID = $session->get('user_id'); //"Set user ID dynamically here"
         $data['data']['user_id'] = $userID;
         return $data;
     }
 
     function fetchUserInstances()
     {
+        $session = \Config\Services::session();
         // "SELECT *  FROM instances"
         $sets_results = array();
         $all_my_session_sets = array();
         $all_my_instances = array();
-        $userID = 5; //set user ID
+        $userID = $session->get('user_id'); //set user ID
 
         $instances = $this->db->table('instances')
             ->select('instances.*, workouts.*, instance_sets.*, users.user_username, exercises.*') // Select columns from all tables
@@ -121,7 +124,7 @@ class InstanceModel extends Model
         // Add to session
         // Store the fetched exercises in session
         $session = \Config\Services::session();
-        $userID = 5; // #userID #user_id
+        $userID = $session->get('user_id'); // #userID #user_id
 
         // Set session variables
         $session->set('user_instance_sets_' . $userID, $all_my_sets);
@@ -137,11 +140,12 @@ class InstanceModel extends Model
     }
     function fetchUserWorkoutSessions()
     {
+        $session = \Config\Services::session();
         // "SELECT *  FROM instances"
         $sets_results = array();
         $all_my_session_sets = array();
         $all_my_instances = array();
-        $userID = 5; //set user ID
+        $userID = $session->get('user_id'); //set user ID
 
         $instances = $this->db->table('instances')
             ->select('instances.*, exercises.*, users.*, instance_sessions.*, session_sets.*') // Select columns from all tables
