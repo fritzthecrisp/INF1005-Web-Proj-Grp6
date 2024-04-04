@@ -81,38 +81,6 @@
                 </table>
             </div>
 
-            <?php foreach ($sessionInfo as $sessionNo => $details) : ?>
-                <div id="session-list">
-                    <table id="sessionRecordsTable" class="table table-dark">
-                        <thead>
-                            <tr class="sessionCreationInfo">
-                                <th>Session <?= (int)$sessionNo + 1 ?></th>
-                                <th colspan="3"><?= "Created " . $details["session_date_created"] ?></th>
-                            </tr>
-                            <tr>
-                                <th>Exercise Name</th>
-                                <th>Sets</th>
-                                <th>Reps</th>
-                                <th>Weights</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($details as $det) :
-                                if (is_array($det)) { ?>
-                                    <tr>
-                                        <td><?= $det['exer_name'] ?></td>
-                                        <td><?= (int)$det['set_no'] + 1 ?></td>
-                                        <td><?= $det['set_reps'] ?></td>
-                                        <td><?= $det['session_set_weight'] ?></td>
-                                    </tr>
-
-                            <?php }
-                            endforeach; ?>
-                        </tbody>
-                    </table>
-                </div>
-
-            <?php endforeach; ?>
         </div>
 
     </div>
