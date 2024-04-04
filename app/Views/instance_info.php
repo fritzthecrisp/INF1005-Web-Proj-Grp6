@@ -71,13 +71,13 @@
                         </tr>
                         <tr>
                             <th>Exercise Name</th>
-                            <th>Sets</th>
+                            <th>Set #</th>
                             <th>Reps</th>
                             <th>Weights</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($details as $det) :
+                        <?php foreach ($details as $index => $det) :
                             if (is_array($det)) { ?>
                                 <tr>
                                     <td><?= $det['exer_name'] ?></td>

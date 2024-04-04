@@ -281,10 +281,12 @@ class Instance extends BaseController
                     $workout_model = new WorkoutModel($db);
                     $_POST['user_id'] = $userID; // #user_id set dynamically
                     $_POST['workout_id'] = $workout_id;
-                    if ($_POST["workout_public"] === "on") {
-                        $_POST["workout_public"] = "Public";
-                    } else {
-                        $_POST["workout_public"] = "Private";
+                    if (isset($_POST["workout_public"])) {
+                        if ($_POST["workout_public"] === "on") {
+                            $_POST["workout_public"] = "Public";
+                        } else {
+                            $_POST["workout_public"] = "Private";
+                        }
                     }
 
                     $workout_model->save($_POST);
