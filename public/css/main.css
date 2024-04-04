@@ -46,6 +46,12 @@ body {
     height: 60px !important;
 }
 
+.logo-unifit{
+    color:var(--body-color);
+    font-size:40px;
+    padding: 8px;
+}
+
 nav {
     background-color: var(--nav-color);
 }
