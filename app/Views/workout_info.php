@@ -35,28 +35,6 @@
             <!-- ?php endif; ? -->
 
         </div>
-        <div id="thisdiv">
-            <table id="exerciseTable" class="table table-dark">
-                <thead>
-                    <tr>
-                        <th>Exercise Name</th>
-                        <th>Sets</th>
-                        <th>Reps</th>
-                        <th>Weights</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($sets as $set) : ?>
-                        <tr>
-                            <td><?= $set['exer_name'] ?></td>
-                            <td><?= $set['sets'] ?></td>
-                            <td><?= $set['reps'] ?></td>
-                            <td><?= $set['weight'] ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
         <div class="allTables">
             <div id="exercise-list">
                 <table id="exerciseTable" class="table table-dark">
