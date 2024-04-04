@@ -38,7 +38,8 @@ class InstanceSetModel extends Model
         return $data;
     }
     public function getUserID(array $data){
-        $userID = 5; //"Set user ID dynamically here"
+        $session = \Config\Services::session();
+        $userID = $session->get('user_id'); //set user ID
         $data['data']['user_id'] = $userID;
         return $data;
     }

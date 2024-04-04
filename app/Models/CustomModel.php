@@ -19,7 +19,10 @@ class CustomModel
         $sets_results = array();
         $all_my_sets = array();
         $all_my_instances = array();
-        $userID = 5; //set user ID
+        
+        $session = \Config\Services::session();
+        $userID = $session->get('user_id'); //set user ID
+
 
         $instances = $this->db->table('instances')
             ->select('instances.*, workouts.*, instance_sets.*, users.user_username, exercises.*') // Select columns from all tables

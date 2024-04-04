@@ -42,7 +42,8 @@ class WorkoutModel extends Model
     // {
     //     // Log the contents of the $data variable
     //     log_message('debug', 'Contents of $data variable: ' . print_r($data, true));
-    //     $userID = 5; //"Set user ID dynamically here"
+    // $session = \Config\Services::session();
+    // $userID = $session->get('user_id'); //set user ID
     //     $data['user_id'] = $userID;
     //     return $data;
     // }
@@ -50,15 +51,15 @@ class WorkoutModel extends Model
     {
         // "SELECT *  FROM workouts"
         $workouts = $this->db->table('workouts')
-        ->select('instances.*, workouts.*, users.user_username') // Select columns from all tables
-        ->join('instances', 'instances.workout_id = workouts.workout_id') // Join with instances table
-        ->join('users', 'instances.user_id = users.user_id') // Join with users table
-        ->where('workouts.workout_public', 'Public') // Corrected condition for filtering
-        ->orderBy('workouts.workout_id', 'DESC') // Order by workout_id in descending order
-        ->limit(5) // Limit the number of results to 5
-        ->get()
-        ->getResult();
-        
+            ->select('instances.*, workouts.*, users.user_username') // Select columns from all tables
+            ->join('instances', 'instances.workout_id = workouts.workout_id') // Join with instances table
+            ->join('users', 'instances.user_id = users.user_id') // Join with users table
+            ->where('workouts.workout_public', 'Public') // Corrected condition for filtering
+            ->orderBy('workouts.workout_id', 'DESC') // Order by workout_id in descending order
+            ->limit(5) // Limit the number of results to 5
+            ->get()
+            ->getResult();
+
         $top_workouts = array();
         foreach ($workouts as $object) {
             $top_workouts[] = (array) $object;
