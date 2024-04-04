@@ -1,13 +1,4 @@
 /* For home.php Page */
-
-@media (max-width: 576px) {
-
-    .bg-image {
-        display: none;
-    }
-
-}
-
 .bg-image {
     position: relative;
     width: 100%;
@@ -38,15 +29,25 @@
 
 .quote-responsive{
     color: white;
+    font-style: italic;
     display: none;
 }
 
 .openingTagline {
     text-align: center;
-    /* padding: 20px; */
     margin: 50px;
 }
 
+@media (max-width: 576px) {
+
+    .bg-image {
+        display: none;
+    }
+
+    .quote-responsive{
+        display: block;
+    }
+}
 
 /* For workout_info.php Page */
 .workoutGuide h2 {
