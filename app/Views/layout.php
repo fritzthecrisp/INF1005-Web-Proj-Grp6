@@ -45,9 +45,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="' . site_url("login") . '">LOGIN</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="' . site_url("myWorkout") . '">MY WORKOUT</a>
-                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">EXPLORE</a>
                                 <ul class="dropdown-menu dropdown-align">

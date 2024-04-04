@@ -87,7 +87,6 @@
                                     <td><?= $det['set_reps'] ?></td>
                                     <td><?= $det['session_set_weight'] ?></td>
                                 </tr>
-
                         <?php }
                         endforeach; ?>
                     </tbody>
