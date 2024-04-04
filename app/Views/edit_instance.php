@@ -11,7 +11,7 @@
     <form id="workoutForm" method="post">
         <div class="row">
             <div class="col-sm">
-                <h1>Edit Workout</h1>
+                <h1 class="title">Edit Workout</h1>
                 <div class="mb-3">
                     <label for="workout_name" class="form-label">Workout Name</label><br>
                     <input required type="text" id="workout_name" name="workout_name" class="form-control" value=<?= $workout["workout_name"] ?>><br>
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="col-sm" id="selectedWorkouts">
-                <h1>Selected Workouts</h1>
+                <h1 class="title">Selected Workouts</h1>
                 <?php $counter = 1; ?>
                 <?php // Loop through each set
                 foreach ($sets as $set) {

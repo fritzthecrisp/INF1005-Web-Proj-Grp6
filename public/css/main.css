@@ -22,8 +22,16 @@ body {
     min-width: 300px;
     box-sizing: inherit;
     background-color: var(--bg-color);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: italic;
     color: var(--body-color);
+}
+
+.title {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .content {
@@ -46,7 +54,7 @@ nav {
     color: var(--body-color);
 }
 
-.nav-link.active{
+.nav-link.active {
     color: var(--body-color) !important;
     border-bottom: 2px solid white;
 }
@@ -57,7 +65,7 @@ nav {
 }
 
 .nav-link:hover {
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 4px;
     color: black;
 }

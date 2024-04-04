@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/workout.css') ?>">
 
 <main class="container">
-    <h1><?= $workout["workout_name"] ?></h1>
+    <h1 class="title"><?= $workout["workout_name"] ?></h1>
     <form id="workoutForm" method="POST">
         <?php $counter = 1; ?>
         <?php foreach ($sets as $set) : ?>

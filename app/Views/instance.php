@@ -6,7 +6,7 @@
     <title><?= $meta_title?></title>
 </head>
 <body>
-    <h1><?= $page_name?></h1>
+    <h1 class="title"><?= $page_name?></h1>
     <ul>
         <li>Blog
         </li>

@@ -9,12 +9,15 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url('css/main.css') ?>">
 </head>
 
 <body>
     <div class="header">
-    <?php $session = \Config\Services::session(); ?>
+        <?php $session = \Config\Services::session(); ?>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="<?= site_url("/") ?>"><img src="/img/logos.png" alt="logo" id="logo"></a>
@@ -24,10 +27,10 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <?php
-                            if ($session->has('logged_in') && $session->get('logged_in') === TRUE) {
+                        if ($session->has('logged_in') && $session->get('logged_in') === TRUE) {
                             // If the user is logged in (cookie is set), show profile link
                             echo '<li class="nav-item">
-                              <a class="nav-link" href="/register.php">MY WORKOUT</a>
+                              <a class="nav-link" href="/myWorkout">MY WORKOUT</a>
                           </li>
                           <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">PROFILE</a>
@@ -39,7 +42,7 @@
                                   <a class="dropdown-item" href="#">SETTINGS</a>
                               </li>
                               <li>
-                                  <a class="dropdown-item" href="/logout.php">LOGOUT</a>
+                                  <a class="dropdown-item" href="/logout">LOGOUT</a>
                               </li>
                           </ul>
                       </li>';

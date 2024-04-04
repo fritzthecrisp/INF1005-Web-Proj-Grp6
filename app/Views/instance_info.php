@@ -9,10 +9,10 @@
         <div class="col-sm" id="instanceDetails">
             <?php $workoutImg =  "workoutImg - " . $workout['workout_name']
             ?>
-            <h1><?= $workout['workout_name'] ?></h1>
+            <h1 class="title"><?= $workout['workout_name'] ?></h1>
             <img class="workoutImg" src="/img/image.png" alt=<?= $workoutImg ?>>
             <div class="workoutGuide">
-                <h2><?= "Your Guide to " . $workout['workout_name'] ?></h2>
+                <h2 class="title"><?= "Your Guide to " . $workout['workout_name'] ?></h2>
                 <p><?="Created by " . "username" . " on ". "creation_time"?></p>
                 <p><?="Updated on " . "updated_time"?></p>
                 <p><?= $workout['description'] ?></p>
