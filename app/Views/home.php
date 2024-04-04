@@ -27,7 +27,7 @@
                 <?php $exerciseImg =  "exerciseImg_" . $exercise['exer_name'] ?>
                 <div class="col-sm-6 mb-4 card-border">
                     <a href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopExerciseName ?>">
-                        <div class="exercise cards" aria-label=<?= $arialabelTopExerciseName ?>>
+                        <div class="exercise cards" aria-label="<?= $arialabelTopExerciseName ?>">
                             <div class="row">
                                 <div class="col-sm-5">
                                     <img class="card-img" src=<?= $imgURLs . $exercise['exer_images'] . "?raw=true" ?> alt="<?= $exerciseImg ?>">
@@ -35,7 +35,7 @@
                                 <div class="col-sm-7">
                                     <div class="card-body">
                                         <div class="text-section">
-                                            <h3 class="card-title"><?= $exercise['exer_name'] ?></h5>
+                                            <h3 class="card-title"><?= $exercise['exer_name'] ?></h3>
                                                 <h4 class="card-subtitle mb-2">Level: <?= $exercise['exer_level'] ?></h4>
                                                 <p class="card-text">Exercise Eqiupment: <?= $exercise['exer_equipment'] ?></p>
                                         </div>
@@ -67,7 +67,7 @@
                 ?>
                 <div class="col-md-6 mb-4 card-border">
                     <a href="<?= site_url("workout/details/{$workout['workout_id']}") ?>" class="workout-link card-link" aria-label="<?= $arialabelTopWorkoutName ?>">
-                        <div class="workout cards" aria-label=<?= $arialabelTopWorkoutName ?>>
+                        <div class="workout cards" aria-label="<?= $arialabelTopWorkoutName ?>">
                             <div class="row">
                                 <div class="col-sm-5">
                                     <img class="card-img" src="/img/image.png" alt="<?= $workoutImg ?>">

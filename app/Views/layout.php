@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>UniFit</title>
     <meta charset="UTF-8">
+    <title>UniFit</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -66,30 +66,32 @@
     <div class="content">
         <?= $this->renderSection('content') ?>
     </div>
+
+    <div class="footer">
+        <footer class="container-fluid py-4">
+            <div class="row">
+                <div class="col-md-6 footer_sections">
+                    <p class="text-uppercase mb-2"><u>About</u></p>
+                    <ul class="list-unstyled">
+                        <li><a href="<?= site_url("about") ?>" class="text-reset">About Us</a></li>
+                        <li><a href="#" class="text-reset">Motto</a></li>
+                        <li><a href="#" class="text-reset">Team</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 footer_sections">
+                    <p class="text-uppercase mb-2"><u>Others</u></p>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-reset">Contact Us</a></li>
+                        <li><a href="#" class="text-reset">Q&A</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="text-center mb-0">&copy; 2024 UniFit Pte. Ltd. All rights reserved.</p>
+        </footer>
+    </div>
+    <link rel="stylesheet" href="<?= base_url('js/main.js') ?>">
+
 </body>
 
-<div class="footer">
-    <footer class="container-fluid py-4">
-        <div class="row">
-            <div class="col-md-6 footer_sections">
-                <p class="text-uppercase mb-2"><u>About</u></p>
-                <ul class="list-unstyled">
-                    <li><a href="<?= site_url("about") ?>" class="text-reset">About Us</a></li>
-                    <li><a href="#" class="text-reset">Motto</a></li>
-                    <li><a href="#" class="text-reset">Team</a></li>
-                </ul>
-            </div>
-            <div class="col-md-6 footer_sections">
-                <p class="text-uppercase mb-2"><u>Others</u></p>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-reset">Contact Us</a></li>
-                    <li><a href="#" class="text-reset">Q&A</a></li>
-                </ul>
-            </div>
-        </div>
-        <p class="text-center mb-0">&copy; 2024 UniFit Pte. Ltd. All rights reserved.</p>
-    </footer>
-</div>
-<link rel="stylesheet" href="<?= base_url('js/main.js') ?>">
 
 </html>
