@@ -1,3 +1,6 @@
+
+/* The styles applying to login.php, reset_passsword.php */
+
 a{
     color: var(--body-color);
 }
@@ -11,10 +14,12 @@ a{
     width: 40%;
     text-align: center;
     padding: 20px;
-    border: 3px solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 3px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 1.8);
 }
+
+/* Responsive Design */
 
 @media only screen and (max-width: 992px) {
     .authentication {

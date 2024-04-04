@@ -4,65 +4,41 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('/css/card.css') ?>">
 <link rel="stylesheet" type="text/css" href="<?= base_url('/css/others.css') ?>">
 
-<main class="container">
-    <h1 class="openingTagline">WELCOME TO UNIFIT</h1>
-    <div id="carousel" class="carousel slide">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="/img/image.png" class="d-block w-100" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2>First slide label</h2>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="/img/logos.png" class="d-block w-100" alt="Second slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2>Second slide label</h2>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="/img/image.png" class="d-block w-100" alt="Third slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2>Third slide label</h2>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev" aria-label="previous-slide">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next" aria-label="next-slide">
-            <span class="carousel-control-next-icon"></span>
-        </button>
-    </div>
 
-    <div class="alt-headings">
+<main class="container">
+    <div class="bg-image">
+        <img src="https://images.unsplash.com/photo-1599058918144-1ffabb6ab9a0?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="motivational_image">
+        <div class="quote">
+            <h2>"The pain you feel today is the strength you feel tomorrow." <br>-Stephen Richards</h2>
+        </div>
+    </div>
+    <div class="quote-responsive">
+        <h2>"The pain you feel today is the strength you feel tomorrow." <br>-Stephen Richards</h2>
+    </div>
+    <div class="openingTagline">
         <h1>WELCOME TO UNIFIT!</h1>
         <h1>Your One-stop Fitness Tracking Application</h1>
     </div>
-
-    <h2 class=top_Headings>TOP EXERCISES</h2>
-    <p>Here are the Top exercises done by our UniFit members!</p>
+    <div class="card-headings">
+        <h2>TOP EXERCISES</h2>
+        <p>Here are the Top exercises done by our UniFit members! Click on the exercises below to find out more!</p>
+    </div>
     <div class="card-container" id="exercise-container">
         <div class="row">
             <?php foreach ($exercises as $exercise) : ?>
                 <?php $arialabelTopExerciseName = "Top Exercise - " . $exercise['exer_name'] ?>
                 <?php $exerciseImg =  "exerciseImg_" . $exercise['exer_name'] ?>
-                <div class="col-sm-6 mb-4">
+                <div class="col-md-6 mb-4 card-border">
                     <a href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopExerciseName ?>">
-                        <div class="exercise cards" aria-label=<?= $arialabelTopExerciseName ?>>
+                        <div class="exercise cards">
                             <div class="row">
                                 <div class="col-sm-5">
-                                    <img class="card-img" src=<?= $imgURLs . $exercise['exer_images'] . "?raw=true" ?> alt="<?= $exerciseImg ?>">
+                                    <img class="card-img" src="<?= $imgURLs . $exercise['exer_images'] . "?raw=true" ?>" alt="<?= $exerciseImg ?>">
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="card-body">
                                         <div class="text-section">
-                                            <h3 class="card-title"><?= $exercise['exer_name'] ?></h5>
+                                            <h3 class="card-title"><?= $exercise['exer_name'] ?></h3>
                                                 <h4 class="card-subtitle mb-2">Level: <?= $exercise['exer_level'] ?></h4>
                                                 <p class="card-text">Exercise Eqiupment: <?= $exercise['exer_equipment'] ?></p>
                                         </div>
@@ -75,9 +51,16 @@
             <?php endforeach; ?>
         </div>
     </div>
-    <a style="float: right;" href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopExerciseName ?>">More</a>
-    <h2 class="top_Headings">TOP WORKOUT PLANS</h2>
-    <p>Here are the Top Workout Plans created by physical trainers and also Unifit Members!</p>
+
+    <div class="buttonsbelowCards">
+        <form action="<?= site_url("/publicExercise") ?>" method="get">
+            <button type="submit">Explore more Exercises</button>
+        </form>
+    </div>
+    <div class="card-headings">
+        <h2>TOP WORKOUT PLANS</h2>
+        <p>Here are the Top Workout Plans created by physical trainers and also Unifit Members! Click on the workout plans below to find out more!</p>
+    </div>
     <div class="card-container" id="workout-container">
         <div class="row">
             <?php foreach ($workouts as $workout) : ?>
@@ -86,18 +69,18 @@
                 ?>
                 <?php $workoutImg =  "workoutImg_" . $workout['workout_name']
                 ?>
-                <div class="col-md-6 mb-4">
-                    <a href="<?= site_url("workout/details/{$workout['workout_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopWorkoutName ?>">
-                        <div class="workout cards" aria-label=<?= $arialabelTopWorkoutName ?>>
+                <div class="col-md-6 mb-4 card-border">
+                    <a href="<?= site_url("workout/details/{$workout['instance_id']}") ?>" class="workout-link card-link" aria-label="<?= $arialabelTopWorkoutName ?>">
+                        <div class="workout cards">
                             <div class="row">
                                 <div class="col-sm-5">
-                                    <img class="card-img" src="/img/image.png" alt="<?= $workoutImg ?>">
+                                    <img class="card-img" src=<?= $imgURLs . $workout['workout_image'] . "?raw=true" ?> alt="<?= $workoutImg ?>">
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="card-body">
                                         <div class="text-section">
                                             <h3 class="card-title"><?= $workout['workout_name'] ?></h3>
-                                            <h4 class="card-subtitle mb-2">Made by: </h4>
+                                            <h4 class="card-subtitle mb-2">Made by: <?= $workout['user_name'] ?></h4>
                                             <p class="card-text"><?= $workout['workout_description'] ?></p>
                                         </div>
                                     </div>
@@ -109,7 +92,10 @@
             <?php endforeach; ?>
         </div>
     </div>
-    <a style="float: right;" href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopExerciseName ?>">Explore more workout</a>
+    <div class="buttonsbelowCards">
+        <form action="<?= site_url("/publicWorkout") ?>" method="get">
+            <button type="submit">Explore more Workout Plans</button>
+        </form>
+    </div>
 </main>
-<!-- <script src="<?= base_url('js/home.js') ?>"></script> -->
 <?= $this->endSection() ?>

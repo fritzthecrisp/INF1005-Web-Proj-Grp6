@@ -1,69 +1,61 @@
 /* For home.php Page */
-
-.openingTagline {
-    text-align: center;
+.bg-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding: 0px;
 }
 
-.carousel-caption h2 {
-    text-decoration: none;
+.bg-image img {
+    height: auto;
+    object-fit: cover;
 }
 
-.carousel-item img {
-    width: 800px;
-    height: 500px;
+.quote {
+    position: absolute;
+    font-style: italic;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    z-index: 1;
+    color: white;
+    margin: 20px;
 }
 
-.alt-headings h1 {
+.quote-responsive{
+    color: white;
+    font-style: italic;
     display: none;
 }
 
-.top_Headings {
-    margin-top: 30px;
+.openingTagline {
+    text-align: center;
+    margin: 50px;
 }
 
 @media (max-width: 576px) {
-    .carousel {
+
+    .bg-image {
         display: none;
     }
 
-    .alt-headings {
-        padding-bottom: 4px;
-    }
-
-    .alt-headings>h1 {
+    .quote-responsive{
         display: block;
-        text-align: center;
-        font-style: italic;
-    }
-}
-
-/* For workout_info.php Page */
-.workoutGuide h2 {
-    padding-bottom: 10px;
-    padding-top: 10px;
-}
-
-@media (max-width: 570px) {
-    #workoutButtons {
-        flex-direction: column;
-        /* Stack cards vertically */
-        align-items: center;
-        /* Align cards in the center */
-    }
-
-    .workoutImg {
-        max-width: 100%;
-        height: auto;
     }
 }
 
 /* For myWorkout.php */
 
-
 .myWorkoutContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* padding-bottom: 20px; */
 }
 
 .green-button {
@@ -71,7 +63,7 @@
     color: white;
     padding: 10px 20px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 
@@ -104,6 +96,7 @@
     .col-sm {
         flex: none;
     }
+
     #cfmWorkout {
         float: none;
     }

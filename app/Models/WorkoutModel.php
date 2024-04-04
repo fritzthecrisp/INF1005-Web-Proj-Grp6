@@ -50,12 +50,15 @@ class WorkoutModel extends Model
     {
         // "SELECT *  FROM workouts"
         $workouts = $this->db->table('workouts')
-            ->where(['workout_id >' => 5])
-            ->where(['workout_id <=' => 10])
-            ->orderBy('workout_id', 'DESC')
-            ->get()
-            ->getResult();
-
+        ->select('instances.*, workouts.*, users.user_username') // Select columns from all tables
+        ->join('instances', 'instances.workout_id = workouts.workout_id') // Join with instances table
+        ->join('users', 'instances.user_id = users.user_id') // Join with users table
+        ->where('workouts.workout_public', 'Public') // Corrected condition for filtering
+        ->orderBy('workouts.workout_id', 'DESC') // Order by workout_id in descending order
+        ->limit(5) // Limit the number of results to 5
+        ->get()
+        ->getResult();
+        
         $top_workouts = array();
         foreach ($workouts as $object) {
             $top_workouts[] = (array) $object;

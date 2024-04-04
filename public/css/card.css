@@ -1,13 +1,22 @@
+/* Card Headings */
+
 h1 {
     margin-bottom: 20px;
 }
 
-h2 {
+.card-headings h2{
     text-decoration: underline;
     padding-bottom: 20px;
+    clear: both;
 }
 
-/* Card style */
+/* Card styles */
+
+.card-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
 
 .card-link {
     display: flex;
@@ -17,15 +26,20 @@ h2 {
     /* Remove underline */
 }
 
-.card-container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.card-border{
+    border: 1px solid white;
 }
 
-.card-title,
-.card-subtitle {
-    margin-bottom: 18px;
+.cards {
+    box-sizing: border-box;
+    /* Include padding and border in the element's size */
+    flex: 1;
+    border-radius: 4px;
+    margin-right: 10px;
+    overflow: hidden;
+    width: auto;
+    height: 300px;
+    /* margin-top: 60px; */
 }
 
 .card-img {
@@ -36,17 +50,6 @@ h2 {
     /* Make sure image is responsive */
     height: auto;
     /* Maintain aspect ratio */
-}
-
-.cards {
-    box-sizing: border-box;
-    /* Include padding and border in the element's size */
-    flex: 1;
-    border: 1px solid black;
-    margin-right: 10px;
-    overflow: hidden;
-    width: auto;
-    height: 280px;
 }
 
 .card-body {
@@ -60,7 +63,6 @@ h2 {
 }
 
 .text-section {
-    max-width: 60%;
     display: flex;
     /* Change display property to flex */
     flex-direction: column;
@@ -71,72 +73,36 @@ h2 {
     padding: 20px 0px;
 }
 
-.button-section {
-    max-width: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    /* Align button to the bottom */
-    bottom: 10px;
-    /* Position it 10px from the bottom */
-    right: 10px;
-    /* Position it 10px from the right */
+.card-title,
+.card-subtitle {
+    margin-bottom: 18px;
 }
 
 /* Button style */
 
-.btn {
-    outline: none;
-    color: white;
-    border-radius: 5px;
-    width: 100px;
-    /* Adjust width as needed */
+.buttonsbelowCards{
+    float: right;
+    margin-bottom: 20px;
 }
 
-.buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.btn-next {
-    background-color: transparent;
-    /* Make the background transparent */
-    border: none;
-    /* Remove any border */
-    padding: 0;
-    /* Remove padding */
-}
-
-.btn-next:hover {
-    background-color: transparent !important;
-    /* Make sure hover color is transparent */
-}
-
-.btn:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-.material-icons {
-    font-size: 10em;
-    color: green;
-}
+/* Responsive Design for Cards */
 
 @media (max-width: 992px) {
+    
+    .card-container {
+        flex-direction: column;
+        /* Stack cards vertically */
+        align-items: center;
+        /* Align cards in the center */
+    }
+    
     .cards {
         width: 300px;
         height: 50%;
         /* Make cards full width */
         margin-bottom: 20px;
         /* Add some space between the cards */
-    }
-
-    .card-container {
-        flex-direction: column;
-        /* Stack cards vertically */
-        align-items: center;
-        /* Align cards in the center */
     }
 
     .card-img {
@@ -164,8 +130,4 @@ h2 {
         /* Add some space at the top */
     }
 
-    .btn-next {
-        font-size: 1em;
-        /* Adjust the arrow icon size for smaller screens */
-    }
 }

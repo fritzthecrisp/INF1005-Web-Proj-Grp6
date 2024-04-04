@@ -33,4 +33,5 @@
         <a class="register-link" href="<?= site_url('forgotPassword') ?>">Click here.</a>.</p>
 
 </main>
+<script src="<?= base_url('js/main.js') ?>"></script>
 <?= $this->endSection() ?>

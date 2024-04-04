@@ -1,16 +1,19 @@
+/* Base Colour of webpages */
+
 :root {
     --bg-color: #020316;
     --body-color: #f7f5f5;
-    --nav-color: #0e1b3c;
+    --nav-color: #03052C;
 }
 
+
+/* Overall styling of webpage */
 html {
     height: 100%;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 
 body {
     margin: 0;
@@ -23,6 +26,13 @@ body {
     color: var(--body-color);
 }
 
+.content {
+    padding: 68px;
+    min-height: 100vh;
+}
+
+/* Navigation bar */
+
 #logo {
     width: 60px !important;
     height: 60px !important;
@@ -34,14 +44,27 @@ nav {
 
 .nav-link {
     color: var(--body-color);
-    /* Change link color to black */
-    text-decoration: none !important;
-    /* Remove underline */
+}
+
+.nav-link.active{
+    color: var(--body-color) !important;
+    border-bottom: 2px solid white;
 }
 
 .w3-button {
     margin: 4px;
-    background-color: #565EF3;;
+    background-color: transparent;
+}
+
+.nav-link:hover {
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 4px;
+    color: black;
+}
+
+.button-primary {
+    border-radius: 4px;
+    background-color: #565EF3;
 }
 
 .dropdown-item {
@@ -60,25 +83,19 @@ nav {
     /* Remove background color of dropdown menu */
 }
 
-.content {
-    padding: 68px;
-    min-height: 100vh;
-}
+
+/* Button Styles */
 
 button {
-    border-radius: 10px;
+    border-radius: 4px;
     margin: 10px;
     border: none;
-    background-color: rgb(146, 135, 121, 1);
+    background-color: rgb(113, 95, 75);
     padding: 10px;
+    color: var(--body-color);
 }
 
-.secButton {
-    border-radius: 10px;
-    margin: 10px;
-    border: none;
-    background-color: rgb(94, 87, 104, 1);
-}
+/* Footer Styles */
 
 footer {
     text-align: center;
@@ -90,6 +107,7 @@ footer {
     left: 0;
     bottom: 0;
     margin-top: auto;
+    margin: 15px;
     /* Push the footer to the bottom */
 }
 
@@ -100,7 +118,4 @@ footer {
 .list-unstyled li a {
     color: var(--body-color);
     text-decoration: none;
-}
-.hide {
-    display: none;
 }

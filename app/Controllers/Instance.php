@@ -200,17 +200,12 @@ class Instance extends BaseController
             $workout_id = $workout['workout_id'];
             // get the instance ID
             $instance_id = $workout['instance_id'];
-            // // get the instance_set_IDs,
-            // $instance_set_ids = [];
-            // foreach ($setDetails as $setDetail) {
-            //     $instance_set_ids[] = $setDetail['instance_set_id'];
-            // }
+            // get the instance_set_IDs,
+            $instance_set_ids = [];
+            foreach ($setDetails as $setDetail) {
+                $instance_set_ids[] = $setDetail['instance_set_id'];
+            }
             // $array=[1,2,3];
-            // echo '<pre>';
-            // var_dump($instance_set_ids);
-            // var_dump($array);
-            // echo '</pre>';
-            // exit;
 
 
             // what to run if they use post function
@@ -248,32 +243,32 @@ class Instance extends BaseController
                     $instance_model->save($instance_data);
 
 
-                    // //Insert data into the instance_set table
-                    // $instance_set_model = new InstanceSetModel($db);
-                    // foreach ($instance_set_ids as $set_id) {
-                    //     $instance_set_model->delete($set_id);
-                    // }
+                    //Insert data into the instance_set table
+                    $instance_set_model = new InstanceSetModel($db);
+                    foreach ($instance_set_ids as $set_id) {
+                        $instance_set_model->delete((int)$set_id);
+                    }
 
                     // $instance_set_model->delete($instance_set_ids);
 
 
-                    // foreach ($_POST['workoutOption'] as $i => $value) {
-                    //     $instance_id = (int)$instance_id;
-                    //     $exercise_id = (int)$value;
-                    //     // If exercise ID does not exist, skip adding instance set ID
-                    //     $instance_set_data[] = [
-                    //         'instance_id' => $instance_id,
-                    //         'exer_id' => $exercise_id,
-                    //         'instance_set_count' => $_POST['sets'][$i],
-                    //         'instance_set_reps' => $_POST['reps'][$i],
-                    //         'instance_set_weight' => $_POST['weight'][$i]
-                    //     ];
-                    // }
+                    foreach ($_POST['workoutOption'] as $i => $value) {
+                        $instance_id = (int)$instance_id;
+                        $exercise_id = (int)$value;
+                        // If exercise ID does not exist, skip adding instance set ID
+                        $instance_set_data[] = [
+                            'instance_id' => $instance_id,
+                            'exer_id' => $exercise_id,
+                            'instance_set_count' => $_POST['sets'][$i],
+                            'instance_set_reps' => $_POST['reps'][$i],
+                            'instance_set_weight' => $_POST['weight'][$i]
+                        ];
+                    }
 
-                    // if (!empty($instance_set_data)) {
-                    //     // Perform batch insertion using Model's insertBatch method
-                    //     $instance_set_model->insertBatch($instance_set_data);
-                    // }
+                    if (!empty($instance_set_data)) {
+                        // Perform batch insertion using Model's insertBatch method
+                        $instance_set_model->insertBatch($instance_set_data);
+                    }
 
                     $db->transComplete(); // Commit transaction
 

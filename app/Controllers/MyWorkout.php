@@ -19,6 +19,9 @@ class MyWorkout extends BaseController
         // Retrieve exercises from session
         $session = \Config\Services::session();
         $userID = 5; // #userID #user_id
+        //         $session->remove('user_instances_'.$userID);
+        // $session->remove('user_instance_sets_'.$userID);
+
 
         // Check if the session variables exist
         if (!$session->has('user_instances_' . $userID)) {
@@ -31,32 +34,6 @@ class MyWorkout extends BaseController
             $user_workouts = $session->get('user_instances_' . $userID);
         }
 
-        $physicalTrainers = [
-            [
-                'id' => '1',
-                'workout_name' => 'Workout 1',
-                'made_by' => '30 minutes',
-                'description' => 'This is the description for Workout 1.'
-            ],
-            [
-                'id' => '2',
-                'workout_name' => 'Workout 2',
-                'made_by' => '45 minutes',
-                'description' => 'This is the description for Workout 2.'
-            ],
-            [
-                'id' => '3',
-                'workout_name' => 'Workout 3',
-                'made_by' => '60 minutes',
-                'description' => 'This is the description for Workout 3.'
-            ],
-            [
-                'id' => '4',
-                'workout_name' => 'Workout 4',
-                'made_by' => '75 minutes',
-                'description' => 'This is the description for Workout 4.'
-            ]
-        ];
 
         // check the cache 
         $public_instances = $cache->get('public_instances');
@@ -73,7 +50,6 @@ class MyWorkout extends BaseController
 
         $data = [
             'myWorkouts' => $user_workouts,
-            'physicalTrainers' => $physicalTrainers,
             'recommendedWorkouts' => $public_instances,
             'imgURLs' => 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/' // set this string so all the images can be retrieved from the github
 
