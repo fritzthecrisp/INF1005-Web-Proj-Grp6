@@ -39,7 +39,10 @@ class CustomModel
             $images = json_decode($sets_results[$i]["exer_images"], true);
             if (!empty($images)) {
                 $image1 = $images[1];
+                $image0 = $images[0];
             }
+
+
 
             if (!isset($all_my_instances[$instance_id])) {
                 $all_my_instances[$instance_id] = [
@@ -59,6 +62,7 @@ class CustomModel
                 // 'instance_set_id' => $sets_results[$i]['instance_set_id'],
                 'exer_name' => $sets_results[$i]['exer_name'],
                 'exer_id' => $sets_results[$i]['exer_id'],
+                'exer_image' => $image0,
                 'sets' => $sets_results[$i]['instance_set_count'],
                 'reps' => $sets_results[$i]['instance_set_reps'],
                 'weight' => $sets_results[$i]['instance_set_weight']                // Add other fields if needed            ]
