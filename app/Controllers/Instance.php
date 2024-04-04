@@ -14,7 +14,7 @@ class Instance extends BaseController
     public function index(): string
     {
         $session = \Config\Services::session();
-        
+
         $data = [
             'meta_title' => 'My Workouts',
             'page_name' => 'My Workouts Page'
@@ -87,7 +87,7 @@ class Instance extends BaseController
         $imgURLs = 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/'; // set this string so all the images can be retrieved from the github
 
         // Pass exercise details to the view
-        return view('workout_info', ['workout' => $workout, 'sets' => $setDetails, 'imgURLs' => $imgURLs, 'sessionInfo' => $instance_sessions]);
+        return view('instance_info', ['workout' => $workout, 'sets' => $setDetails, 'imgURLs' => $imgURLs, 'sessionInfo' => $instance_sessions]);
 
         // return view('workout_info', ['workout' => $workout, 'isLoggedIn' => $isLoggedIn]);
     }
@@ -95,7 +95,7 @@ class Instance extends BaseController
     {
         $session = \Config\Services::session();
         helper(['form']); //form validation
-        $userID= $session->get('user_id');; 
+        $userID = $session->get('user_id');;
 
         $data = [
             'meta_title' => 'New Workout',
@@ -119,10 +119,13 @@ class Instance extends BaseController
                     // Insert data into the Workout table
                     $workout_model = new WorkoutModel($db);
                     $_POST['user_id'] = $session->get('user_id'); // #user_id set dynamically
-                    if ($_POST["workout_public"] === "on") {
-                        $_POST["workout_public"] = "Public";
-                    } else {
-                        $_POST["workout_public"] = "Private";
+
+                    if (isset($_POST["workout_public"])) {
+                        if ($_POST["workout_public"] === "on") {
+                            $_POST["workout_public"] = "Public";
+                        } else {
+                            $_POST["workout_public"] = "Private";
+                        }
                     }
 
                     $workout_model->save($_POST);
