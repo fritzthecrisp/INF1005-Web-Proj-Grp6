@@ -14,6 +14,7 @@
 
 <body>
     <div class="header">
+    <?php $session = \Config\Services::session(); ?>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="<?= site_url("/") ?>"><img src="/img/logos.png" alt="logo" id="logo"></a>
@@ -23,7 +24,7 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <?php
-                        if (isset($_COOKIE['user_logged_in']) && $_COOKIE['user_logged_in'] == true) {
+                            if ($session->has('logged_in') && $session->get('logged_in') === TRUE) {
                             // If the user is logged in (cookie is set), show profile link
                             echo '<li class="nav-item">
                               <a class="nav-link" href="/register.php">MY WORKOUT</a>

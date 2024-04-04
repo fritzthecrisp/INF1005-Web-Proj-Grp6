@@ -138,9 +138,7 @@ class AuthController extends BaseController
                         ];
                         $session->set($ses_data);
 
-                        // Set a custom cookie if needed
-                        $this->response->setCookie('custom_cookie_name', 'cookie_value', 86400); // 86400 seconds = 1 day
-                        return redirect()->to('/myWorkout');
+                        return redirect()->to('/Home2');
                     } else {
                         $session->setFlashdata('error', 'Password is incorrect.');
                         return redirect()->back();
