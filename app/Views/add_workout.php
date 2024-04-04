@@ -8,6 +8,9 @@
             <?= $validation->listErrors() ?>
         </div>
     <?php endif; ?>
+
+    <?php $session = \Config\Services::session();?>
+<?php if ($session->has('logged_in') && $session->get('logged_in') === TRUE): ?>
     <form id="workoutForm" method="post" action='/instance/new'>
         <div class="row">
             <div class="col-sm">
@@ -46,5 +49,8 @@
         </div>
     </form>
 </main>
+<?php else: ?>
+    <p>You must be logged in to view this page.</p>
+<?php endif; ?>
 <script src="<?= base_url('js/addWorkout.js') ?>"></script>
 <?= $this->endSection() ?>
