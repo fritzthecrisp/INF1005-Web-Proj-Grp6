@@ -123,9 +123,11 @@ class Instance extends BaseController
                     if (isset($_POST["workout_public"])) {
                         if ($_POST["workout_public"] === "on") {
                             $_POST["workout_public"] = "Public";
-                        } else {
+                        } {
                             $_POST["workout_public"] = "Private";
                         }
+                    } else {
+                        $_POST["workout_public"] = "Private";
                     }
 
                     $workout_model->save($_POST);
@@ -284,10 +286,13 @@ class Instance extends BaseController
                     if (isset($_POST["workout_public"])) {
                         if ($_POST["workout_public"] === "on") {
                             $_POST["workout_public"] = "Public";
-                        } else {
+                        } {
                             $_POST["workout_public"] = "Private";
                         }
+                    } else {
+                        $_POST["workout_public"] = "Private";
                     }
+
 
                     $workout_model->save($_POST);
 
