@@ -29,10 +29,12 @@
             <form action="<?= site_url('instance/edit/' . $workout['instance_id']) ?>" method="get">
                 <button type="submit">Create Workout</button>
             </form>
+            <?php if ($workouts['workout_public'] === "Public"): ?>
             <form action="">
                 <input type="hidden" id="linkToCopy"">
                     <button onclick="copyCurrentUrl()">Copy Link</button>
                 </form>
+                <?php endif; ?>
             <!-- ?php endif; ? -->
 
         </div>
