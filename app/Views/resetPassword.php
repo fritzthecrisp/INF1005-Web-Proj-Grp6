@@ -59,6 +59,3 @@
     </form>
 </main>
 <?= $this->endSection() ?>
-    </form>
-</main>
-<?= $this->endSection() ?>
