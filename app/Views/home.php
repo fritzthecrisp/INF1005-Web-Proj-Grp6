@@ -70,17 +70,17 @@
                 <?php $workoutImg =  "workoutImg_" . $workout['workout_name']
                 ?>
                 <div class="col-md-6 mb-4 card-border">
-                    <a href="<?= site_url("workout/details/{$workout['workout_id']}") ?>" class="workout-link card-link" aria-label="<?= $arialabelTopWorkoutName ?>">
+                    <a href="<?= site_url("workout/details/{$workout['instance_id']}") ?>" class="workout-link card-link" aria-label="<?= $arialabelTopWorkoutName ?>">
                         <div class="workout cards">
                             <div class="row">
                                 <div class="col-sm-5">
-                                    <img class="card-img" src="/img/image.png" alt="<?= $workoutImg ?>">
+                                    <img class="card-img" src=<?= $imgURLs . $workout['workout_image'] . "?raw=true" ?> alt="<?= $workoutImg ?>">
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="card-body">
                                         <div class="text-section">
                                             <h3 class="card-title"><?= $workout['workout_name'] ?></h3>
-                                            <h4 class="card-subtitle mb-2">Made by: </h4>
+                                            <h4 class="card-subtitle mb-2">Made by: <?= $workout['user_name'] ?></h4>
                                             <p class="card-text"><?= $workout['workout_description'] ?></p>
                                         </div>
                                     </div>

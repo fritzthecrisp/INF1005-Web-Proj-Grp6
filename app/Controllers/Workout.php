@@ -22,8 +22,8 @@ class Workout extends BaseController
         // Retrieve exercises from session
         $session = \Config\Services::session();
         $userID = 5; // #userID #user_id
-        $session->remove('user_instances_' . $userID);
-        $session->remove('user_instance_sets_' . $userID);
+        // $session->remove('user_instances_' . $userID);
+        // $session->remove('user_instance_sets_' . $userID);
 
         // Check if the session variables exist
         if (!$session->has('user_instances_' . $userID) || !$session->has('user_instance_sets_' . $userID)) {
