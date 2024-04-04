@@ -162,8 +162,8 @@ class Workout extends BaseController
                     $model = new InstanceModel($db); //update the cache
                     $model->fetchUserInstances();
 
-                    // header("Location: http://localhost/myWorkout");
-                    // exit();
+                    header("Location: http://localhost/myWorkout");
+                    exit();
                 } catch (\Exception $e) {
                     $db->transRollback(); // Rollback transaction if any query fails
                     log_message('error', $e->getMessage()); // Logs the exception message

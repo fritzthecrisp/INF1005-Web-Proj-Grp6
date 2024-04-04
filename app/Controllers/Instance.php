@@ -26,14 +26,13 @@ class Instance extends BaseController
     {
         // Fetch exercise details based on the provided ID
 
-        $userID = 5;
         // // get the cache for exercises. 
         // $cache = \Config\Services::cache();
 
         // Get from session
         // Retrieve exercises from session
         $session = \Config\Services::session();
-        $userID = 5; // #userID #user_id
+        $userID = $session->get('user_id'); //set user ID
         // $session->remove('user_instances_' . $userID);
         // $session->remove('user_instance_sets_' . $userID);
 
@@ -123,9 +122,11 @@ class Instance extends BaseController
                     if (isset($_POST["workout_public"])) {
                         if ($_POST["workout_public"] === "on") {
                             $_POST["workout_public"] = "Public";
-                        } else {
+                        } {
                             $_POST["workout_public"] = "Private";
                         }
+                    } else {
+                        $_POST["workout_public"] = "Private";
                     }
 
                     $workout_model->save($_POST);
@@ -281,11 +282,16 @@ class Instance extends BaseController
                     $workout_model = new WorkoutModel($db);
                     $_POST['user_id'] = $userID; // #user_id set dynamically
                     $_POST['workout_id'] = $workout_id;
-                    if ($_POST["workout_public"] === "on") {
-                        $_POST["workout_public"] = "Public";
+                    if (isset($_POST["workout_public"])) {
+                        if ($_POST["workout_public"] === "on") {
+                            $_POST["workout_public"] = "Public";
+                        } {
+                            $_POST["workout_public"] = "Private";
+                        }
                     } else {
                         $_POST["workout_public"] = "Private";
                     }
+
 
                     $workout_model->save($_POST);
 

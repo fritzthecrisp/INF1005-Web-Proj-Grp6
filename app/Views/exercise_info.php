@@ -21,5 +21,10 @@
             <?php } ?>
         </ol>
     </div>
+    <div class="buttonsbelowDescription">
+        <form action="<?= site_url("/publicExercise") ?>" method="get">
+            <button type="submit">Explore more Exercises</button>
+        </form>
+    </div>
 </main>
 <?= $this->endSection() ?>
