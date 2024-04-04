@@ -10,12 +10,12 @@
         <div id="workoutDetails">
             <?php $workoutImg =  "workoutImg - " . $workout['workout_name']
             ?>
-            <img class="workoutImg" src=<?= $imgURLs . $workout['workout_image'] . "?raw=true" ?> alt=<?= $workoutImg ?>>
+            <img class="workoutImg" src="<?= $imgURLs . $workout['workout_image'] . "?raw=true" ?>" alt="<?= $workoutImg ?>">
         </div>
         <div class="workoutGuide-description">
             <h2><?= "Your Guide to " . $workout['workout_name'] ?></h2>
             <p><?= " (created by: " . $workout['user_name'] . ")" ?></p>
-            <h3>Description:</h3>
+            <h3 class="title">Description:</h3>
             <p><?= $workout['workout_description'] ?></p>
         </div>
     </div>

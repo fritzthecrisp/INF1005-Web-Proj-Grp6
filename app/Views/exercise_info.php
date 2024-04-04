@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
 
 <main class="container" style="display: grid;place-items: center;">
-    <img src=<?= $imgURLs . $exercise['exer_images'] . "?raw=true" ?> alt="exerciseImg">
+    <img src="<?= $imgURLs . $exercise['exer_images'] . "?raw=true" ?>" alt="exerciseImg">
     <h1 class="title"><?= $exercise['exer_name'] ?></h1>
     <div class="column">
         <button>INFO</button>
