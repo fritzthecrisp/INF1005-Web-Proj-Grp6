@@ -1,31 +1,52 @@
 /* For home.php Page */
 
+@media (max-width: 576px) {
+
+    .bg-image {
+        display: none;
+    }
+
+}
+
+.bg-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.bg-image img {
+    height: auto;
+    object-fit: cover;
+}
+
+.quote {
+    position: absolute;
+    font-style: italic;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    z-index: 1;
+    color: white;
+    margin: 20px;
+}
+
+.quote-responsive{
+    color: white;
+    display: none;
+}
+
 .openingTagline {
     text-align: center;
     /* padding: 20px; */
     margin: 50px;
 }
 
-.alt-headings h1 {
-    display: none;
-}
-
-.top_Headings {
-    margin-top: 70px;
-}
-
-@media (max-width: 576px) {
-
-    .alt-headings {
-        padding: 10px 0px;
-    }
-
-    .alt-headings>h1 {
-        display: block;
-        text-align: center;
-        font-style: italic;
-    }
-}
 
 /* For workout_info.php Page */
 .workoutGuide h2 {
@@ -54,7 +75,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
 }
 
 .green-button {
@@ -101,8 +122,6 @@
     }
 }
 
-
-
 .rounded-border {
     border-radius: 20px;
     border: 2px solid #000;
@@ -127,29 +146,4 @@
 
 .column {
     grid-gap: 100px;
-}
-
-.bg-image {
-    position: relative;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-}
-
-.bg-image img {
-    height: auto;
-    object-fit: cover;
-}
-
-.quote {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    color: black;
 }
