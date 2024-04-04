@@ -38,8 +38,8 @@ h1 {
     margin-right: 10px;
     overflow: hidden;
     width: auto;
-    height: 280px;
-    margin-top: 60px;
+    height: 300px;
+    /* margin-top: 60px; */
 }
 
 .card-img {
@@ -52,7 +52,6 @@ h1 {
     /* Maintain aspect ratio */
 }
 
-
 .card-body {
     display: flex;
     flex-direction: row;
@@ -61,11 +60,6 @@ h1 {
     /* This is required for absolute positioning of children */
     justify-content: space-between;
     align-items: flex-start;
-}
-
-.card-title,
-.card-subtitle {
-    margin-bottom: 18px;
 }
 
 .text-section {
@@ -79,6 +73,10 @@ h1 {
     padding: 20px 0px;
 }
 
+.card-title,
+.card-subtitle {
+    margin-bottom: 18px;
+}
 
 /* Button style */
 
