@@ -1,7 +1,7 @@
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>
-<link rel="stylesheet" type="text/css" href="<?= base_url('css/workout.css') ?>">
+<link rel="stylesheet" type="text/css" href="<?= base_url('css/workout_exercise.css') ?>">
 
 <main class="container">
     <h1 class="title">Begin Logging for <?= $workout["workout_name"] ?> workout</h1>

@@ -1,38 +1,47 @@
 /* For workout_info.php Page */
 
-h1{
+h1 {
     text-align: center;
 }
 
-#workoutDetails{
+#workoutDetails, #exerciseDetails {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.workoutImg{
+.workoutImg, .exerciseImg{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 500px;
     padding: 20px 0px;
 }
-.workoutGuide-description{
+
+.workoutGuide-description {
     margin-bottom: 20px;
 }
 
-.workoutGuide-description h2, h3 {
+.workoutGuide-description h2, .exerciseDescription h2 {
     text-decoration: underline;
     padding: 10px 0px;
-
+    text-align: center;
 }
 
-#workoutButtons{
-    padding:20px 0px;
+.exerciseDescription h3{
+    text-decoration: underline;
 }
 
-.sessionCreationInfo th{
-    background-color:rgb(45, 17, 64);
+#workoutButtons {
+    padding: 20px 0px;
+}
+
+.exerciseHeadings th {
+    background-color: rgb(21, 21, 106);
+}
+
+.sessionCreationInfo th {
+    background-color: rgb(45, 17, 64);
 
 }
 
@@ -44,9 +53,38 @@ h1{
         /* Align cards in the center */
     }
 
-    .workoutImg {
+    .workoutImg, .exerciseImg {
         max-width: 100%;
         height: auto;
+    }
+
+}
+
+@media (max-width: 437px) {
+    #exerciseTable {
+
+        /* margin-left: 10px; */
+        /* width: 10%; */
+        /* table tr {
+            border-bottom: 3px solid #ddd;
+            display: block;
+            margin-bottom: 10px;
+        }
+        table td {
+            border-bottom: 1px solid #ddd;
+            display: block;
+            text-align: right;
+        }
+        table td:before {
+            content: attr(data-label);
+            float: left;
+            font-weight: bold;
+            text-transform: uppercase;
+        } */
+    }
+
+    #sessionRecordsTable{
+        width: 23%;
     }
 }
 
