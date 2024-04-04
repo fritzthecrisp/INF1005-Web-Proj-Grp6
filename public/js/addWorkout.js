@@ -72,8 +72,33 @@ fetch('http://localhost/api/get-exercises')
         })
     })
 
+// Get an array of DOM elements by class name
+const elements = document.querySelectorAll('.delete-button');
+
+// Convert NodeList to array
+const deleteBtns = Array.from(elements);
 
 
+// Add event listener to each delete button
+deleteBtns.forEach(deleteBtn => {
+    deleteBtn.addEventListener('click', function() {
+        // Find the ID of the associated checkbox
+        const checkboxId = deleteBtn.parentElement.parentElement.id;
+
+        // Extract the numeric part of the checkbox ID
+        const instanceId = checkboxId.replace('Selected', '');
+
+        // Find the checkbox by its ID
+        const checkbox = document.getElementById(instanceId);
+
+        // Uncheck the checkbox
+        if (checkbox) {
+            checkbox.checked = false;
+            // Call the updateWorkout function with the checkbox as an argument
+            updateWorkout(checkbox);
+        }
+    });
+});
 function updateWorkout(checkbox) {
     // Get the value and id of the checkbox
     let exercise_name = checkbox.dataset.exerciseName;
@@ -157,6 +182,7 @@ function updateWorkout(checkbox) {
 
         // Add click event listener to the delete button
         deleteBtn.addEventListener('click', function () {
+            console.log("Delete Button Clicked.")
             // Perform delete action here
             checkbox.checked = false;
             updateWorkout(checkbox);
