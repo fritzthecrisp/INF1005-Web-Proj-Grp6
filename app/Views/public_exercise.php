@@ -16,10 +16,10 @@
                 <?php $exerciseImg =  "exerciseImg_" . $exercise['exer_name'] ?>
                 <div class="col-sm-6 mb-4 card-border">
                     <a href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopExerciseName ?>">
-                        <div class="exercise cards" aria-label=<?= $arialabelTopExerciseName ?>>
+                        <div class="exercise cards">
                             <div class="row">
                                 <div class="col-sm-5">
-                                    <img class="card-img" src=<?= $imgURLs . $exercise['exer_images'] . "?raw=true" ?> alt="<?= $exerciseImg ?>">
+                                    <img class="card-img" src="<?= $imgURLs . $exercise['exer_images'] . "?raw=true" ?>" alt="<?= $exerciseImg ?>">
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="card-body">

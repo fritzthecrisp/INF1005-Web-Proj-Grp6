@@ -11,7 +11,7 @@
     <form id="workoutForm" method="post">
         <div class="row">
             <div class="col-sm">
-                <h1>Add Workout</h1>
+                <h1>Edit Workout</h1>
                 <div class="mb-3">
                     <label for="workout_name" class="form-label">Workout Name</label><br>
                     <input required type="text" id="workout_name" name="workout_name" class="form-control" value=<?= $workout["workout_name"] ?>><br>
@@ -33,36 +33,38 @@
             </div>
             <div class="col-sm" id="selectedWorkouts">
                 <h1>Selected Workouts</h1>
+                <?php $counter = 1; ?>
                 <?php // Loop through each set
                 foreach ($sets as $set) {
                 ?>
-                    <div id="<?= $set["exer_id"]?>CheckboxSelected">
-                    <p><?= $set["exer_name"]?></p>
+                    <div id="<?= $set["exer_id"] ?>CheckboxSelected">
+                        <p><?= $set["exer_name"] ?></p>
                         <!-- You can add labels and input fields here -->
                         <div class="input-container">
                             <div>
-                                <label for="sets" class="form-label">Sets</label>
-                                <input id="sets" type="text" name="sets[]" class="form-control" value="<?php echo $set['sets']; ?>" required="">
+                                <label for="set<?= ($counter) ?>" class="form-label">Sets</label>
+                                <input id="set<?= ($counter) ?>" type="text" name="sets[]" class="form-control" value="<?php echo $set['sets']; ?>" required="">
                             </div>
                             <div>
-                                <label for="reps" class="form-label">Reps</label>
-                                <input id="reps" type="text" name="reps[]" class="form-control" value="<?php echo $set['reps']; ?>" required="">
+                                <label for="rep<?= ($counter) ?>" class="form-label">Reps</label>
+                                <input id="rep<?= ($counter) ?>" type="text" name="reps[]" class="form-control" value="<?php echo $set['reps']; ?>" required="">
                             </div>
                             <div>
-                                <label for="weight" class="form-label">Weight (Optional)</label>
-                                <input id="weight" type="text" name="weight[]" class="form-control" value="<?php echo $set['weight']; ?>">
+                                <label for="weight<?= ($counter) ?>" class="form-label">Weight (Optional)</label>
+                                <input id="weight<?= ($counter) ?>" type="text" name="weight[]" class="form-control" value="<?php echo $set['weight']; ?>">
                             </div>
                             <button class="delete-button" aria-label="Delete"><span aria-hidden="true">×</span></button>
                         </div>
                     </div>
+                    <?php $counter++; ?>
                 <?php
                 }
                 ?>
             </div>
         </div>
         <div class="mb-3 form-check">
-            <input type="checkbox" name="workout_public" id="publicCheckBox" class="form-check-input">
-            <label class="form-check-label" for="publicCheckBox" value="" <?= $workout["checked"] ?>>
+            <input type="checkbox" name="workout_public" id="publicCheckBox" class="form-check-input" <?= $workout["checked"] ?>>
+            <label class="form-check-label" for="publicCheckBox">
                 Make workout Public
             </label>
         </div>

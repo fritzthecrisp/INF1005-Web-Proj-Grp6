@@ -48,8 +48,8 @@
                     <input required type="date" id="dob" name="dob" class="selection">
                 </div>
                 <div class="mb-3">
-                    <label for="weight" class= "label_selection">Height (m):</label>
-                    <input required type="number" id="weight" name="weight" class="selection" placeholder="e.g. 1.83" step="0.01" min="0">
+                    <label for="height" class= "label_selection">Height (m):</label>
+                    <input required type="number" id="height" name="height" class="selection" placeholder="e.g. 1.83" step="0.01" min="0">
                 </div>
                 <div class="mb-3">
                     <label for="weight" class= "label_selection">Weight (kg):</label>
