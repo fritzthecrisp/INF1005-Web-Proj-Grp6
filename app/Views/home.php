@@ -1,8 +1,8 @@
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>
-<link rel="stylesheet" type="text/css" href="<?= base_url('css/card.css') ?>">
-<link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
+<link rel="stylesheet" type="text/css" href="<?= base_url('/css/card.css') ?>">
+<link rel="stylesheet" type="text/css" href="<?= base_url('/css/others.css') ?>">
 
 <main class="container">
     <h1 class="openingTagline">WELCOME TO UNIFIT</h1>

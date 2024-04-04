@@ -6,7 +6,7 @@
     <h1>Member Registration</h1>
     <p>Interested and motivated to work out more and build up your fitness level? Join the UniFit family now! Simply fill up the registration form to become a Unifit member today! It is that simple and easy!</p>
 
-    <form action="process_register.php" method="post">
+    <form action="/AuthController/register" method="post">
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <div class="mb-3">
@@ -64,6 +64,13 @@
                 By signing up, I agree to terms and conditions and privacy policy set forth by UniFit.
             </label>
         </div>
+        <?php if (isset($validation)): ?>
+            <div class="col-12">
+                <div class="alert alert-danger" role="alert">
+                <?= $validation->listErrors() ?>
+            </div>
+        </div>
+        <?php endif; ?>
         <div class="mb-3 submit_button">
             <button type="submit">Submit</button>
         </div>
