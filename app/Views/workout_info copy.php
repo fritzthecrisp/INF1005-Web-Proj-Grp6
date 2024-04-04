@@ -22,11 +22,15 @@
         <div class="d-flex justify-content-end" id="workoutButtons"> <!-- Added classes here -->
             <!-- <button>SHARE</button> -->
             <form action="<?php echo base_url('workout/start/' . $workout['instance_id']); ?>" method="get">
-                <button type="submit">Share</button>
+                <button type="submit">Start Workout</button>
             </form>
             <!-- ?php if ($isLoggedIn) : ? -->
             <form action="<?= site_url('instance/edit/' . $workout['instance_id']) ?>" method="get">
-                <button type="submit">Create Workout</button>
+                <button type="submit">Edit Workout</button>
+            </form>
+            <form action="" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit">Delete Record</button>
             </form>
             <!-- ?php endif; ? -->
 
@@ -53,6 +57,41 @@
                 </tbody>
             </table>
         </div>
+
+        <?php foreach ($sessionInfo as $sessionNo => $details) : ?>
+            <div id="session-list">
+                <table id="sessionRecordsTable tables" class="table table-dark">
+                    <thead>
+                        <tr class="sessionCreationInfo">
+                            <th>Session <?= (int)$sessionNo + 1 ?></th>
+                            <th colspan="3"><?= "Created " . $details["session_date_created"] ?></th>
+                        </tr>
+                        <tr>
+                            <th>Exercise Name</th>
+                            <th>Sets</th>
+                            <th>Reps</th>
+                            <th>Weights</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($details as $det) :
+                            if (is_array($det)) { ?>
+                                <tr>
+                                    <td><?= $det['exer_name'] ?></td>
+                                    <td><?= (int)$det['set_no'] + 1 ?></td>
+                                    <td><?= $det['set_reps'] ?></td>
+                                    <td><?= $det['session_set_weight'] ?></td>
+                                </tr>
+
+                        <?php }
+                        endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+
+        <?php endforeach; ?>
+
+
     </div>
 </main>
 <script src="<?= base_url('js/workoutInfo.js') ?>"></script>

@@ -14,68 +14,50 @@ class Workout extends BaseController
     {
         // Fetch exercise details based on the provided ID
 
-        $userID = 5;
-        // // get the cache for exercises. 
-        // $cache = \Config\Services::cache();
+        // get the cache for exercises. 
+        $cache = \Config\Services::cache();
 
-        // Get from session
-        // Retrieve exercises from session
-        $session = \Config\Services::session();
-        $userID = 5; // #userID #user_id
-        // $session->remove('user_instances_' . $userID);
-        // $session->remove('user_instance_sets_' . $userID);
+        // check the cache 
+        $public_instances = $cache->get('public_instances');
+        $public_instance_sets = $cache->get('public_instance_sets');
 
-        // Check if the session variables exist
-        if (!$session->has('user_instances_' . $userID) || !$session->has('user_instance_sets_' . $userID)) {
-            // If session data doesn't exist, fetch from the database
+        // if cache is empty, add cache. 
+        if ($public_instances === null) {
             $db = db_connect();
-            $model = new InstanceModel($db);
-            $result = $model->fetchUserInstances();
-            $cachedUserWorkoutSessions = $model->fetchUserWorkoutSessions();
-            // echo '<pre>';
-            // print_r($cachedUserWorkoutSessions);
-            // echo '</pre>';
-            // exit;
 
-            $cachedUserInstances = $result[0];
-            $cachedUserInstanceSets = $result[1];
-        } else {
-            // If session data exists, retrieve it
-            $cachedUserInstances = $session->get('user_instances_' . $userID);
-            $cachedUserInstanceSets = $session->get('user_instance_sets_' . $userID);
-            $cachedUserWorkoutSessions = $session->get('user_instance_sessions_' . $userID);
-        }
+            // if cache is empty, add cache. 
+            if ($public_instance_sets === null || $public_instances === null) {
+                $model = new CustomModel($db);
 
-        // Define a callback function to filter sets based on the instance ID
-        $filterSets = function ($value) use ($id) {
-            return $value['instance_id'] == $id;
-        };
-
-        // Use array_filter to filter sets based on the callback function
-        $setDetails = array_filter($cachedUserInstanceSets, $filterSets);
-        // // Use array_filter to filter sets based on the callback function
-        // $sessionSetDetails = array_filter($cachedUserWorkoutSessions, $filterSets);
-        $instance_sessions = [];
-        // Check if the session ID exists in the array
-        if (isset($cachedUserWorkoutSessions[$id])) {
-            foreach ($cachedUserWorkoutSessions[$id] as $sessionID => $sessionInfo) {
-                $createdTimestamp = strtotime($sessionInfo["session_date_created"]);
-                $timeAgo = $this->getTimeAgo($createdTimestamp);
-                $sessionInfo["session_date_created"] = $timeAgo;
-                $instance_sessions[] = $sessionInfo;
+                $result = $model->fetchPublicWorkouts();
+                $public_instances = $result[0];
+                $public_instance_sets = $result[1];
             }
         }
+        $groupedData = [];
+        foreach ($public_instance_sets as $setArray) {
+            // Check if the instance_id exists as a key in $groupedData
+            if (!isset($groupedData[$setArray['instance_id']])) {
+                // If not, initialize it with an empty array
+                $groupedData[$setArray['instance_id']] = [];
+            }
+            // Push the current set$setArray into the array with the instance_id as the key
+            $groupedData[$setArray['instance_id']][] = $setArray;
+        }
+
+
+
+        $workout = $public_instances[$id];
+        $setDetails = $groupedData[$id];
         // echo '<pre>';
-        // print_r($instance_sessions);
+        // print_r($setDetails);
         // echo '</pre>';
         // exit;
-
-        $workout = $cachedUserInstances[$id];
         // $isLoggedIn = $this->request->getCookie('isLoggedIn');
         $imgURLs = 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/'; // set this string so all the images can be retrieved from the github
 
         // Pass exercise details to the view
-        return view('workout_info', ['workout' => $workout, 'sets' => $setDetails, 'imgURLs' => $imgURLs, 'sessionInfo' => $instance_sessions]);
+        return view('workout_info', ['workout' => $workout, 'sets' => $setDetails, 'imgURLs' => $imgURLs]);
 
         // return view('workout_info', ['workout' => $workout, 'isLoggedIn' => $isLoggedIn]);
     }

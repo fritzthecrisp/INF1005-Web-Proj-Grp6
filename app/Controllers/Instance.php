@@ -20,29 +20,79 @@ class Instance extends BaseController
         return view('instance', $data);
     }
 
-    public function selected($id): string
+    public function details($id)
     {
-        $db = db_connect();
-        $model = new WorkoutModel($db);
-        $instance = $model->find($id);
-        if ($instance) {
-            $data = [
-                'meta_title' => $instance['workout_name'],
-                'page_name' => $instance['workout_name'],
-                'instance' => $instance,
-            ];
+        // Fetch exercise details based on the provided ID
+
+        $userID = 5;
+        // // get the cache for exercises. 
+        // $cache = \Config\Services::cache();
+
+        // Get from session
+        // Retrieve exercises from session
+        $session = \Config\Services::session();
+        $userID = 5; // #userID #user_id
+        // $session->remove('user_instances_' . $userID);
+        // $session->remove('user_instance_sets_' . $userID);
+
+        // Check if the session variables exist
+        if (!$session->has('user_instances_' . $userID) || !$session->has('user_instance_sets_' . $userID)) {
+            // If session data doesn't exist, fetch from the database
+            $db = db_connect();
+            $model = new InstanceModel($db);
+            $result = $model->fetchUserInstances();
+            $cachedUserWorkoutSessions = $model->fetchUserWorkoutSessions();
+            // echo '<pre>';
+            // print_r($cachedUserWorkoutSessions);
+            // echo '</pre>';
+            // exit;
+
+            $cachedUserInstances = $result[0];
+            $cachedUserInstanceSets = $result[1];
         } else {
-            $data = [
-                'meta_title' => 'Post Not Found',
-                'page_name' => 'Post Not Found',
-            ];
+            // If session data exists, retrieve it
+            $cachedUserInstances = $session->get('user_instances_' . $userID);
+            $cachedUserInstanceSets = $session->get('user_instance_sets_' . $userID);
+            $cachedUserWorkoutSessions = $session->get('user_instance_sessions_' . $userID);
         }
-        return view('single_instance', $data);
+
+        // Define a callback function to filter sets based on the instance ID
+        $filterSets = function ($value) use ($id) {
+            return $value['instance_id'] == $id;
+        };
+
+        // Use array_filter to filter sets based on the callback function
+        $setDetails = array_filter($cachedUserInstanceSets, $filterSets);
+        // // Use array_filter to filter sets based on the callback function
+        // $sessionSetDetails = array_filter($cachedUserWorkoutSessions, $filterSets);
+        $instance_sessions = [];
+        // Check if the session ID exists in the array
+        if (isset($cachedUserWorkoutSessions[$id])) {
+            foreach ($cachedUserWorkoutSessions[$id] as $sessionID => $sessionInfo) {
+                $createdTimestamp = strtotime($sessionInfo["session_date_created"]);
+                $timeAgo = $this->getTimeAgo($createdTimestamp);
+                $sessionInfo["session_date_created"] = $timeAgo;
+                $instance_sessions[] = $sessionInfo;
+            }
+        }
+        // echo '<pre>';
+        // print_r($instance_sessions);
+        // echo '</pre>';
+        // exit;
+
+        $workout = $cachedUserInstances[$id];
+        // $isLoggedIn = $this->request->getCookie('isLoggedIn');
+        $imgURLs = 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/'; // set this string so all the images can be retrieved from the github
+
+        // Pass exercise details to the view
+        return view('workout_info', ['workout' => $workout, 'sets' => $setDetails, 'imgURLs' => $imgURLs, 'sessionInfo' => $instance_sessions]);
+
+        // return view('workout_info', ['workout' => $workout, 'isLoggedIn' => $isLoggedIn]);
     }
     public function new()
     {
         helper(['form']); //form validation
-        $userID= 15; 
+        $userID = 15;
 
         $data = [
             'meta_title' => 'New Workout',
@@ -293,5 +343,30 @@ class Instance extends BaseController
         }
 
         return view('edit_instance', $data);
+    }
+    protected function getTimeAgo($createdTimestamp)
+    {
+        // Get the current timestamp
+        $currentTimestamp = time();
+
+        // Calculate the difference in seconds
+        $difference = $currentTimestamp - $createdTimestamp;
+
+        // Calculate time units
+        $minutes = floor($difference / 60);
+        $hours = floor($difference / 3600);
+        $days = floor($difference / 86400);
+        $months = floor($difference / (86400 * 30));
+
+        // Return time ago string based on the calculated units
+        if ($minutes < 60) {
+            return $minutes . " minutes ago";
+        } elseif ($hours < 24) {
+            return $hours . " hours ago";
+        } elseif ($days < 30) {
+            return $days . " days ago";
+        } else {
+            return $months . " months ago";
+        }
     }
 }
