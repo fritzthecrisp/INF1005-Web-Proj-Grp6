@@ -90,12 +90,8 @@ nav {
 
 .nav-item.dropdown .nav-link {
     color: #ffffff;
+    text-align: unset;
     /* Set the desired white color */
-}
-
-.dropdown-align {
-    left: 0;
-    transform: translateX(-20%);
 }
 
 /* Button Styles */
