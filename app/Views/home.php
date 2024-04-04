@@ -71,7 +71,7 @@
                         <div class="workout cards">
                             <div class="row">
                                 <div class="col-sm-5">
-                                    <img class="card-img" src=<?= $imgURLs . $workout['workout_image'] . "?raw=true" ?> alt="<?= $workoutImg ?>">
+                                    <img class="card-img" src="<?= $imgURLs . $workout['workout_image'] . "?raw=true" ?>" alt="<?= $workoutImg ?>">
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="card-body">
