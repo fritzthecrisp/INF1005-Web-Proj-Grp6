@@ -49,28 +49,7 @@
     }
 }
 
-/* For workout_info.php Page */
-.workoutGuide h2 {
-    padding-bottom: 10px;
-    padding-top: 10px;
-}
-
-@media (max-width: 570px) {
-    #workoutButtons {
-        flex-direction: column;
-        /* Stack cards vertically */
-        align-items: center;
-        /* Align cards in the center */
-    }
-
-    .workoutImg {
-        max-width: 100%;
-        height: auto;
-    }
-}
-
 /* For myWorkout.php */
-
 
 .myWorkoutContainer {
     display: flex;

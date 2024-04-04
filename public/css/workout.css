@@ -1,3 +1,57 @@
+/* For workout_info.php Page */
+
+h1{
+    text-align: center;
+}
+
+#workoutDetails{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.workoutImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    padding: 20px 0px;
+}
+.workoutGuide-description{
+    margin-bottom: 20px;
+}
+
+.workoutGuide-description h2, h3 {
+    text-decoration: underline;
+    padding: 10px 0px;
+
+}
+
+#workoutButtons{
+    padding:20px 0px;
+}
+
+.sessionCreationInfo th{
+    background-color:rgb(45, 17, 64);
+
+}
+
+@media (max-width: 570px) {
+    #workoutButtons {
+        flex-direction: column;
+        /* Stack cards vertically */
+        align-items: center;
+        /* Align cards in the center */
+    }
+
+    .workoutImg {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+
+
 .workout-name {
     text-align: center;
     font-size: 24px;
@@ -19,19 +73,6 @@
     align-items: center;
     flex-grow: 1;
     padding-left: 10px;
-}
-
-.start-button {
-    padding: 5px 10px;
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.start-button:hover {
-    background-color: #4cae4c;
 }
 
 .info {

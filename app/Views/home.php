@@ -28,7 +28,7 @@
             <?php foreach ($exercises as $exercise) : ?>
                 <?php $arialabelTopExerciseName = "Top Exercise - " . $exercise['exer_name'] ?>
                 <?php $exerciseImg =  "exerciseImg_" . $exercise['exer_name'] ?>
-                <div class="col-sm-6 mb-4 card-border">
+                <div class="col-md-6 mb-4 card-border">
                     <a href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopExerciseName ?>">
                         <div class="exercise cards">
                             <div class="row">
