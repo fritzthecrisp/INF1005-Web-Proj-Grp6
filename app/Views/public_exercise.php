@@ -5,14 +5,16 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
 
 <main class="container">
-    <h1 class=top_Headings>TOP EXERCISES</h1>
-    <p>Here are the Top exercises done by our UniFit members!</p>
+    <div class="card-hedings">
+        <h2>TOP EXERCISES</h2>
+        <p>Here are the Top exercises done by our UniFit members!</p>
+    </div>
     <div class="card-container" id="exercise-container">
         <div class="row">
             <?php foreach ($exercises as $exercise) : ?>
                 <?php $arialabelTopExerciseName = "Top Exercise - " . $exercise['exer_name'] ?>
                 <?php $exerciseImg =  "exerciseImg_" . $exercise['exer_name'] ?>
-                <div class="col-sm-6 mb-4">
+                <div class="col-sm-6 mb-4 card-border">
                     <a href="<?= site_url("exercises/details/{$exercise['exer_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopExerciseName ?>">
                         <div class="exercise cards" aria-label=<?= $arialabelTopExerciseName ?>>
                             <div class="row">

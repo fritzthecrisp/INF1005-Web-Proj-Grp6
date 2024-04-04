@@ -5,9 +5,10 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
 
 <main class="container">
-
-    <h2 class="top_Headings">TOP WORKOUT PLANS</h2>
-    <p>Here are the Top Workout Plans created by physical trainers and also Unifit Members!</p>
+    <div class="card-headings">
+        <h2>TOP WORKOUT PLANS</h2>
+        <p>Here are the Top Workout Plans created by physical trainers and also Unifit Members!</p>
+    </div>
     <div class="card-container" id="workout-container">
         <div class="row">
             <?php foreach ($workouts as $workout) : ?>
@@ -16,7 +17,7 @@
                 ?>
                 <?php $workoutImg =  "workoutImg_" . $workout['workout_name']
                 ?>
-                <div class="col-md-6 mb-4">
+                <div class="col-md-6 mb-4 card-border">
                     <a href="<?= site_url("workout/details/{$workout['workout_id']}") ?>" class="exercise-link card-link" aria-label="<?= $arialabelTopWorkoutName ?>">
                         <div class="workout cards" aria-label=<?= $arialabelTopWorkoutName ?>>
                             <div class="row">

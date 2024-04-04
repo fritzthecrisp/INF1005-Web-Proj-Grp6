@@ -4,12 +4,19 @@ h1 {
     margin-bottom: 20px;
 }
 
-h2 {
+.card-headings h2{
     text-decoration: underline;
     padding-bottom: 20px;
+    clear: both;
 }
 
 /* Card styles */
+
+.card-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
 
 .card-link {
     display: flex;
@@ -17,13 +24,6 @@ h2 {
     /* Inherit text color from parent */
     text-decoration: none;
     /* Remove underline */
-    margin-top: 60px;
-}
-
-.card-container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
 }
 
 .card-border{
@@ -39,6 +39,7 @@ h2 {
     overflow: hidden;
     width: auto;
     height: 280px;
+    margin-top: 60px;
 }
 
 .card-img {
@@ -67,10 +68,7 @@ h2 {
     margin-bottom: 18px;
 }
 
-
-
 .text-section {
-    max-width: 60%;
     display: flex;
     /* Change display property to flex */
     flex-direction: column;
@@ -90,21 +88,23 @@ h2 {
 }
 
 
+/* Responsive Design */
 
 @media (max-width: 992px) {
+    
+    .card-container {
+        flex-direction: column;
+        /* Stack cards vertically */
+        align-items: center;
+        /* Align cards in the center */
+    }
+    
     .cards {
         width: 300px;
         height: 50%;
         /* Make cards full width */
         margin-bottom: 20px;
         /* Add some space between the cards */
-    }
-
-    .card-container {
-        flex-direction: column;
-        /* Stack cards vertically */
-        align-items: center;
-        /* Align cards in the center */
     }
 
     .card-img {
