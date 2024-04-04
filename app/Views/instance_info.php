@@ -1,41 +1,99 @@
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>
-<link rel="stylesheet" type="text/css" href="<?= base_url('css/card.css') ?>">
-<link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
+<link rel="stylesheet" type="text/css" href="<?= base_url('css/workout.css') ?>">
 
 <main class="container">
     <div class="row">
-        <div class="col-sm" id="instanceDetails">
+        <h1 class="title"><?= $workout['workout_name'] ?></h1>
+        <div id="workoutDetails">
             <?php $workoutImg =  "workoutImg - " . $workout['workout_name']
             ?>
-            <h1 class="title"><?= $workout['workout_name'] ?></h1>
-            <img class="workoutImg" src="/img/image.png" alt=<?= $workoutImg ?>>
-            <div class="workoutGuide">
-                <h2 class="title"><?= "Your Guide to " . $workout['workout_name'] ?></h2>
-                <p><?="Created by " . "username" . " on ". "creation_time"?></p>
-                <p><?="Updated on " . "updated_time"?></p>
-                <p><?= $workout['description'] ?></p>
-            </div>
+            <img class="workoutImg" src=<?= $imgURLs . $workout['workout_image'] . "?raw=true" ?> alt=<?= $workoutImg ?>>
         </div>
-        <div class="col-sm">
-            <div class="d-flex justify-content-end" id="workoutButtons"> <!-- Added classes here -->
-                <form style="display: inline" action="<?php echo base_url('workout/startWorkout/1'); ?>" method="get">
-                    <button type="submit">Start Workout</button>
-                </form>
-                <!-- ?php if ($isLoggedIn) : ? -->
-                <form action="<?= site_url('instance/edit') ?>" method="get">
-                    <button type="submit">Edit Workout</button>
-                </form>
-                <form action="" method="POST">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit">Delete Record</button>
-                </form>
-                <!-- ?php endif; ? -->
-            </div>
+        <div class="workoutGuide-description">
+            <h2 class="title"><?= "Your Guide to " . $workout['workout_name'] ?></h2>
+            <p><?= " (created by: " . $workout['user_name'] . ")" ?></p>
+            <h3 class="title">Description:</h3 class="title">
+            <p><?= $workout['workout_description'] ?></p>
         </div>
     </div>
+    <div>
+        <div class="d-flex justify-content-end" id="workoutButtons"> <!-- Added classes here -->
+            <!-- <button>SHARE</button> -->
+            <form action="<?php echo base_url('workout/start/' . $workout['instance_id']); ?>" method="get">
+                <button type="submit">Start Workout</button>
+            </form>
+            <!-- ?php if ($isLoggedIn) : ? -->
+            <form action="<?= site_url('instance/edit/' . $workout['instance_id']) ?>" method="get">
+                <button type="submit">Edit Workout</button>
+            </form>
+            <form action="" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit">Delete Record</button>
+            </form>
+            <!-- ?php endif; ? -->
+
+        </div>
+        <div id="thisdiv">
+            <table id="exerciseTable" class="table table-dark">
+                <thead>
+                    <tr>
+                        <th>Exercise Name</th>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                        <th>Weights</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($sets as $set) : ?>
+                        <tr>
+                            <td><?= $set['exer_name'] ?></td>
+                            <td><?= $set['sets'] ?></td>
+                            <td><?= $set['reps'] ?></td>
+                            <td><?= $set['weight'] ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+
+        <?php foreach ($sessionInfo as $sessionNo => $details) : ?>
+            <div id="session-list">
+                <table id="sessionRecordsTable tables" class="table table-dark">
+                    <thead>
+                        <tr class="sessionCreationInfo">
+                            <th>Session <?= (int)$sessionNo + 1 ?></th>
+                            <th colspan="3"><?= "Created " . $details["session_date_created"] ?></th>
+                        </tr>
+                        <tr>
+                            <th>Exercise Name</th>
+                            <th>Sets</th>
+                            <th>Reps</th>
+                            <th>Weights</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($details as $det) :
+                            if (is_array($det)) { ?>
+                                <tr>
+                                    <td><?= $det['exer_name'] ?></td>
+                                    <td><?= (int)$det['set_no'] + 1 ?></td>
+                                    <td><?= $det['set_reps'] ?></td>
+                                    <td><?= $det['session_set_weight'] ?></td>
+                                </tr>
+
+                        <?php }
+                        endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+
+        <?php endforeach; ?>
+
+
+    </div>
 </main>
-<script src="<?= base_url('js/instanceInfo.js') ?>"></script>
+<script src="<?= base_url('js/workoutInfo.js') ?>"></script>
 
 <?= $this->endSection() ?>
