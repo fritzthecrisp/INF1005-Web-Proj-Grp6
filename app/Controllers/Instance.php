@@ -57,10 +57,10 @@ class Instance extends BaseController
             $cachedUserInstanceSets = $session->get('user_instance_sets_' . $userID);
             $cachedUserWorkoutSessions = $session->get('user_instance_sessions_' . $userID);
         }
-                    // echo '<pre>';
-            // print_r($cachedUserWorkoutSessions);
-            // echo '</pre>';
-            // exit;
+        // echo '<pre>';
+        // print_r($cachedUserWorkoutSessions);
+        // echo '</pre>';
+        // exit;
 
 
         // Define a callback function to filter sets based on the instance ID
@@ -78,7 +78,7 @@ class Instance extends BaseController
             foreach ($cachedUserWorkoutSessions[$id] as $sessionID => $sessionInfo) {
                 $createdTimestamp = strtotime($sessionInfo["session_date_created"]);
                 $timeAgo = $this->getTimeAgo($createdTimestamp);
-                $sessionInfo["session_date_created"] = $timeAgo;                
+                $sessionInfo["session_date_created"] = $timeAgo;
                 $instance_sessions[] = $sessionInfo;
             }
         }
@@ -98,6 +98,8 @@ class Instance extends BaseController
     }
     public function new($id = null)
     {
+        $workout = [];
+        $setDetails = [];
         $session = \Config\Services::session();
         helper(['form']); //form validation
         $userID = $session->get('user_id');;
@@ -107,12 +109,65 @@ class Instance extends BaseController
         if ($id !== null) {
             // Handle case when ID is provided
 
+            /// Get the workout information. 
+            // get the cache for exercises. 
+            $cache = \Config\Services::cache();
+
+            // check the cache 
+            $public_instances = $cache->get('public_instances');
+            $public_instance_sets = $cache->get('public_instance_sets');
+
+            // if cache is empty, add cache. 
+            if ($public_instance_sets === null || $public_instances === null) {
+                $db = db_connect();
+                $model = new CustomModel($db);
+
+                $result = $model->fetchPublicWorkouts();
+                $public_instances = $result[0];
+                $public_instance_sets = $result[1];
+            }
+
+            $imgURLs = 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/'; // set this string so all the images can be retrieved from the github
+
+            // Define a callback function to filter sets based on the instance ID
+            $filterSets = function ($value) use ($id) {
+                return $value['instance_id'] == $id;
+            };
+
+
+            // Use array_filter to filter sets based on the callback function
+            $setDetails = array_filter($public_instance_sets, $filterSets);
+
+
+            $workout = $public_instances[$id];
+            if ($workout["workout_public"] === "Public") {
+                $workout["checked"] = "checked";
+            } else {
+                $workout["checked"] = "";
+            }
+            $workout["disabled"] = "disabled"; 
+            // $isLoggedIn = $this->request->getCookie('isLoggedIn');
+
+
+            $data = [
+                'workout' => $workout,
+                'sets' => $setDetails
+            ];
         } else {
-                    $data = [
-            'meta_title' => 'New Workout',
-            'page_name' => 'Create New Workout'
-        ];
-// do nothing
+            $workout["checked"] = "";
+            $workout["disabled"] = "";
+            $workout["workout_name"] = "";
+            $workout["workout_description"] = "";            
+            $setDetails = [];
+
+            $data = [
+                'workout' => $workout,
+                'sets' => $setDetails,
+                'meta_title' => 'New Workout',
+                'page_name' => 'Create New Workout'
+            ];
+
+            // do nothing
         }
 
 
@@ -299,7 +354,7 @@ class Instance extends BaseController
                     if (isset($_POST["workout_public"])) {
                         if ($_POST["workout_public"] === "on") {
                             $_POST["workout_public"] = "Public";
-                        } else{
+                        } else {
                             $_POST["workout_public"] = "Private";
                         }
                     } else {

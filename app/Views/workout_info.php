@@ -26,7 +26,7 @@
             echo '<div class="d-flex justify-content-end" id="workoutButtons">';
 
             // Form for creating a workout
-            echo '<form action="' . site_url('instance/edit/' . $workout['instance_id']) . '" method="get">';
+            echo '<form action="' . site_url('create/instance/' . $workout['instance_id']) . '" method="get">';
             echo '<button type="submit">Create Workout</button>';
             echo '</form>';
 
