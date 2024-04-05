@@ -145,7 +145,8 @@ class Instance extends BaseController
             } else {
                 $workout["checked"] = "";
             }
-            $workout["disabled"] = "disabled"; 
+            $workout["disabled"] = "disabled";
+            $workout["(d)"] = "<em>(disabled)</em>";
             // $isLoggedIn = $this->request->getCookie('isLoggedIn');
 
 
@@ -156,8 +157,9 @@ class Instance extends BaseController
         } else {
             $workout["checked"] = "";
             $workout["disabled"] = "";
+            $workout["(d)"] = "";
             $workout["workout_name"] = "";
-            $workout["workout_description"] = "";            
+            $workout["workout_description"] = "";
             $setDetails = [];
 
             $data = [
@@ -185,23 +187,26 @@ class Instance extends BaseController
                 try {
                     $instance_set_data = [];
                     // Insert data into the Workout table
-                    $workout_model = new WorkoutModel($db);
-                    $_POST['user_id'] = $session->get('user_id'); // #user_id set dynamically
+                    if ($id === null) {
 
-                    if (isset($_POST["workout_public"])) {
-                        if ($_POST["workout_public"] === "on") {
-                            $_POST["workout_public"] = "Public";
+                        $workout_model = new WorkoutModel($db);
+                        $_POST['user_id'] = $session->get('user_id'); // #user_id set dynamically
+
+                        if (isset($_POST["workout_public"])) {
+                            if ($_POST["workout_public"] === "on") {
+                                $_POST["workout_public"] = "Public";
+                            } else {
+                                $_POST["workout_public"] = "Private";
+                            }
                         } else {
                             $_POST["workout_public"] = "Private";
                         }
-                    } else {
-                        $_POST["workout_public"] = "Private";
+                        $workout_model->save($_POST);
+                        // get the workout ID
+                        $workout_id = $workout_model->db->insertID();
+                    }else {
+                        $workout_id = $workout["workout_id"];
                     }
-
-                    $workout_model->save($_POST);
-
-                    // get the workout ID
-                    $workout_id = $workout_model->db->insertID();
 
                     // Insert data into the instance table
                     $instance_model = new InstanceModel($db);

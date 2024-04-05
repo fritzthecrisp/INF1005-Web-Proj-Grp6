@@ -68,11 +68,18 @@ class InstanceModel extends Model
             ->where('instances.user_id', $userID) // Filter instances by user_id
             ->get()
             ->getResult();
+        $workouts = $this->db->table('workouts')
+            ->select('workouts.*, users.user_username, instances.*') // Select columns from workout and users tables
+            ->join('users', 'users.user_id = workouts.user_id') // ALmost the same but get workout creator username instead of user instance username
+            ->join('instances', 'instances.workout_id = workouts.workout_id') 
+            ->where('instances.user_id', $userID) // Filter instances by user_id
+            ->get()
+            ->getResult();
+
         $i = 0;
         foreach ($instances as $object) {
             $sets_results[] = (array) $object; // contains every single set in all the users instances
             $instance_id = $sets_results[$i]["instance_id"];
-
             // Extract and assign workout image
             $images = json_decode($sets_results[$i]["exer_images"], true);
             if (!empty($images)) {

@@ -16,12 +16,12 @@
                 <div class="col-sm">
                     <h1 class="title">Add Workout</h1>
                     <div class="mb-3">
-                        <label for="workout_name" class="form-label">Workout Name</label><br>
+                        <label for="workout_name" class="form-label">Workout Name <?= $workout["(d)"] ?></label><br>
                         <input required type="text" id="workout_name" name="workout_name" class="form-control" value="<?= $workout["workout_name"] ?>" <?= $workout["disabled"] ?>><br>
                     </div>
 
                     <div class="mb-3">
-                        <label for="workout_description" class="form-label">Workout Description</label><br>
+                        <label for="workout_description" class="form-label">Workout Description <?= $workout["(d)"] ?></label><br>
                         <textarea required id="workout_description" name="workout_description" rows="3" cols="40" class="form-control" <?= $workout["disabled"] ?>> <?= $workout["workout_description"] ?></textarea><br>
                     </div>
 
@@ -66,9 +66,9 @@
                 </div>
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" name="workout_public" id="publicCheckBox" class="form-check-input">
-                <label class="form-check-label" for="publicCheckBox">
-                    Make workout Public
+                <input type="checkbox" name="workout_public" id="publicCheckBox" class="form-check-input" <?= $workout["disabled"] ?>>
+                <label class="form-check-label" for="publicCheckBox" >
+                    Make workout Public <?= $workout["(d)"] ?>
                 </label>
             </div>
             <div>
