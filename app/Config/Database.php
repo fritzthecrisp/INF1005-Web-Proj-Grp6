@@ -27,13 +27,14 @@ class Database extends Config
     public array $default = [
         'DSN'          => '',
         'hostname'     => '127.0.0.1',
-        'username'     => 'root',
-        'password'     => '',
+        'username'     => 'nsboy-sql',
+        'password'     => 'i<3msglyz',
         'database'     => 'unifit',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
-        'DBDebug'      => true,
+        'DBDebug'      => (ENVIRONMENT !== 'production'),
+        'cacheOn'      => false,
         'charset'      => 'utf8',
         'DBCollat'     => 'utf8_general_ci',
         'swapPre'      => '',
@@ -69,6 +70,11 @@ class Database extends Config
         'port'        => 3306,
         'foreignKeys' => true,
         'busyTimeout' => 1000,
+    ];
+
+    // Sets time zone to Singapore
+    public $initCommands = [
+        'SET time_zone = "+08:00"',
     ];
 
     public function __construct()

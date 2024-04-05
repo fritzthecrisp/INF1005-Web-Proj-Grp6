@@ -1,7 +1,6 @@
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>
-<link rel="stylesheet" type="text/css" href="<?= base_url('css/workout.css') ?>">
 <script src="<?= base_url('js/main.js') ?>"></script>
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/workout_exercise.css') ?>">
 
@@ -21,20 +20,37 @@
         </div>
     </div>
     <div>
-        <div class="d-flex justify-content-end" id="workoutButtons"> <!-- Added classes here -->
+        <?php $session = \Config\Services::session(); ?>
+        <?php
+        if ($session->has('logged_in') && $session->get('logged_in') === TRUE) {
+            echo '<div class="d-flex justify-content-end" id="workoutButtons">';
 
-            <form action="<?= site_url('instance/edit/' . $workout['instance_id']) ?>" method="get">
-                <button type="submit">Create Workout</button>
-            </form>
-            <?php if ($workout['workout_public'] === "Public"): ?>
-            <form action="">
-                <input type="hidden" id="linkToCopy"">
-                    <button onclick="copyCurrentUrl()">Copy Link</button>
-                </form>
-                <?php endif; ?>
-            <!-- ?php endif; ? -->
+            // Form for creating a workout
+            echo '<form action="' . site_url('instance/edit/' . $workout['instance_id']) . '" method="get">';
+            echo '<button type="submit">Create Workout</button>';
+            echo '</form>';
 
-        </div>
+            // Check if the workout is public and display a copy link button if true
+            if ($workout['workout_public'] === "Public") {
+                echo '<form>';
+                echo '<input type="hidden" id="linkToCopy">';
+                echo '<button onclick="copyCurrentUrl()">Copy Link</button>';
+                echo '</form>';
+            }
+
+            echo '</div>';
+        } else {
+            echo '<div class="d-flex justify-content-end" id="workoutButtons">';
+            if ($workout['workout_public'] === "Public") {
+                echo '<form>';
+                echo '<input type="hidden" id="linkToCopy">';
+                echo '<button onclick="copyCurrentUrl()">Copy Link</button>';
+                echo '</form>';
+            }
+            echo '</div>';
+        }
+        ?>
+
         <div class="allTables">
             <div id="exercise-list">
                 <table id="exerciseTable" class="table table-dark">
@@ -58,11 +74,12 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
-
+    </div>
+    <div class="buttonsbelowDescription">
+        <form action="<?= site_url("/publicWorkout") ?>" method="get">
+            <button type="submit">Explore more Workout Plans</button>
+        </form>
     </div>
 </main>
-<script src="<?= base_url('js/workoutInfo.js') ?>"></script>
-
 <?= $this->endSection() ?>

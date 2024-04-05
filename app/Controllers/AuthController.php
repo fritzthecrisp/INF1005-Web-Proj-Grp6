@@ -1,11 +1,17 @@
 <?php
+/* Created by Dylan
 
+This page will handle all user's data in the back-end*/
+
+// Handles the namespace for controllers
 namespace App\Controllers;
 
+// Uses the User's Models
 use App\Models\UserModel;
 
 class AuthController extends BaseController
 {
+    // Main function for user account registration
     public function register()
     {
         
@@ -14,7 +20,7 @@ class AuthController extends BaseController
 
 
         if ($this->request->getMethod() == 'post') {
-            // Validate input
+            // Validates registration input
             $rules = [
                 'uname' => 'required|min_length[3]|max_length[20]',
                 'pwd' => 'required|min_length[8]',
@@ -43,7 +49,6 @@ class AuthController extends BaseController
                 $data = [
                     'user_username' => $this->request->getVar('uname'),
                     'user_password' => password_hash($this->request->getVar('pwd'), PASSWORD_DEFAULT),
-                    // 'user_password' => $this->request->getVar('pwd'),
                     'user_fname' => $this->request->getVar('fname'),
                     'user_lname' => $this->request->getVar('lname'),
                     'user_email'    => $this->request->getVar('email'),
@@ -119,10 +124,10 @@ class AuthController extends BaseController
                 $session = session();
                 $userModel = new UserModel();
                 
-                $email = $this->request->getPost('email');
+                $username = $this->request->getPost('username');
                 $password = $this->request->getPost('pwd');
                 
-                $user = $userModel->where('user_email', $email)->first();
+                $user = $userModel->where('user_username', $username)->first();
                 
                 if ($user) {
                     if (password_verify($password, $user['user_password'])) {
@@ -134,17 +139,18 @@ class AuthController extends BaseController
                         $ses_data = [
                             'user_id' => $user['user_id'],
                             'user_email' => $user['user_email'],
+                            'user_username' => $user['user_username'],
                             'logged_in' => TRUE
                         ];
                         $session->set($ses_data);
 
-                        return redirect()->to('/Home2');
+                        return redirect()->to('/myWorkout');
                     } else {
-                        $session->setFlashdata('error', 'Password is incorrect.');
+                        $session->setFlashdata('error', 'Sorry! That password seems to be wrong. We can help you <span class="link-like" onclick="window.location.href=\''.base_url('forgotPassword').'\'">Reset your password</span>.');
                         return redirect()->back();
                     }
                 } else {
-                    $session->setFlashdata('error', 'Email does not exist.');
+                    $session->setFlashdata('error', 'User does not exist.');
                     return redirect()->back();
                 }
             }

@@ -63,6 +63,10 @@ nav {
     text-align: center;
 }
 
+.welcome-link {
+    background-color: transparent !important;
+}
+
 .nav-link.active {
     color: var(--body-color) !important;
     border-bottom: 2px solid white;
@@ -131,11 +135,3 @@ footer {
     /* Push the footer to the bottom */
 }
 
-.footer_sections {
-    padding-top: 10px;
-}
-
-.list-unstyled li a {
-    color: var(--body-color);
-    text-decoration: none;
-}

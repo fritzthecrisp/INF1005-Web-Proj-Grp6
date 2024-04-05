@@ -1,7 +1,7 @@
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>
-<link rel="stylesheet" type="text/css" href="<?= base_url('css/workout.css') ?>">
+<link rel="stylesheet" type="text/css" href="<?= base_url('css/workout_exercise.css') ?>">
 
 <main class="container">
     <div class="row">
@@ -66,7 +66,7 @@
                 <table id="sessionRecordsTable tables" class="table table-dark">
                     <thead>
                         <tr class="sessionCreationInfo">
-                            <th>Session <?= (int)$sessionNo + 1 ?></th>
+                            <th><?= (int)$sessionNo + 1 ?>.</th>
                             <th colspan="3"><?= "Created " . $details["session_date_created"] ?></th>
                         </tr>
                         <tr>
@@ -77,8 +77,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($details as $index => $det) :
-                            if (is_array($det)) { ?>
+                        <?php 
+                        $unique_exercises = [];
+                        foreach ($details as $index => $det) :
+                            if (is_array($det)) { 
+                                if (!isset($unique_exercises[$det['exer_name']])){
+                                    $unique_exercises[$det['exer_name']]=$det['exer_name'];
+                                }else{
+                                    $det['exer_name'] = "";
+                                }
+                                ?>
                                 <tr>
                                     <td><?= $det['exer_name'] ?></td>
                                     <td><?= (int)$det['set_no'] + 1 ?></td>
@@ -97,6 +105,4 @@
 
     </div>
 </main>
-<script src="<?= base_url('js/workoutInfo.js') ?>"></script>
-
 <?= $this->endSection() ?>

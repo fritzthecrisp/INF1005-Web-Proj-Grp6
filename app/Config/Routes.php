@@ -46,24 +46,20 @@ $routes->add('progress', function () {
     return '<h2> This is your progress.  </h2>';
 });
 
+$routes->group('admin', function ($routes) {
+    $routes->add('user', 'Admin\Users::index');
+    $routes->add('users', 'Admin\Users::getAllUsers');
+    $routes->add('workouts/(:any)(:any)', 'Workouts::workout/$1/$2');
 
-// instance routes
-$routes->add('instance', 'Instance::index');
-$routes->get('instance/new', 'Instance::new');
-$routes->post('instance/new', 'Instance::new');
-$routes->get('/instance/edit', 'Instance::edit');
-/**Notice how get and post have the same URI, but respond differently */
+    // instance routes
+    $routes->add('instance', 'Admin\Instance::index');
+    $routes->get('instance/new', 'Admin\Instance::createNew');
+    $routes->post('instance/new', 'Admin\Instance::saveInstance');
+    /**Notice how get and post have the same URI, but respond differently */
 
-$routes->get('/', 'Home2::index');
+});
+// $routes->get('/', 'Home::index');
 $routes->get('workout', 'Workout::index');
-$routes->get('login', 'Login::index');
-$routes->get('register', 'Register::index');
-$routes->get('reset_password', 'Reset_Password::index');
-$routes->get('profile', 'Profile::index');
-$routes->get('about', 'About::index');
-
-$routes->get('/publicExercise', 'Home2::publicExercise');
-$routes->get('/publicWorkout', 'Home2::publicWorkout');
 
 // Registration Routes
 $routes->get('register', 'AuthController::register');
@@ -88,14 +84,22 @@ $routes->get('forgotPassword', 'AuthController::forgotPassword');
 $routes->get('reset/resetPassword/(:any)', 'AuthController::resetPassword/$1');
 $routes->post('reset/resetPasswordProcess/(:any)', 'AuthController::resetPasswordProcess/$1');
 
+// public routes
+$routes->get('/publicExercise', 'Home2::publicExercise');
+$routes->get('/publicWorkout', 'Home2::publicWorkout');
+
 // exercise routes
 $routes->get('exercises/details/(:num)', 'Exercise::details/$1');
 
 // instance routes
 $routes->get('instance/details/(:num)', 'Instance::details/$1');
+$routes->get('instance/startWorkout/(:num)', 'Instance::startWorkout/$1');
+$routes->get('create/instance/new', 'Instance::new');
+$routes->get('create/instance/(:num)', 'Instance::new/$1');
+
 // workout routes
 $routes->get('workout/details/(:num)', 'Workout::details/$1');
-$routes->get('workout/start/(:num)', 'Workout::start/$1');
+$routes->get('workout/startWorkout/(:num)', 'Workout::startWorkout/$1');
 
 // myWorkout routes
 $routes->get('myWorkout', 'MyWorkout::index');
@@ -103,3 +107,7 @@ $routes->get('myWorkout/addWorkout', 'MyWorkout::addWorkout');
 
 //json API routes
 $routes->get('api/get-exercises', 'API::getExercises');
+
+$routes->get('profile', 'Profile::index');
+$routes->get('about', 'About::index');
+

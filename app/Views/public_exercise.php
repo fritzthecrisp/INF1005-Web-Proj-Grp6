@@ -37,6 +37,11 @@
             <?php endforeach; ?>
         </div>
     </div>
+    <div class="buttonsbelowCards">
+        <form action="<?= site_url("/") ?>" method="get">
+            <button type="submit">Back to Home</button>
+        </form>
+    </div>
 </main>
 <script src="<?= base_url('js/main.js') ?>"></script>
 <?= $this->endSection() ?>

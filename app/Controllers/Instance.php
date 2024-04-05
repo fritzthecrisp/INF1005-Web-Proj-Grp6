@@ -35,6 +35,7 @@ class Instance extends BaseController
         $userID = $session->get('user_id'); //set user ID
         // $session->remove('user_instances_' . $userID);
         // $session->remove('user_instance_sets_' . $userID);
+        // $session->remove('user_instance_sessions_' . $userID);
 
         // Check if the session variables exist
         if (!$session->has('user_instances_' . $userID) || !$session->has('user_instance_sets_' . $userID)) {
@@ -56,6 +57,11 @@ class Instance extends BaseController
             $cachedUserInstanceSets = $session->get('user_instance_sets_' . $userID);
             $cachedUserWorkoutSessions = $session->get('user_instance_sessions_' . $userID);
         }
+                    // echo '<pre>';
+            // print_r($cachedUserWorkoutSessions);
+            // echo '</pre>';
+            // exit;
+
 
         // Define a callback function to filter sets based on the instance ID
         $filterSets = function ($value) use ($id) {
@@ -72,7 +78,7 @@ class Instance extends BaseController
             foreach ($cachedUserWorkoutSessions[$id] as $sessionID => $sessionInfo) {
                 $createdTimestamp = strtotime($sessionInfo["session_date_created"]);
                 $timeAgo = $this->getTimeAgo($createdTimestamp);
-                $sessionInfo["session_date_created"] = $timeAgo;
+                $sessionInfo["session_date_created"] = $timeAgo;                
                 $instance_sessions[] = $sessionInfo;
             }
         }
@@ -90,16 +96,24 @@ class Instance extends BaseController
 
         // return view('workout_info', ['workout' => $workout, 'isLoggedIn' => $isLoggedIn]);
     }
-    public function new()
+    public function new($id = null)
     {
         $session = \Config\Services::session();
         helper(['form']); //form validation
         $userID = $session->get('user_id');;
 
-        $data = [
+
+
+        if ($id !== null) {
+            // Handle case when ID is provided
+
+        } else {
+                    $data = [
             'meta_title' => 'New Workout',
             'page_name' => 'Create New Workout'
         ];
+// do nothing
+        }
 
 
         if ($this->request->is('post')) {
@@ -122,7 +136,7 @@ class Instance extends BaseController
                     if (isset($_POST["workout_public"])) {
                         if ($_POST["workout_public"] === "on") {
                             $_POST["workout_public"] = "Public";
-                        } {
+                        } else {
                             $_POST["workout_public"] = "Private";
                         }
                     } else {
@@ -171,7 +185,7 @@ class Instance extends BaseController
                     $model = new InstanceModel($db); //update the cache
                     $model->fetchUserInstances();
 
-                    header("Location: http://localhost/myWorkout");
+                    header("Location: https://35.212.145.3/myWorkout");
                     exit();
                 } catch (\Exception $e) {
                     $db->transRollback(); // Rollback transaction if any query fails
@@ -191,7 +205,7 @@ class Instance extends BaseController
     public function delete($id)
     {
         $db = db_connect();
-        $model = new WorkoutModel($db);
+        $model = new InstanceModel($db);
         $instance = $model->find($id);
         if ($instance) {
             $model->delete($id);
@@ -285,7 +299,7 @@ class Instance extends BaseController
                     if (isset($_POST["workout_public"])) {
                         if ($_POST["workout_public"] === "on") {
                             $_POST["workout_public"] = "Public";
-                        } {
+                        } else{
                             $_POST["workout_public"] = "Private";
                         }
                     } else {
@@ -338,7 +352,7 @@ class Instance extends BaseController
                     $model->fetchPublicWorkouts();
                     $model = new InstanceModel($db); //update the cache
                     $model->fetchUserInstances();
-                    header("Location: http://localhost/myWorkout");
+                    header("Location: https://35.212.145.3/myWorkout");
                     exit();
                 } catch (\Exception $e) {
                     $db->transRollback(); // Rollback transaction if any query fails

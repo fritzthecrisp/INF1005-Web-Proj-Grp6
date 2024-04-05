@@ -50,8 +50,21 @@ class Home2 extends BaseController
         $imgURLs = 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/'; // set this string so all the images can be retrieved from the github
 
 
+        $filtered_public_instances = []; // Initialize empty array to store filtered instances
+        $count = 0; // Initialize counter
+        
+        foreach ($public_instances as $instance) {
+            // Check if counter is less than 2
+            if ($count < 2) {
+                $filtered_public_instances[] = $instance; // Add instance to filtered array
+                $count++; // Increment counter
+            } else {
+                break; // Exit loop once 2 instances are added
+            }
+        }
+        
 
-        return view('home', ['exercises' => $topExercises, 'workouts' => $public_instances, 'imgURLs' => $imgURLs]);
+        return view('home', ['exercises' => $topExercises, 'workouts' => $filtered_public_instances, 'imgURLs' => $imgURLs]);
     }
     public function publicExercise()
     {
@@ -62,13 +75,14 @@ class Home2 extends BaseController
         $cachedExercises = $cache->get('cached_exercises');
         $topExercises = $cache->get('top_exercises');
         $topWorkouts = $cache->get('top_workouts');
+            $filtered_30_exercises = []; // Initialize empty array to store filtered instances
 
         // if cache is empty, add cache. 
         if ($topExercises === null) {
             $db = db_connect();
             if ($cachedExercises === null) { {
                     $model = new ExerciseModel($db);
-                    $model->fetchExercises(); // since we won't need the cached exercises here, we won't return it. 
+                    $cachedExercises=$model->fetchExercises(); // since we won't need the cached exercises here, we won't return it. 
                 }
             }
             if ($topExercises === null) { {
@@ -76,12 +90,26 @@ class Home2 extends BaseController
                     $topExercises = $model->top5(); //  
                 }
             }
+            
+    
+
         }
         $imgURLs = 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/'; // set this string so all the images can be retrieved from the github
+            $count = 0; // Initialize counter
+            
+            foreach ($cachedExercises as $exercise) {
+                // Check if counter is less than 2
+                if ($count < 30) {
+                    $filtered_30_exercises[] = $exercise; // Add instance to filtered array
+                    $count++; // Increment counter
+                } else {
+                    break; // Exit loop once 2 instances are added
+                }
+            }
 
 
 
-        return view('public_exercise', ['exercises' => $topExercises, 'imgURLs' => $imgURLs]);
+        return view('public_exercise', ['exercises' => $filtered_30_exercises, 'imgURLs' => $imgURLs]);
     }
 
     public function publicWorkout()
@@ -89,6 +117,7 @@ class Home2 extends BaseController
         // get the cache for exercises. 
         $cache = \Config\Services::cache();
 
+        $db = db_connect();
         // check the cache 
         $cachedExercises = $cache->get('cached_exercises');
         $topExercises = $cache->get('top_exercises');

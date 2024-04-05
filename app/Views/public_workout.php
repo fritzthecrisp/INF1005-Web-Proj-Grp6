@@ -7,7 +7,7 @@
 <main class="container">
     <div class="card-headings">
         <h1 class="title">WORKOUT PLANS</h1>
-        <p>Displaying to you our list of Workout Plans created by our physical trainers and Unifit Members!</p>
+        <p>A list of all Workout Plans created by our physical trainers and Unifit Members.</p>
     </div>
     <div class="card-container" id="workout-container">
         <div class="row">
@@ -28,7 +28,7 @@
                                     <div class="card-body">
                                         <div class="text-section">
                                             <h2 class="card-title"><?= $workout['workout_name'] ?></h2>
-                                            <h3 class="card-subtitle mb-2">Made by: </h3>
+                                            <h3 class="card-subtitle mb-2">Made by: <?= $workout['user_name'] ?></h3>
                                             <p class="card-text"><?= $workout['workout_description'] ?></p>
                                         </div>
                                     </div>
@@ -39,6 +39,11 @@
                 </div>
             <?php endforeach; ?>
         </div>
+    </div>
+    <div class="buttonsbelowCards">
+        <form action="<?= site_url("/") ?>" method="get">
+            <button type="submit">Back to Home</button>
+        </form>
     </div>
 </main>
 <script src="<?= base_url('js/main.js') ?>"></script>

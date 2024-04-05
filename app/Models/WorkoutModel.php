@@ -56,7 +56,7 @@ class WorkoutModel extends Model
             ->join('users', 'instances.user_id = users.user_id') // Join with users table
             ->where('workouts.workout_public', 'Public') // Corrected condition for filtering
             ->orderBy('workouts.workout_id', 'DESC') // Order by workout_id in descending order
-            ->limit(5) // Limit the number of results to 5
+            ->limit(2) // Limit the number of results to 5
             ->get()
             ->getResult();
 

@@ -79,6 +79,10 @@ class InstanceModel extends Model
                 $image1 = $images[1];
                 $image0 = $images[0];
             }
+            // echo '<pre>';
+            // print_r($cachedUserWorkoutSessions);
+            // echo '</pre>';
+            // exit;
 
 
             if (!isset($all_my_instances[$instance_id])) {
@@ -170,6 +174,7 @@ class InstanceModel extends Model
             ->get()
             ->getResult();
         $i = 0;
+
         foreach ($instances as $object) {
             $sets_results[] = (array) $object; // contains every single set in all the users instances
             $instance_id = $sets_results[$i]["instance_id"];
@@ -195,10 +200,6 @@ class InstanceModel extends Model
 
             $i++;
         }
-        // echo '<pre>';
-        // print_r($all_my_session_sets);
-        // echo '</pre>';
-        // exit;
         // Add to session
         // Store the fetched exercises in session
         $session = \Config\Services::session();

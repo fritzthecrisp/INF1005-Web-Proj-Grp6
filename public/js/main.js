@@ -1,13 +1,8 @@
-// window.addEventListener("onload", function () {
-    activateMenuonDropdown();
-    activateMenuNormal();
-// });
-
-console.log("Imported")
+activateMenuonDropdown();
+activateMenuNormal();
 
 /*
 * This function sets the currently selected menu item to the 'active' state.
-* It should be called whenever the page first loads.
 */
 function activateMenuonDropdown() {
     let currentPage = window.location.href;
@@ -27,7 +22,7 @@ function activateMenuNormal() {
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         if (link.href === currentPage) {
-            link.classList.add('active','button-primary');
+            link.classList.add('active', 'button-primary');
         } else {
             link.classList.remove('active');
         }

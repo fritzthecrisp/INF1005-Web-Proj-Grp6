@@ -28,6 +28,7 @@ class ExerciseModel extends Model
             ->where(['exer_id >' => 5])
             ->where(['exer_id <=' => 10])
             ->orderBy('exer_id', 'DESC')
+            ->limit(2) // Limit the number of results to 5
             ->get()
             ->getResult();
 

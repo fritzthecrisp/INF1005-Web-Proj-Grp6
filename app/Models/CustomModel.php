@@ -24,6 +24,7 @@ class CustomModel
         $userID = $session->get('user_id'); //set user ID
 
 
+        
         $instances = $this->db->table('instances')
             ->select('instances.*, workouts.*, instance_sets.*, users.user_username, exercises.*') // Select columns from all tables
             ->join('workouts', 'instances.workout_id = workouts.workout_id') // Join with workouts table
@@ -31,6 +32,7 @@ class CustomModel
             ->join('instance_sets', 'instances.instance_id = instance_sets.instance_id') // Join with instance_sets table
             ->join('exercises', 'instance_sets.exer_id = exercises.exer_id') // Join with exercises table
             ->where('workout_public', 'Public') // Filter instances by Public
+            // ->limit(2) // Limit the number of results to 5
             ->get()
             ->getResult();
         $i = 0;
@@ -76,16 +78,16 @@ class CustomModel
         // echo '<pre>';
         // print_r($all_my_instances);
         // echo '</pre>';
-        // echo '<pre>';
-        // print_r($all_my_sets);
-        // echo '</pre>';
+        // // echo '<pre>';
+        // // print_r($all_my_sets);
+        // // echo '</pre>';
         // exit;
 
 
         // Cache the fetched exercises
-        $cache = \Config\Services::cache();
-        $cache->save('public_instance_sets', $all_my_sets, 3600); // Cache for 1 hour (3600 seconds)
-        $cache->save('public_instances', $all_my_instances, 3600); // Cache for 1 hour (3600 seconds)
+        // $cache = \Config\Services::cache();
+        // $cache->save('public_instance_sets', $all_my_sets, 3600); // Cache for 1 hour (3600 seconds)
+        // $cache->save('public_instances', $all_my_instances, 3600); // Cache for 1 hour (3600 seconds)
 
 
 

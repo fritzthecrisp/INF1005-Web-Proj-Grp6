@@ -31,7 +31,7 @@
             <div class="col-md-6 col-lg-6">
                 <div class="why-UniFit">
                     <div class="icon-holder">
-                        <img style="width: 160px;height: auto;" src="https://gymmboxx.com/wp-content/uploads/2023/10/about-icon3.png" alt="">
+                        <img style="width: 160px;height: auto;" src="/img/plan_icon.png" alt="">
                     </div>
                     <div class="why-UniFit-info">
                         <h2 class="size-20 white">Dynamic Workout Planning</h2>
@@ -43,7 +43,7 @@
             <div class="col-md-6 col-lg-6">
                 <div class="why-UniFit">
                     <div class="icon-holder">
-                        <img style="width: 160px;height: auto;" src="https://gymmboxx.com/wp-content/uploads/2023/10/about-icon4.png" alt="">
+                    <img style="width: 160px;height: auto;" src="/img/lock_icon.png" alt="">
                     </div>
                     <div class="why-UniFit-info">
                         <h2 class="size-20 white">Public or Private Sharing</h2>
@@ -55,7 +55,7 @@
             <div class="col-md-6 col-lg-6">
                 <div class="why-UniFit">
                     <div class="icon-holder">
-                        <img style="width: 160px;height: auto;" src="https://w7.pngwing.com/pngs/712/530/png-transparent-silhouette-illustration-of-weight-lifter-fitness-centre-computer-icons-physical-exercise-expander-fitness-trainer-fitness-room-gym-gymnastic-health-512-angle-white-physical-fitness.png" alt="">
+                    <img style="width: 160px;height: auto;" src="/img/workout_icon.png" alt="">
                     </div>
                     <div class="why-UniFit-info">
                         <h2 class="size-20 white">Workout Library</h2>
@@ -75,4 +75,5 @@
         starting out, we're here to support you every step of the way.</p>
 
 </main>
+<script src="<?= base_url('js/main.js') ?>"></script>
 <?= $this->endSection() ?>

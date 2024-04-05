@@ -8,11 +8,11 @@
         <?= session('message') ?>
     </div>
 <?php endif; ?>
-    <h1 class="title">Login</h1>
-    <form action="<?= base_url('AuthController/login') ?>" method="post">
+    <h1>Login</h1>
+    <form method="post">
         <div class="mb-3 form-group">
-            <label for="email" class="form-label">Email:</label>
-            <input required type="email" id="email" name="email" class="form-control" placeholder="Enter email">
+            <label for="username" class="form-label">Username:</label>
+            <input required type="username" id="username" name="username" class="form-control" placeholder="Enter username">
         </div>
         <div class="mb-3 form-group">
             <label for="pwd" class="form-label">Password:</label>
@@ -33,5 +33,5 @@
         <a class="register-link" href="<?= site_url('forgotPassword') ?>">Click here.</a>.</p>
 
 </main>
-<script src="<?= base_url('js/main.js') ?>"></script>
+<script src= "<?= base_url('js/main.js') ?>"></script>
 <?= $this->endSection() ?>

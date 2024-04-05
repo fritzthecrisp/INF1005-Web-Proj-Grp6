@@ -32,6 +32,12 @@
                         if ($session->has('logged_in') && $session->get('logged_in') === TRUE) {
                             // If the user is logged in (cookie is set), show profile link
                             echo '
+                            <li>
+                                <a class="nav-link welcome-link">Welcome '. $session->get('user_username').'!</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="' . site_url("about") . '">ABOUT US</a>
+                        </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">EXPLORE</a>
                                 <ul class="dropdown-menu dropdown-align">
@@ -53,6 +59,9 @@
                         } else {
                             // If the user is not logged in (cookie is not set), show login link
                             echo '
+                            <li class="nav-item">
+                            <a class="nav-link" href="' . site_url("about") . '">ABOUT US</a>
+                        </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">EXPLORE</a>
                                 <ul class="dropdown-menu dropdown-align">
@@ -84,23 +93,6 @@
 
     <div class="footer">
         <footer class="container-fluid py-4">
-            <div class="row">
-                <div class="col-md-6 footer_sections">
-                    <p class="text-uppercase mb-2"><u>About</u></p>
-                    <ul class="list-unstyled">
-                        <li><a href="<?= site_url("about") ?>" class="text-reset">About Us</a></li>
-                        <li><a href="#" class="text-reset">Motto</a></li>
-                        <li><a href="#" class="text-reset">Team</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 footer_sections">
-                    <p class="text-uppercase mb-2"><u>Others</u></p>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-reset">Contact Us</a></li>
-                        <li><a href="#" class="text-reset">Q&A</a></li>
-                    </ul>
-                </div>
-            </div>
             <p class="text-center mb-0">&copy; 2024 UniFit Pte. Ltd. All rights reserved.</p>
         </footer>
     </div>

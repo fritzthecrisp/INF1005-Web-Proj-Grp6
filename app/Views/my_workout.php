@@ -10,7 +10,7 @@
     <hr>
     <div class="myWorkoutContainer card-headings">
         <h2 class="title">My Workouts</h2>
-        <a href="<?php echo base_url('instance/new'); ?>" class="green-button">Create your Own Workouts</a>
+        <a href="<?php echo base_url('create/instance/new'); ?>" class="green-button">Create your Own Workouts</a>
     </div>
     <p>Here are a list of exisitng workouts you have saved and created. Creating a new one? Click on the "Create your Own Workouts" button to begin!</p>
 
@@ -34,7 +34,7 @@
                                 <div class="col-sm-7">
                                     <div class="card-body">
                                         <div class="text-section">
-                                            <h3 class="card-title"><?= $myWorkout['workout_name'] ?></h3>
+                                            <h3 class="card-title title"><?= $myWorkout['workout_name'] ?></h3>
                                             <h4 class="card-subtitle mb-2">Made by <?= $myWorkout['user_name'] ?></h4>
                                             <p class="card-text"><?= $myWorkout['workout_description'] ?></p>
                                         </div>
@@ -73,7 +73,7 @@
                                 <div class="col-sm-7">
                                     <div class="card-body">
                                         <div class="text-section">
-                                            <h3 class="card-title"><?= $recommendedWorkout['workout_name'] ?></h3>
+                                            <h3 class="card-title title"><?= $recommendedWorkout['workout_name'] ?></h3>
                                             <h4 class="card-subtitle mb-2">User ID: <?= $recommendedWorkout['user_name'] ?></h4>
                                             <p class="card-text"><?= $recommendedWorkout['workout_description'] ?></p>
                                         </div>
@@ -87,11 +87,10 @@
         </div>
     </div>
     <div class="buttonsbelowCards">
-        <form action="<?= site_url("workout/details/{$recommendedWorkout['instance_id']}") ?>" method="get">
-            <button type="submit">Explore more Recommended workouts</button>
+        <form action="<?= site_url("/publicWorkout") ?>" method="get">
+            <button type="submit">Explore more Recommended Workouts</button>
         </form>
     </div>
 </main>
-<script src="<?= base_url('js/myWorkout.js') ?>"></script>
 <script src="<?= base_url('js/main.js') ?>"></script>
 <?= $this->endSection() ?>

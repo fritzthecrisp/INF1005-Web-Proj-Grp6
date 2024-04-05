@@ -14,7 +14,7 @@
                 <h1 class="title">Edit Workout</h1>
                 <div class="mb-3">
                     <label for="workout_name" class="form-label">Workout Name</label><br>
-                    <input required type="text" id="workout_name" name="workout_name" class="form-control" value=<?= $workout["workout_name"] ?>><br>
+                    <input required type="text" id="workout_name" name="workout_name" class="form-control" value="<?= $workout["workout_name"] ?>"><br>
                 </div>
 
                 <div class="mb-3">
