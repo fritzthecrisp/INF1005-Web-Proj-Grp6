@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<!-- The page that defines the header, body, navigation bar, footer that will affect all other web pages created. -->
+
 <html lang="en">
 
 <head>

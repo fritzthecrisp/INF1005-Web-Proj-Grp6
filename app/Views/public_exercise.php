@@ -1,3 +1,5 @@
+<!-- A list of exercises visible to the public when not login -->
+
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>

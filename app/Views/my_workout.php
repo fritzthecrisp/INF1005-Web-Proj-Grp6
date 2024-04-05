@@ -1,3 +1,4 @@
+<!-- Users can view their own private workouts and also recommended workouts and exercises -->
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>

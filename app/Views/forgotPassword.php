@@ -1,3 +1,5 @@
+<!-- Users who have forgotten their passwword will be redirected to this page -->
+
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>

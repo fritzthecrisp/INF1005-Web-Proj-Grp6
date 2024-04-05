@@ -1,3 +1,5 @@
+<!-- Page for new users to register and sign up -->
+
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>

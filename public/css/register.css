@@ -1,4 +1,4 @@
-/* Styles for registration form */
+/* Styles for register.php */
 
 .form-check {
     display: flex;
@@ -20,6 +20,8 @@
     justify-content: center;
     align-items: center;
 }
+
+/* Responsive design for register.php */
 
 @media only screen and (max-width: 991.33px) {
     .label_selection {
@@ -53,7 +55,6 @@
         padding: 8px;
     }
 
-    
     .btn {
         padding: 10px 30px;
     }

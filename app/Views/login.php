@@ -1,3 +1,5 @@
+<!-- Login page for registered users to login  -->
+
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>

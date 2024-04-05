@@ -38,6 +38,7 @@
     margin: 50px;
 }
 
+/* Responsive Design for home.php Page*/
 @media (max-width: 576px) {
 
     .bg-image {
@@ -49,13 +50,13 @@
     }
 }
 
-/* For myWorkout.php */
+
+/* For my_workout.php Page */
 
 .myWorkoutContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* padding-bottom: 20px; */
 }
 
 .green-button {
@@ -66,7 +67,7 @@
     border-radius: 4px;
 }
 
-
+/* Responsive Design for my_workout.php Page */
 @media (max-width: 576px) {
 
     .myWorkoutContainer {
@@ -80,7 +81,7 @@
     }
 }
 
-/* For addWorkout.php */
+/* For add_workout.php Page */
 
 #exercise-list {
     max-width: 400px;
@@ -92,6 +93,7 @@
     margin-bottom: 10px;
 }
 
+/* Responsive Design for add_workout.php Page*/
 @media (max-width: 767.33px) {
     .col-sm {
         flex: none;
@@ -102,18 +104,7 @@
     }
 }
 
-/* For exercise_info.php */
-.rounded-border {
-    border-radius: 20px;
-    border: 2px solid white;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    width: 250px;
-    align-items: center;
-    margin: auto;
-}
-
+/* For add_workout.php and edit_instance.php */
 .input-container {
     display: flex;
     flex-direction: row;
@@ -124,11 +115,6 @@
 .input-container div {
     padding-right: 10px;
 }
-
-.column {
-    grid-gap: 100px;
-}
-
 
 .hide {
     display: none;

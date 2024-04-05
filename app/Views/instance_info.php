@@ -1,3 +1,5 @@
+<!-- Information of an Instance -->
+
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>

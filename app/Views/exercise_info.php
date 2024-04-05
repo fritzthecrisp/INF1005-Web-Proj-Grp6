@@ -1,3 +1,5 @@
+<!-- View information of an exercise -->
+
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>

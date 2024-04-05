@@ -1,9 +1,13 @@
+/**This function sets the currently viewed webpage that is indicatd on the navigtaion bar to the 
+ * 'active' state. As such, the navigation bar for that particular tab will turn blue, showing
+ * responsiveness and interaction.*/
+
 activateMenuonDropdown();
 activateMenuNormal();
 
-/*
-* This function sets the currently selected menu item to the 'active' state.
-*/
+
+// For dropdown menu navigation bar
+
 function activateMenuonDropdown() {
     let currentPage = window.location.href;
     console.log()
@@ -17,6 +21,8 @@ function activateMenuonDropdown() {
     })
 }
 
+// For navigation bar on Window Size
+
 function activateMenuNormal() {
     let currentPage = window.location.href;
     const navLinks = document.querySelectorAll('.nav-link');
@@ -28,6 +34,8 @@ function activateMenuNormal() {
         }
     })
 }
+
+// This function let user copy the link of the Workout
 
 function copyCurrentUrl() {
     // Use window.location.href to get the current URL

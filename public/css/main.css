@@ -6,8 +6,8 @@
     --nav-color: #03052C;
 }
 
+/* Overall styling of webpages */
 
-/* Overall styling of webpage */
 html {
     height: 100%;
     box-sizing: border-box;
@@ -101,7 +101,6 @@ nav {
 .nav-item.dropdown .nav-link {
     color: #ffffff;
     text-align: center;
-    /* Set the desired white color */
 }
 
 .navbar-toggler{

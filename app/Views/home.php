@@ -1,3 +1,5 @@
+<!-- The landing page of Unifit Website -->
+
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>

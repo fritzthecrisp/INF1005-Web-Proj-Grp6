@@ -1,5 +1,5 @@
 
-/* The styles applying to login.php, reset_passsword.php */
+/* The styles applying to login.php, resetPasssword.php */
 
 a{
     color: var(--body-color);
@@ -45,6 +45,8 @@ a{
     }
 }
 
+/* Styling for the form input fields in login.php, resetPasssword.php */
+
 .form-group {
     text-align: left;
 }
@@ -55,7 +57,8 @@ a{
 }
 
 
-/* For reset_password.php only */
+/* For resetPassword.php only */
+
 .pwd_criteria{
     text-align: left;
     padding: 20px;

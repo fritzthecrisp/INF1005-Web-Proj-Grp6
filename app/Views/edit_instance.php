@@ -1,3 +1,5 @@
+<!-- Allow registered users to edit workouts -->
+
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>

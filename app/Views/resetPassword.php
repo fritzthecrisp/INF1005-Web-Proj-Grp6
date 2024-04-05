@@ -1,3 +1,5 @@
+<!-- For registered users to reset their password -->
+
 <?= $this->extend('layout') ?>
 
 <?= $this->section('content') ?>
