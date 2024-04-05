@@ -30,9 +30,9 @@
             <form action="<?= site_url('instance/edit/' . $workout['instance_id']) ?>" method="get">
                 <button type="submit">Edit Workout</button>
             </form>
-            <form action="" method="POST">
-                <input type="hidden" name="_method" value="DELETE">
-                <button type="submit">Delete Record</button>
+            <form action="<?= site_url('instance/delete') ?>" method="POST">
+                <input type="hidden" name="id" value="<?= $workout['instance_id']?>">
+                <button type="submit">Delete Workout</button>
             </form>
             <!-- ?php endif; ? -->
 

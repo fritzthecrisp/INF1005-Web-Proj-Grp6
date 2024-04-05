@@ -204,7 +204,7 @@ class Instance extends BaseController
                         $workout_model->save($_POST);
                         // get the workout ID
                         $workout_id = $workout_model->db->insertID();
-                    }else {
+                    } else {
                         $workout_id = $workout["workout_id"];
                     }
 
@@ -262,15 +262,23 @@ class Instance extends BaseController
         }
         return view('add_workout', $data);
     }
-    public function delete($id)
+    public function delete()
     {
-        $db = db_connect();
-        $model = new InstanceModel($db);
-        $instance = $model->find($id);
-        if ($instance) {
-            $model->delete($id);
-            return redirect()->to('/myWorkout');;
+
+        if ($this->request->is('post')) {
+            $db = db_connect();
+            $model = new InstanceModel($db);
+            $id=$_POST["id"];
+            $instance = $model->find($id);
+            if ($instance) {
+                $model->delete($id);
+                $model = new CustomModel($db); //update the cache
+                $model->fetchPublicWorkouts();
+                $model = new InstanceModel($db); //update the cache
+                $model->fetchUserInstances();
+            }
         }
+        return redirect()->to('/myWorkout');
     }
 
 
@@ -412,8 +420,7 @@ class Instance extends BaseController
                     $model->fetchPublicWorkouts();
                     $model = new InstanceModel($db); //update the cache
                     $model->fetchUserInstances();
-                    header("Location: https://35.212.145.3/myWorkout");
-                    exit();
+                    return redirect()->to('/myWorkout');
                 } catch (\Exception $e) {
                     $db->transRollback(); // Rollback transaction if any query fails
                     log_message('error', $e->getMessage()); // Logs the exception message

@@ -46,18 +46,6 @@ $routes->add('progress', function () {
     return '<h2> This is your progress.  </h2>';
 });
 
-$routes->group('admin', function ($routes) {
-    $routes->add('user', 'Admin\Users::index');
-    $routes->add('users', 'Admin\Users::getAllUsers');
-    $routes->add('workouts/(:any)(:any)', 'Workouts::workout/$1/$2');
-
-    // instance routes
-    $routes->add('instance', 'Admin\Instance::index');
-    $routes->get('instance/new', 'Admin\Instance::createNew');
-    $routes->post('instance/new', 'Admin\Instance::saveInstance');
-    /**Notice how get and post have the same URI, but respond differently */
-
-});
 // $routes->get('/', 'Home::index');
 $routes->get('workout', 'Workout::index');
 
