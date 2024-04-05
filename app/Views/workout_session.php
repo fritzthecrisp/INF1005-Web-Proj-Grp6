@@ -8,6 +8,8 @@
     <form id="workoutForm" method="POST">
         <?php $counter = 1;
         foreach ($sets as $set) : ?>
+
+            <!-- Hidden div for exercise information -->
             <div class="info" style="display: none;">
                 <div class="info-left">
                     <img src="<?= $imgURLs . $set['exer_image'] . "?raw=true" ?>" alt="Exercise Icon">
@@ -34,6 +36,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Increment counter for the next exercise -->
         <?php $counter++;
         endforeach; ?>
         <button type="submit">Submit</button>

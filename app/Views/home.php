@@ -20,6 +20,8 @@
         <h2 class="title">TOP EXERCISES</h2>
         <p>Here are the Top exercises done by our UniFit members! Click on the exercises below to find out more!</p>
     </div>
+
+    <!-- Cards -->
     <div class="card-container" id="exercise-container">
         <div class="row">
             <?php foreach ($exercises as $exercise) : ?>
@@ -58,6 +60,8 @@
         <h2 class="title">TOP WORKOUT PLANS</h2>
         <p>Here are the Top Workout Plans created by physical trainers and also Unifit Members! Click on the workout plans below to find out more!</p>
     </div>
+    
+    <!-- Cards -->
     <div class="card-container" id="workout-container">
         <div class="row">
             <?php foreach ($workouts as $workout) : ?>

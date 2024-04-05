@@ -20,6 +20,7 @@
         </div>
     </div>
     <div>
+        <!-- Check if user is log in  -->
         <?php $session = \Config\Services::session(); ?>
         <?php
         if ($session->has('logged_in') && $session->get('logged_in') === TRUE) {

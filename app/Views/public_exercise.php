@@ -9,6 +9,8 @@
         <h1 class="title">EXERCISES</h1>
         <p>Displaying to you a list of all the exercises available in UniFit.</p>
     </div>
+
+    <!-- Cards -->
     <div class="card-container" id="exercise-container">
         <div class="row">
             <?php foreach ($exercises as $exercise) : ?>

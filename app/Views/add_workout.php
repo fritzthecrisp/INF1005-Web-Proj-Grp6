@@ -3,12 +3,14 @@
 <?= $this->section('content') ?>
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
 <main class="container">
+    <!-- Check if there are any validation errors -->
     <?php if (isset($validation)) : ?>
         <div class="text-danger">
             <?= $validation->listErrors() ?>
         </div>
     <?php endif; ?>
-
+    
+    <!-- Check if user is logged in -->
     <?php $session = \Config\Services::session(); ?>
     <?php if ($session->has('logged_in') && $session->get('logged_in') === TRUE) : ?>
         <form id="workoutForm" method="post" action='/instance/new'>
@@ -67,7 +69,7 @@
             </div>
             <div class="mb-3 form-check">
                 <input type="checkbox" name="workout_public" id="publicCheckBox" class="form-check-input" <?= $workout["disabled"] ?>>
-                <label class="form-check-label" for="publicCheckBox" >
+                <label class="form-check-label" for="publicCheckBox">
                     Make workout Public <?= $workout["(d)"] ?>
                 </label>
             </div>

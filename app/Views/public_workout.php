@@ -9,6 +9,8 @@
         <h1 class="title">WORKOUT PLANS</h1>
         <p>A list of all Workout Plans created by our physical trainers and Unifit Members.</p>
     </div>
+
+    <!-- Cards -->
     <div class="card-container" id="workout-container">
         <div class="row">
             <?php foreach ($workouts as $workout) : ?>

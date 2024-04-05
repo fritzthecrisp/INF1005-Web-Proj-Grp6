@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/others.css') ?>">
 
 <main class="container">
-    
+
     <h1 class="title">Workout Sessions</h1>
     <hr>
     <div class="myWorkoutContainer card-headings">
@@ -15,7 +15,7 @@
     <p>Here are a list of exisitng workouts you have saved and created. Creating a new one? Click on the "Create your Own Workouts" button to begin!</p>
 
 
-
+    <!-- Cards -->
     <div class="card-container" id="myWorkout-container">
         <div class="row">
             <?php foreach ($myWorkouts as $myWorkout) : ?>
@@ -55,6 +55,7 @@
         <p> Here are our recommended workouts for you. Click below to find out more! </p>
     </div>
 
+    <!-- Cards -->
     <div class="card-container" id="recommendedWorkout-container">
         <div class="row">
             <?php foreach ($recommendedWorkouts as $recommendedWorkout) : ?>
